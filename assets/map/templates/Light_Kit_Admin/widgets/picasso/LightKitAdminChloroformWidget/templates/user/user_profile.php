@@ -37,10 +37,11 @@ $password = $fields['password'];
 $avatar_url = $fields['avatar_url'];
 
 
-
 $uploaderUtil = new LightAjaxFileUploadManagerRenderingUtil();
 $uploaderUtil->setSuffix("avatar_url");
 
+
+$this->useHelium();
 
 ?>
 

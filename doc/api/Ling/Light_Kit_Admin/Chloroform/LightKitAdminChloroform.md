@@ -4,7 +4,7 @@
 
 The LightKitAdminChloroform class
 ================
-2019-05-17 --> 2019-10-25
+2019-05-17 --> 2019-11-06
 
 
 
@@ -47,7 +47,7 @@ class <span class="pl-k">LightKitAdminChloroform</span> extends [Chloroform](htt
     - public Chloroform::addNotification([Ling\Chloroform\FormNotification\FormNotificationInterface](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/FormNotification/FormNotificationInterface.md) $notification) : void
     - public Chloroform::getNotifications() : [FormNotificationInterface[]](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/FormNotification/FormNotificationInterface.md)
     - public Chloroform::toArray() : array
-    - protected Chloroform::createPostedData() : array
+    - private Chloroform::getFieldPostedValue([Ling\Chloroform\Field\FieldInterface](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/FieldInterface.md) $field, array $postedData) : mixed | null
 
 }
 
@@ -74,7 +74,7 @@ Methods
 - Chloroform::addNotification &ndash; Adds a notification to this instance.
 - Chloroform::getNotifications &ndash; Returns the notifications of this instance.
 - Chloroform::toArray &ndash; Returns the array version (template friendly) of the form.
-- Chloroform::createPostedData &ndash; Creates and returns the postedData array, as defined in [the postedData section](https://github.com/lingtalfi/Chloroform/blob/master/doc/pages/chloroform-discussion.md#the-posted-data).
+- Chloroform::getFieldPostedValue &ndash; Returns the field posted value for the given field and posted data.
 
 
 

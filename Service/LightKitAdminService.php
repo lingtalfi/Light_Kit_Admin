@@ -7,7 +7,9 @@ namespace Ling\Light_Kit_Admin\Service;
 use Ling\BabyYaml\Helper\BdotTool;
 use Ling\Light\Core\Light;
 use Ling\Light\Http\HttpRequestInterface;
+use Ling\Light\ReverseRouter\LightReverseRouterInterface;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
+use Ling\Light_ControllerHub\Service\LightControllerHubService;
 use Ling\Light_Initializer\Initializer\LightInitializerInterface;
 use Ling\Light_Kit_Admin\Notification\LightKitAdminNotification;
 use Ling\Light_PluginDatabaseInstaller\Service\LightPluginDatabaseInstallerService;
@@ -124,6 +126,33 @@ class LightKitAdminService implements LightInitializerInterface
     }
 
 
+    /**
+     * Returns the url corresponding to the given controller.
+     * The @page(controller hub service) will be used under the hood.
+     *
+     * @param string $controller
+     * @return string
+     * @throws \Exception
+     */
+    public function getUrlByController(string $controller): string
+    {
+        /**
+         * @var $hub LightControllerHubService
+         */
+        $hub = $this->container->get("controller_hub");
+        $route = $hub->getRouteName();
+        $params = [
+            "plugin" => "Light_Kit_Admin",
+            "controller" => $controller,
+        ];
+
+        /**
+         * @var $rr LightReverseRouterInterface
+         */
+        $rr = $this->container->get("reverse_router");
+        $useAbsolute = false;
+        return $rr->getUrl($route, $params, $useAbsolute);
+    }
 
 
 
@@ -287,10 +316,6 @@ class LightKitAdminService implements LightInitializerInterface
         if (false === $res) {
             throw $exception;
         }
-
-
-
-
 
 
     }

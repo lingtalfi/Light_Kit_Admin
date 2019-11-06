@@ -113,7 +113,7 @@ class LightKitAdminBMenuHost extends LightBMenuAbstractHost
                 array_key_exists("id", $row) &&
                 array_key_exists("children", $row)
             ) {
-                $routeParams = $row['route_params'] ?? [];
+                $routeParams = $row['route_url_params'] ?? [];
                 $row["url"] = $router->getUrl($row['route'], $routeParams);
             }
         });

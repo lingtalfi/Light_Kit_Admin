@@ -4,7 +4,7 @@ default:
         - permission_group_id
         - permission_id
     
-    fields: 
+    base_fields: 
         - permission_group_id
         - permission_id
     
@@ -40,11 +40,14 @@ default:
             
         
     
+    plugin: Light_Kit_Admin
     csrf_token: 
         name: realist-request
         value: REALIST(Light_Realist, csrf_token, realist-request)
     
+    use_micro_permission: true
     rendering: 
+        title: Permission group has permission list
         list_general_actions: 
             - 
                 action_id: Light_Kit_Admin.realist-generate_random_rows
@@ -145,23 +148,45 @@ default:
             data_types: 
                 permission_group_id: number
                 permission_id: number
-                actions: action
+                action: action
             
         
         column_labels: 
             permission_group_id: Permission group id
             permission_id: Permission id
-            actions: Actions
+            action: Actions
         
         rows_renderer: 
             identifier: Light_Kit_Admin
+            types: 
+                avatar_url: 
+                    type: image
+                    width: 100
+                
+                action: 
+                    type: lka-edit_link_hub
+                    text: Edit
+                    url_params: 
+                        controller: Generated/LudPermissionGroupHasPermissionController
+                        m: f
+                    
+                
+                checkbox: checkbox
+            
             checkbox_column: 
                 name: checkbox
                 label: "#"
             
             action_column: 
-                name: actions
+                name: action
                 label: Actions
+            
+        
+        related_links: 
+            - 
+                text: Add new permission group has permission
+                url: REALIST(Light_Realist, route, lch_route-hub, {plugin: Light_Kit_Admin, controller: Generated/LudPermissionGroupHasPermissionController, m:f})
+                icon: fas fa-plus-circle
             
         
     

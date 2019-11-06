@@ -27,7 +27,6 @@ class LightKitAdminListActionHandler extends LightRealistBaseListActionHandler
     public function prepare(string $actionName, array &$genericActionItem, string $requestId)
     {
 
-
         switch ($actionName) {
             case "realist-delete_rows":
                 $this->decorateGenericActionItemByAssets($actionName, $genericActionItem, $requestId, __DIR__);

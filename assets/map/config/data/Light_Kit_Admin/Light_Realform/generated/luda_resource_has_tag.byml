@@ -1,3 +1,4 @@
+title: Resource has tag form
 form_handler: 
     id: realgen-luda_resource_has_tag
     fields: 
@@ -15,4 +16,11 @@ form_handler:
                 required: []
             
         
+    
+
+on_success_handler: 
+    type: database
+    params: 
+        table: luda_resource_has_tag
+        microPermissionPluginName: Light_Kit_Admin
     

@@ -82,9 +82,9 @@ class LightKitAdminChloroformWidget extends EasyLightPicassoWidget
 {
 
     /**
-     * @overrides
+     * Attaches the helium renderer assets to the html page copilot instance.
      */
-    public function prepare(array &$widgetConf, HtmlPageCopilot $copilot)
+    protected function useHelium()
     {
         $this->registerLibrary("Chloroform_HeliumRenderer", [
             "/libs/universe/Ling/Chloroform_HeliumRenderer/helium.css",

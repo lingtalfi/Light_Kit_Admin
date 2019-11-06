@@ -10,17 +10,18 @@ dependencies:
         - Light_User
         - Chloroform
         - Light_Csrf
-        - Light_Flasher
         - Light_Kit
         - WiseTool
+        - Light_DatabaseInfo
+        - Light_Realform
+        - SimplePdoWrapper
         - HtmlPageTools
+        - Light_Flasher
+        - Light_MicroPermission
         - Light_UserDatabase
         - Light_UserData
-        - Light_MicroPermission
-        - Light_Realform
-        - Light_DatabaseInfo
+        - Light_ControllerHub
         - PhpSpreadSheetTool
-        - SimplePdoWrapper
         - Light_Bullsheet
         - Light_DatabaseUtils
         - Light_Initializer

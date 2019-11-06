@@ -81,7 +81,6 @@ kit_admin:
                     # alert|toast
                     default_type: alert
 
-# not sure if this will be in the final release of Light_Kit_Admin...
 kit_admin_rights:
     instance: Ling\Light\Light_Kit_Admin\Rights\LightKitAdminRightsManager
     methods_collection: []
@@ -101,28 +100,9 @@ kit_admin_rights:
 
 $ajax_file_upload_manager.methods_collection:
     -
-        method: addActionLists
+        method: addConfigurationItemsByFile
         args:
-            actionLists:
-                lka_user_profile:
-                    -
-                        use_Light_UserData: true
-                        path: images/avatar.{extension}
-                        imageTransformer: resize(200)
-                        isPrivate: false
-                        use_2svp: true
-
-    -
-        method: addValidationRules
-        args:
-            validationRules:
-                lka_user_profile: []
-                    maxFileSize: 2M
-                    extensions:
-                        - png
-                        - jpeg
-                        - jpg
-                        - gif
+            file: ${app_dir}/config/data/Light_Kit_Admin/Light_AjaxFileUploadManager/main.byml
 
 
 
@@ -152,6 +132,17 @@ $bmenu.methods_collection:
                         id: lka_mainmenu_1
                     setDefaultItemsParentPath:
                         path: plugins
+
+$controller_hub.methods_collection:
+    -
+        method: registerHandler
+        args:
+            plugin: Light_Kit_Admin
+            handler:
+                instance: Ling\Light_Kit_Admin\ControllerHub\LightKitAdminControllerHubHandler
+                methods:
+                    setContainer:
+                        container: @container()
 
 
 $easy_route.methods_collection:
@@ -211,7 +202,7 @@ $realform.methods_collection:
                 instance: Ling\Light_Kit_Admin\Realform\Handler\LightKitAdminRealformHandler
                 methods:
                     setConfDir:
-                        dir: ${app_dir}/config/data/Light_Kit_Admin/Light_Realform/
+                        dir: ${app_dir}/config/data/Light_Kit_Admin/Light_Realform
 
 
 $realist.methods_collection:
@@ -262,7 +253,7 @@ $user_database.methods_collection:
 # --------------------------------------
 $user_database_vars.bullsheeter_avatar_img_dir: ${app_dir}/www/plugins/Light_Kit_Admin/img/avatars2
 $user_data_vars.install_parent_plugin: Light_Kit_Admin
-
+$user_data_vars.micro_permission_plugin: Light_Kit_Admin
 
 
 ```
@@ -280,6 +271,10 @@ $user_data_vars.install_parent_plugin: Light_Kit_Admin
 
 History Log
 =============
+    
+- 0.2.0 -- 2019-11-05
+
+    - checkpoint commit
     
 - 0.1.0 -- 2019-10-25
 

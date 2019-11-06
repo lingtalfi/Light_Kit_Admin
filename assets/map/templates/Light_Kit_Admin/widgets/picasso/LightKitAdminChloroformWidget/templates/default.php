@@ -26,6 +26,8 @@ $renderer = new HeliumRenderer([
 $renderer->prepare($form->toArray());
 
 
+$this->useHelium();
+
 ?>
 
 <div class="kit-lka-chloroform container-fluid <?php echo htmlspecialchars($this->getCssClass()); ?>"

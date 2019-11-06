@@ -3,10 +3,11 @@ default:
     ric: 
         - id
     
-    fields: 
+    base_fields: 
         - id
         - identifier
         - pseudo
+        - password
         - avatar_url
         - extra
     
@@ -18,6 +19,7 @@ default:
             id like :%expression% or
             identifier like :%expression% or
             pseudo like :%expression% or
+            password like :%expression% or
             avatar_url like :%expression% or
             extra like :%expression%
         >
@@ -46,11 +48,14 @@ default:
             
         
     
+    plugin: Light_Kit_Admin
     csrf_token: 
         name: realist-request
         value: REALIST(Light_Realist, csrf_token, realist-request)
     
+    use_micro_permission: true
     rendering: 
+        title: User list
         list_general_actions: 
             - 
                 action_id: Light_Kit_Admin.realist-generate_random_rows
@@ -155,26 +160,49 @@ default:
                 password: string
                 avatar_url: string
                 extra: string
-                actions: action
+                action: action
             
         
         column_labels: 
             id: "#"
             identifier: Identifier
             pseudo: Pseudo
+            password: Password
             avatar_url: Avatar url
             extra: Extra
-            actions: Actions
+            action: Actions
         
         rows_renderer: 
             identifier: Light_Kit_Admin
+            types: 
+                avatar_url: 
+                    type: image
+                    width: 100
+                
+                action: 
+                    type: lka-edit_link_hub
+                    text: Edit
+                    url_params: 
+                        controller: Generated/LudUserController
+                        m: f
+                    
+                
+                checkbox: checkbox
+            
             checkbox_column: 
                 name: checkbox
                 label: "#"
             
             action_column: 
-                name: actions
+                name: action
                 label: Actions
+            
+        
+        related_links: 
+            - 
+                text: Add new user
+                url: REALIST(Light_Realist, route, lch_route-hub, {plugin: Light_Kit_Admin, controller: Generated/LudUserController, m:f})
+                icon: fas fa-plus-circle
             
         
     
