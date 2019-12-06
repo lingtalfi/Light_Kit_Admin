@@ -7,7 +7,7 @@ RealGenController::processForm
 
 
 
-RealGenController::processForm — and returns a chloroform instance.
+RealGenController::processForm — Applies a standard routine to the form identified by the given realformIdentifier, and returns a chloroform instance.
 
 
 
@@ -21,24 +21,8 @@ protected [RealGenController::processForm](https://github.com/lingtalfi/Light_Ki
 
 
 
-Applies a standard routine to the form identified by the given realformIdentifier,
-and returns a chloroform instance.
-
-What does this method do?
-----------------
-
-It creates the form, using realform,
-it handles both the form insert and update actions.
-The update mode is triggered if the ric strict columns are passed in the url (i.e. $_GET).
-
-If the form is posted correctly, the posted data are handled using the on_success_handler (defined
-by the realform configuration), and the page is refreshed.
-
-The table and pluginName arguments are used to help with default [micro-permissions](https://github.com/lingtalfi/Light_MicroPermission) used
-by this routine, which uses the [micro-permission recommended notation for database interaction](https://github.com/lingtalfi/Light_MicroPermission/blob/master/doc/pages/recommended-micropermission-notation.md#database-interaction).
-
-
-Errors and success messages are handled using the [flash service](https://github.com/lingtalfi/Light_Flasher/).
+Applies a standard routine to the form identified by the given realformIdentifier, and returns a chloroform instance.
+See more details in the [LightRealformRoutineOne instance](https://github.com/lingtalfi/Light_Realform/blob/master/doc/api/Ling/Light_Realform/Routine/LightRealformRoutineOne.md).
 
 
 
@@ -79,7 +63,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [RealGenController::processForm](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Controller/Generated/Base/RealGenController.php#L72-L207)
+See the source code for method [RealGenController::processForm](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Controller/Generated/Base/RealGenController.php#L67-L83)
 
 
 See Also
@@ -87,5 +71,5 @@ See Also
 
 The [RealGenController](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/Generated/Base/RealGenController.md) class.
 
-Previous method: [render](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/Generated/Base/RealGenController/render.md)<br>
+Previous method: [render](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/Generated/Base/RealGenController/render.md)<br>Next method: [setOnSuccessIframeSignal](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/Generated/Base/RealGenController/setOnSuccessIframeSignal.md)<br>
 

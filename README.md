@@ -36,6 +36,7 @@ Summary
     - [Bmenu](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/bmenu.md)
     - [Conception notes](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/conception-notes.md)
     - [Error handling](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/error-handling.md)
+    - [Events](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/events.md)
     - [Light kit admin js environment](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/light-kit-admin-js-environment.md)
     - [Pages](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/pages.md)
     - [Procedures](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/procedures.md)
@@ -271,6 +272,10 @@ $user_data_vars.micro_permission_plugin: Light_Kit_Admin
 
 History Log
 =============
+        
+- 0.3.0 -- 2019-12-06
+
+    - checkpoint commit
     
 - 0.2.0 -- 2019-11-05
 

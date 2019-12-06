@@ -43,6 +43,15 @@ class LudPermissionGroupHasPermissionController extends RealGenController
         $table = "lud_permission_group_has_permission";
         $pluginName = "Light_Kit_Admin"; // used for micro-permissions
         $identifier = "Light_Kit_Admin.generated/lud_permission_group_has_permission";
+        $parentLayout = "Light_Kit_Admin/kit/zeroadmin/dev/mainlayout_base";
+        $vars = [
+            "title" => "Permission group has permission form",
+        ];
+        if (array_key_exists("solo", $_GET)) {
+            $parentLayout = "Light_Kit_Admin/kit/zeroadmin/dev/mainlayout_solo";
+            $vars['related_links'] = []; // cancel any existing related links
+            $this->setOnSuccessIframeSignal("done");
+        }
 
 
         $form = $this->processForm($identifier, $table, $pluginName);
@@ -52,11 +61,10 @@ class LudPermissionGroupHasPermissionController extends RealGenController
         // RENDERING
         //--------------------------------------------
         return $this->renderAdminPage('Light_Kit_Admin/kit/zeroadmin/generated/lud_permission_group_has_permission_form', [
+            "parent_layout" => $parentLayout,
             "form" => $form,
-        ], PageConfUpdator::create()->updateWidget("body.chloroform", [
-            'vars' => [
-                'title' => "Permission group has permission form",
-            ],
+        ], PageConfUpdator::create()->updateWidget("body.lka_chloroform", [
+            'vars' => $vars,
         ]));
     }
 }

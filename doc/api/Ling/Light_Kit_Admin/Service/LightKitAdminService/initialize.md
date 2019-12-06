@@ -53,7 +53,7 @@ Returns mixed.
 
 Source Code
 ===========
-See the source code for method [LightKitAdminService::initialize](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Service/LightKitAdminService.php#L166-L175)
+See the source code for method [LightKitAdminService::initialize](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Service/LightKitAdminService.php#L196-L205)
 
 
 See Also

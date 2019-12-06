@@ -8,7 +8,7 @@ use Ling\Chloroform\Field\AjaxFileBoxField;
 use Ling\Chloroform\Field\PasswordField;
 use Ling\Chloroform\Field\StringField;
 use Ling\Light\Http\HttpResponseInterface;
-use Ling\Light_Csrf\Service\LightCsrfService;
+use Ling\Light_CsrfSession\Service\LightCsrfSessionService;
 use Ling\Light_Kit_Admin\Chloroform\LightKitAdminChloroform;
 use Ling\Light_Kit_Admin\Controller\AdminPageController;
 use Ling\Light_Kit_Admin\Rights\RightsHelper;
@@ -34,6 +34,7 @@ class UserProfileController extends AdminPageController
     {
 
 
+        $renderMode = $_GET['render'] ?? 'default';
         $container = $this->getContainer();
         $flasher = $this->getFlasher();
 
@@ -61,9 +62,9 @@ class UserProfileController extends AdminPageController
         ]));
 
         /**
-         * @var $csrf LightCsrfService
+         * @var $csrfService LightCsrfSessionService
          */
-        $csrf = $this->getContainer()->get("csrf");
+        $csrfService = $this->getContainer()->get("csrf_session");
 
         $form->addField(AjaxFileBoxField::create("Avatar url", [
             "maxFile" => 1,
@@ -72,7 +73,7 @@ class UserProfileController extends AdminPageController
             "value" => $avatar_url,
             "postParams" => [
                 "id" => "lka_user_profile",
-                "csrf_token" => $csrf->createToken("ajax_file_upload_manager_service"),
+                "csrf_token" => $csrfService->getToken(),
             ],
         ])->setDataTransformer(LightUserData2SvpDataTransformer::create()->setContainer($container)), [
                 ValidUserDataUrlValidator::create()->setContainer($container),
@@ -93,8 +94,6 @@ class UserProfileController extends AdminPageController
 
 
                 $form->executeDataTransformers($vid);
-
-
 
 
                 //--------------------------------------------
@@ -151,7 +150,11 @@ class UserProfileController extends AdminPageController
         //--------------------------------------------
         // RENDERING
         //--------------------------------------------
-        return $this->renderAdminPage('Light_Kit_Admin/kit/zeroadmin/user/user_profile', [
+        $page = 'Light_Kit_Admin/kit/zeroadmin/user/user_profile';
+        if ('solo' === $renderMode) {
+            $page = 'Light_Kit_Admin/kit/zeroadmin/user/user_profile.iframe';
+        }
+        return $this->renderAdminPage($page, [
             "form" => $form,
             "is_root" => RightsHelper::isRoot($container),
             "rights" => RightsHelper::getGroupedRights($user->getRights()),

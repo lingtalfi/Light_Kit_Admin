@@ -51,7 +51,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [UserProfileController::render](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Controller/User/UserProfileController.php#L33-L159)
+See the source code for method [UserProfileController::render](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Controller/User/UserProfileController.php#L33-L162)
 
 
 See Also

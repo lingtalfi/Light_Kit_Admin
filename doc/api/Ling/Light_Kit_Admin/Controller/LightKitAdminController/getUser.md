@@ -52,7 +52,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightKitAdminController::getUser](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Controller/LightKitAdminController.php#L85-L88)
+See the source code for method [LightKitAdminController::getUser](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Controller/LightKitAdminController.php#L88-L91)
 
 
 See Also

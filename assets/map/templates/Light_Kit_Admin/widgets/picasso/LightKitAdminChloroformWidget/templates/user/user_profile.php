@@ -38,6 +38,7 @@ $avatar_url = $fields['avatar_url'];
 
 
 $uploaderUtil = new LightAjaxFileUploadManagerRenderingUtil();
+$uploaderUtil->setContainer($this->getContainer());
 $uploaderUtil->setSuffix("avatar_url");
 
 
@@ -45,7 +46,7 @@ $this->useHelium();
 
 ?>
 
-<div class="kit-lka-chloroform container-fluid mb-5 <?php echo htmlspecialchars($this->getCssClass()); ?>"
+<div class="kit-lka-chloroform mb-5 <?php echo htmlspecialchars($this->getCssClass()); ?>"
     <?php echo $this->getAttributesHtml(); ?>
 >
     <div class="container-fluid">

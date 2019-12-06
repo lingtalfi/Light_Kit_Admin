@@ -17,11 +17,11 @@ default:
         >
         generic_filter: $column $operator :operator_value
         generic_sub_filter: $column like :%operator_value%
-        in_ids: id in ($ids)
         open_parenthesis: (
         close_parenthesis: )
         and: and
         or: or
+        in_rics: (id like :id)
     
     limit: 
         page: $page
@@ -156,35 +156,49 @@ default:
             name: Name
             action: Actions
         
+        hidden_columns: []
         rows_renderer: 
             identifier: Light_Kit_Admin
             types: 
                 avatar_url: 
-                    type: image
+                    type: Light_Realist.image
                     width: 100
                 
                 action: 
-                    type: lka-edit_link_hub
-                    text: Edit
-                    url_params: 
-                        controller: Generated/LudaTagController
-                        m: f
+                    type: Light_Realist.mixer
+                    separator: " - "
+                    items: 
+                        - 
+                            type: Light_Realist.hub_link
+                            text: Edit
+                            url_params_add_ric: true
+                            url_params: 
+                                controller: Generated/LudaTagController
+                                plugin: Light_Kit_Admin
+                                m: f
+                            
+                        
+                        - 
+                            type: Light_Kit_Admin.list_action
+                            text: Delete
+                            action_id: realist-delete_rows
+                            csrf_token: true
+                            include_ric: true
+                        
                     
                 
-                checkbox: checkbox
+                checkbox: Light_Realist.checkbox
             
             checkbox_column: 
                 name: checkbox
-                label: "#"
             
             action_column: 
                 name: action
-                label: Actions
             
         
         related_links: 
             - 
-                text: Add new tag
+                text: "Add new \"tag\" item"
                 url: REALIST(Light_Realist, route, lch_route-hub, {plugin: Light_Kit_Admin, controller: Generated/LudaTagController, m:f})
                 icon: fas fa-plus-circle
             

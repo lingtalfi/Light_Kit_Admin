@@ -4,7 +4,7 @@
 
 The LightKitAdminControllerHubHandler class
 ================
-2019-05-17 --> 2019-11-06
+2019-05-17 --> 2019-12-06
 
 
 
@@ -63,4 +63,4 @@ See the source code of [Ling\Light_Kit_Admin\ControllerHub\LightKitAdminControll
 
 SeeAlso
 ==============
-Previous class: [UserProfileController](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/User/UserProfileController.md)<br>Next class: [MessagesDataExtractor](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/DataExtractor/MessagesDataExtractor.md)<br>
+Previous class: [UserProfileController](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/User/UserProfileController.md)<br>Next class: [LightKitAdminCrudRequestHandler](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Crud/CrudRequestHandler/LightKitAdminCrudRequestHandler.md)<br>

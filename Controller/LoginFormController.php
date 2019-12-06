@@ -62,6 +62,11 @@ class LoginFormController extends LightKitAdminController
                 $user->connect();
 
 
+                if (session_status() === PHP_SESSION_NONE) { // reduce risk of session fixation
+                    session_start();
+                    session_regenerate_id();
+                }
+
 
                 //--------------------------------------------
                 // REDIRECTING THE CONNECTED USER

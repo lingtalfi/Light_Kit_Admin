@@ -15,5 +15,5 @@ on_success_handler:
     type: database
     params: 
         table: lud_permission
-        microPermissionPluginName: Light_Kit_Admin
+        pluginName: Light_Kit_Admin
     

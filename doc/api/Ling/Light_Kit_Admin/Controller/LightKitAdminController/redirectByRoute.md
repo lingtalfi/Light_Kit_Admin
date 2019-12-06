@@ -56,7 +56,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightKitAdminController::redirectByRoute](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Controller/LightKitAdminController.php#L131-L134)
+See the source code for method [LightKitAdminController::redirectByRoute](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Controller/LightKitAdminController.php#L149-L152)
 
 
 See Also

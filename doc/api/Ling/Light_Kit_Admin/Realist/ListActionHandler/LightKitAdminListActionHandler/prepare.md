@@ -61,7 +61,7 @@ Returns null | false.
 
 Source Code
 ===========
-See the source code for method [LightKitAdminListActionHandler::prepare](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Realist/ListActionHandler/LightKitAdminListActionHandler.php#L27-L56)
+See the source code for method [LightKitAdminListActionHandler::prepare](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Realist/ListActionHandler/LightKitAdminListActionHandler.php#L29-L58)
 
 
 See Also

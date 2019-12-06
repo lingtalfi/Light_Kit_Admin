@@ -62,7 +62,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightKitAdminController::renderPage](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Controller/LightKitAdminController.php#L101-L117)
+See the source code for method [LightKitAdminController::renderPage](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Controller/LightKitAdminController.php#L104-L135)
 
 
 See Also

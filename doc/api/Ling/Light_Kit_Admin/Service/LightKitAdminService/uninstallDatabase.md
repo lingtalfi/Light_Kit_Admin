@@ -51,7 +51,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightKitAdminService::uninstallDatabase](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Service/LightKitAdminService.php#L280-L321)
+See the source code for method [LightKitAdminService::uninstallDatabase](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Service/LightKitAdminService.php#L310-L351)
 
 
 See Also

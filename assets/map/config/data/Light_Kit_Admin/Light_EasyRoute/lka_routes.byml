@@ -35,5 +35,8 @@ Light_Kit_Admin:
             controller: Ling\Light_Kit_Admin\Controller\User\UserListController->render
         lka_route-test:
             pattern: /test
-            controller: Ling\Light_Kit_Admin\Controller\Generated\TestController->render
+            controller: Ling\Light_Kit_Admin\Controller\TestPageController->render
+        lka_route-test2:
+            pattern: /test2
+            controller: Ling\Light_Kit_Admin\Controller\Test2PageController->render
 

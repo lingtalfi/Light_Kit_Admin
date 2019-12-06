@@ -4,16 +4,23 @@ form_handler:
     fields: 
         resource_id: 
             label: Resource id
-            type: number
+            type: table_list
             validators: 
                 required: []
             
+            tableListIdentifier: Light_Kit_Admin.luda_resource.id
         
         tag_id: 
             label: Tag id
-            type: number
+            type: table_list
             validators: 
                 required: []
+            
+            tableListIdentifier: Light_Kit_Admin.luda_tag.id
+            mode: multiplier
+            multiplier: 
+                insert_mode: insert
+                multiplier_column: tag_id
             
         
     
@@ -22,5 +29,9 @@ on_success_handler:
     type: database
     params: 
         table: luda_resource_has_tag
-        microPermissionPluginName: Light_Kit_Admin
+        pluginName: Light_Kit_Admin
+        multiplier: 
+            column: tag_id
+            update_cleaner_column: resource_id
+        
     

@@ -18,7 +18,7 @@ form_handler:
         
         password: 
             label: Password
-            type: string
+            type: password
             validators: 
                 required: []
             
@@ -27,7 +27,6 @@ form_handler:
             label: Avatar url
             type: ajaxFileBox
             validators: 
-                required: []
                 validUserDataUrl: []
             
             maxFile: 1
@@ -41,9 +40,7 @@ form_handler:
         extra: 
             label: Extra
             type: string
-            validators: 
-                required: []
-            
+            validators: []
         
     
 
@@ -51,5 +48,5 @@ on_success_handler:
     type: database
     params: 
         table: lud_user
-        microPermissionPluginName: Light_Kit_Admin
+        pluginName: Light_Kit_Admin
     

@@ -15,5 +15,5 @@ on_success_handler:
     type: database
     params: 
         table: luda_tag
-        microPermissionPluginName: Light_Kit_Admin
+        pluginName: Light_Kit_Admin
     

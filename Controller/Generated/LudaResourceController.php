@@ -43,6 +43,15 @@ class LudaResourceController extends RealGenController
         $table = "luda_resource";
         $pluginName = "Light_Kit_Admin"; // used for micro-permissions
         $identifier = "Light_Kit_Admin.generated/luda_resource";
+        $parentLayout = "Light_Kit_Admin/kit/zeroadmin/dev/mainlayout_base";
+        $vars = [
+            "title" => "Resource form",
+        ];
+        if (array_key_exists("solo", $_GET)) {
+            $parentLayout = "Light_Kit_Admin/kit/zeroadmin/dev/mainlayout_solo";
+            $vars['related_links'] = []; // cancel any existing related links
+            $this->setOnSuccessIframeSignal("done");
+        }
 
 
         $form = $this->processForm($identifier, $table, $pluginName);
@@ -52,11 +61,10 @@ class LudaResourceController extends RealGenController
         // RENDERING
         //--------------------------------------------
         return $this->renderAdminPage('Light_Kit_Admin/kit/zeroadmin/generated/luda_resource_form', [
+            "parent_layout" => $parentLayout,
             "form" => $form,
-        ], PageConfUpdator::create()->updateWidget("body.chloroform", [
-            'vars' => [
-                'title' => "Resource form",
-            ],
+        ], PageConfUpdator::create()->updateWidget("body.lka_chloroform", [
+            'vars' => $vars,
         ]));
     }
 }

@@ -4,14 +4,28 @@ form_handler:
     fields: 
         user_id: 
             label: User id
-            type: number
+            type: table_list
             validators: 
                 required: []
             
+            tableListIdentifier: Light_Kit_Admin.lud_user.id
         
         permission_group_id: 
             label: Permission group id
-            type: number
+            type: table_list
+            validators: 
+                required: []
+            
+            tableListIdentifier: Light_Kit_Admin.lud_permission_group.id
+            mode: multiplier
+            multiplier: 
+                insert_mode: insert
+                multiplier_column: permission_group_id
+            
+        
+        tempo: 
+            label: Tempo
+            type: string
             validators: 
                 required: []
             
@@ -22,5 +36,9 @@ on_success_handler:
     type: database
     params: 
         table: lud_user_has_permission_group
-        microPermissionPluginName: Light_Kit_Admin
+        pluginName: Light_Kit_Admin
+        multiplier: 
+            column: permission_group_id
+            update_cleaner_column: user_id
+        
     

@@ -22,5 +22,5 @@ on_success_handler:
     type: database
     params: 
         table: luda_directory_map
-        microPermissionPluginName: Light_Kit_Admin
+        pluginName: Light_Kit_Admin
     

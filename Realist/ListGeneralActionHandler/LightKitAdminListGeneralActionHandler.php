@@ -8,6 +8,7 @@ use Ling\Bat\CaseTool;
 use Ling\Light_Bullsheet\Service\LightBullsheetService;
 use Ling\Light_DatabaseUtils\Service\LightDatabaseUtilsService;
 use Ling\Light_Kit_Admin\Exception\LightKitAdminException;
+use Ling\Light_Realist\Helper\DuelistHelper;
 use Ling\Light_Realist\ListGeneralActionHandler\LightRealistBaseListGeneralActionHandler;
 use Ling\Light_Realist\Service\LightRealistService;
 use Ling\Light_Realist\Tool\LightRealistTool;
@@ -113,7 +114,7 @@ class LightKitAdminListGeneralActionHandler extends LightRealistBaseListGeneralA
                  */
                 $service = $this->container->get("realist");
                 $conf = $service->getConfigurationArrayByRequestId($requestId);
-                $table = $conf['table'];
+                $table = DuelistHelper::getRawTableName($conf['table']);
 
 
                 $item = LightRealistTool::getListGeneralActionItemByActionId($actionId, $conf);
@@ -192,7 +193,7 @@ class LightKitAdminListGeneralActionHandler extends LightRealistBaseListGeneralA
                      */
                     $service = $this->container->get("realist");
                     $conf = $service->getConfigurationArrayByRequestId($requestId);
-                    $table = $conf['table'];
+                    $table = DuelistHelper::getRawTableName($conf['table']);
 
 
                     $item = LightRealistTool::getListGeneralActionItemByActionId($actionId, $conf);
@@ -276,7 +277,7 @@ class LightKitAdminListGeneralActionHandler extends LightRealistBaseListGeneralA
                  */
                 $service = $this->container->get("realist");
                 $conf = $service->getConfigurationArrayByRequestId($requestId);
-                $table = $conf['table'];
+                $table = DuelistHelper::getRawTableName($conf['table']);
 
 
                 $item = LightRealistTool::getListGeneralActionItemByActionId($actionId, $conf);

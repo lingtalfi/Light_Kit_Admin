@@ -4,7 +4,7 @@
 namespace Ling\Light_Kit_Admin\Realist\Rendering;
 
 
-use Ling\Light_ControllerHub\Service\LightControllerHubService;
+use Ling\Bat\StringTool;
 use Ling\Light_Realist\Rendering\BaseRealistRowsRenderer;
 
 /**
@@ -15,15 +15,9 @@ class LightKitAdminRealistRowsRenderer extends BaseRealistRowsRenderer
 
 
     /**
-     * This property holds the controllerHubRoute for this instance.
-     * @var string
-     */
-    private $_controllerHubRoute;
-
-    /**
      * @overrides
      */
-    protected function renderColumnContent($value, string $type, array $options, array $row): string
+    protected function renderColumnContent(string $value, string $type, array $options, array $row): string
     {
         switch ($type) {
             case "my_action":
@@ -42,13 +36,44 @@ class LightKitAdminRealistRowsRenderer extends BaseRealistRowsRenderer
                 $url = $this->getUrlByRoute($options['route'], $ric);
                 return '<a href="' . htmlspecialchars($url) . '">' . $options['text'] . '</a>';
                 break;
-            case "lka-edit_link_hub":
-                $ric = $this->extractRic($row);
-                $urlParams = array_merge($options['url_params'], $ric, [
-                    "plugin" => "Light_Kit_Admin",
-                ]);
-                $url = $this->getUrlByRoute($this->getControllerHubRoute(), $urlParams);
-                return '<a href="' . htmlspecialchars($url) . '">' . $options['text'] . '</a>';
+            case "Light_Kit_Admin.list_action":
+                //
+                $actionId = $options['action_id'];
+                $useCsrfToken = $options['csrf_token'] ?? true;
+                $includeRic = $options['include_ric'] ?? false;
+                $params = $options['params'] ?? [];
+                $sRic = '';
+
+                //
+                $url = $this->getAjaxHandlerServiceUrl();
+                $attr = [
+                    'data-param-url' => $url,
+                    'data-param-ajax_handler_id' => 'Light_Kit_Admin',
+                    'data-param-ajax_action_id' => $actionId,
+                    'data-param-request_id' => $this->requestId,
+                    'data-confirm' => "Are you sure you want to delete this row?",
+                    'data-success-after' => "realist-refresh",
+                ];
+                if (true === $useCsrfToken) {
+                    $csrfToken = $this->getCsrfSimpleTokenValue();
+                    $attr['data-param-csrf_token'] = $csrfToken;
+
+                }
+
+                if (true === $includeRic) {
+                    $ric = $this->extractRic($row);
+                    $sRic = 'data-paramjson-rics=\'' . json_encode([$ric]) . '\'';
+                }
+
+
+                return '<a 
+                    class="acplink"
+                    ' .
+                    StringTool::htmlAttributes($attr)
+                    . ' ' . $sRic . ' ' . '
+                    data-paramjson-params="' . json_encode($params) . '"
+                    
+                href="' . htmlspecialchars($url) . '">' . $options['text'] . '</a>';
                 break;
 //            case "lka-generic_ric_form_link":
 //                $ric = $this->extractRic($row);
@@ -63,25 +88,4 @@ class LightKitAdminRealistRowsRenderer extends BaseRealistRowsRenderer
     }
 
 
-
-    //--------------------------------------------
-    //
-    //--------------------------------------------
-    /**
-     * Returns the name of the route to the @page(controller hub service).
-     *
-     * @return string
-     * @throws \Exception
-     */
-    private function getControllerHubRoute(): string
-    {
-        if (null === $this->_controllerHubRoute) {
-            /**
-             * @var $hubs LightControllerHubService
-             */
-            $hubs = $this->container->get("controller_hub");
-            $this->_controllerHubRoute = $hubs->getRouteName();
-        }
-        return $this->_controllerHubRoute;
-    }
 }

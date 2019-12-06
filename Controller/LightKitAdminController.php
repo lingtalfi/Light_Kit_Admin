@@ -7,10 +7,13 @@ namespace Ling\Light_Kit_Admin\Controller;
 use Ling\HtmlPageTools\Copilot\HtmlPageCopilot;
 use Ling\Light\Controller\LightController;
 use Ling\Light\Controller\RouteAwareControllerInterface;
+use Ling\Light\Events\LightEvent;
 use Ling\Light\Exception\LightRedirectException;
 use Ling\Light\Http\HttpResponse;
 use Ling\Light\Http\HttpResponseInterface;
+use Ling\Light_Events\Service\LightEventsService;
 use Ling\Light_Flasher\Service\LightFlasher;
+use Ling\Light_Flasher\Service\LightFlasherService;
 use Ling\Light_Kit\PageConfigurationUpdator\PageConfUpdator;
 use Ling\Light_Kit\PageRenderer\LightKitPageRenderer;
 use Ling\Light_Kit_Admin\Service\LightKitAdminService;
@@ -66,10 +69,10 @@ class LightKitAdminController extends LightController implements RouteAwareContr
      * For more information, check out @page(the flasher service).
      *
      *
-     * @return LightFlasher
+     * @return LightFlasherService
      * @throws \Exception
      */
-    protected function getFlasher(): LightFlasher
+    protected function getFlasher(): LightFlasherService
     {
         return $this->getContainer()->get('flasher');
     }
@@ -106,6 +109,7 @@ class LightKitAdminController extends LightController implements RouteAwareContr
         $copilot = $this->getContainer()->get("html_page_copilot");
         $copilot->registerLibrary("lka_environment", [
             "/plugins/Light_Kit_Admin/js/light-kit-admin-environment.js",
+            "/plugins/Light_Kit_Admin/js/light-kit-admin-init.js",
         ]);
 
 
@@ -113,6 +117,20 @@ class LightKitAdminController extends LightController implements RouteAwareContr
          * @var $kit LightKitPageRenderer
          */
         $kit = $this->getContainer()->get("kit");
+
+
+        /**
+         * @var $events LightEventsService
+         */
+        $events = $this->getContainer()->get("events");
+
+        $data = new LightEvent();
+        $data->setLight($this->getLight());
+        $data->setHttpRequest($this->getLight()->getHttpRequest());
+        $data->setVar("page", $page);
+        $events->dispatch('Light_Kit_Admin.on_page_rendered_before', $data);
+
+
         return new HttpResponse($kit->renderPage($page, $dynamicVariables, $updator));
     }
 

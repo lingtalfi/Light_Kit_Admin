@@ -1,13 +1,18 @@
-_parent: Light_Kit_Admin/kit/zeroadmin/dev/mainlayout_base
+_parent: ${parent_layout}
 title: Resource Form
 zones:
     body:
         -
-            name: chloroform
+            name: lka_chloroform
             type: picasso
-            className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\ChloroformWidget
-            widgetDir: templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ChloroformWidget
-            template: helium_light.php
+            className: Ling\Light_Kit_Admin\Widget\Picasso\LightKitAdminChloroformWidget
+            widgetDir: templates/Light_Kit_Admin/widgets/picasso/LightKitAdminChloroformWidget
+            template: default.php
             vars: []
                 title: Resource
                 form: ${form}
+                related_links: 
+                    -
+                        text: See the list of "Resource" items
+                        url: (::ROUTE::)lch_route-hub::{plugin: Light_Kit_Admin, controller: Generated/LudaResourceController}
+                        icon: fas fa-plus-circle

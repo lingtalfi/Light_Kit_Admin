@@ -7,12 +7,13 @@ namespace Ling\Light_Kit_Admin\Service;
 use Ling\BabyYaml\Helper\BdotTool;
 use Ling\Light\Core\Light;
 use Ling\Light\Http\HttpRequestInterface;
-use Ling\Light\ReverseRouter\LightReverseRouterInterface;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 use Ling\Light_ControllerHub\Service\LightControllerHubService;
 use Ling\Light_Initializer\Initializer\LightInitializerInterface;
 use Ling\Light_Kit_Admin\Notification\LightKitAdminNotification;
+//use Ling\Light_Kit_Admin\UserRowOwnership\LightKitAdminUserRowOwnershipManager;
 use Ling\Light_PluginDatabaseInstaller\Service\LightPluginDatabaseInstallerService;
+use Ling\Light_ReverseRouter\Service\LightReverseRouterService;
 use Ling\Light_UserDatabase\LightWebsiteUserDatabaseInterface;
 use Ling\SimplePdoWrapper\SimplePdoWrapperInterface;
 
@@ -52,6 +53,12 @@ class LightKitAdminService implements LightInitializerInterface
      * @var array
      */
     protected $options;
+
+//    /**
+//     * This property holds the userRowOwnershipManager for this instance.
+//     * @var LightKitAdminUserRowOwnershipManager
+//     */
+//    protected $userRowOwnershipManager;
 
 
     /**
@@ -113,6 +120,29 @@ class LightKitAdminService implements LightInitializerInterface
         return $this->notifications;
     }
 
+//    /**
+//     * Returns the userRowOwnershipManager of this instance.
+//     *
+//     * @return LightKitAdminUserRowOwnershipManager
+//     */
+//    public function getUserRowOwnershipManager(): LightKitAdminUserRowOwnershipManager
+//    {
+//        return $this->userRowOwnershipManager;
+//    }
+//
+//    /**
+//     * Sets the userRowOwnershipManager.
+//     *
+//     * @param LightKitAdminUserRowOwnershipManager $userRowOwnershipManager
+//     */
+//    public function setUserRowOwnershipManager(LightKitAdminUserRowOwnershipManager $userRowOwnershipManager)
+//    {
+//        $this->userRowOwnershipManager = $userRowOwnershipManager;
+//    }
+
+
+
+
 
     /**
      * Adds a notification to this instance.
@@ -147,7 +177,7 @@ class LightKitAdminService implements LightInitializerInterface
         ];
 
         /**
-         * @var $rr LightReverseRouterInterface
+         * @var $rr LightReverseRouterService
          */
         $rr = $this->container->get("reverse_router");
         $useAbsolute = false;

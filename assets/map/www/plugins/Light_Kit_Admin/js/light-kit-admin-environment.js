@@ -13,6 +13,19 @@ if ('undefined' === typeof LightKitAdminEnvironment) {
         //
         //----------------------------------------
         window.LightKitAdminEnvironment = {
+
+            /**
+             * Asks the user the question which text is given, and returns
+             * whether the user clicked on ok or cancel.
+             *
+             * This is basically a proxy for the javascript window.confirm method.
+             *
+             *
+             * @param text
+             */
+            confirm: function (text) {
+                return window.confirm(text);
+            },
             /**
              * Creates a toast.
              *

@@ -4,7 +4,7 @@
 
 The LightKitAdminChloroformWidget class
 ================
-2019-05-17 --> 2019-11-06
+2019-05-17 --> 2019-12-06
 
 
 
@@ -23,6 +23,20 @@ Conception notes
 
 
 This widget is the [ChloroformWidget](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary/blob/master/doc/pages/widget-variables-description.md#chloroformwidget) version for Light_Kit_Admin (lka).
+
+
+### New variables
+
+- related_links: an array of items, each of which:
+     - text: the text of the link
+     - url: the url of the link
+     - ?icon: the css class of an icon to add
+
+
+
+
+### Why
+
 
 I created this widget when I realized that using ChloroformWidget alone would not fill all my needs.
 My needs were to be able to create all kinds of forms, starting with the form in the user profile page

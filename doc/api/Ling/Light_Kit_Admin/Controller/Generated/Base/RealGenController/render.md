@@ -51,7 +51,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [RealGenController::render](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Controller/Generated/Base/RealGenController.php#L31-L37)
+See the source code for method [RealGenController::render](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Controller/Generated/Base/RealGenController.php#L43-L49)
 
 
 See Also
@@ -59,5 +59,5 @@ See Also
 
 The [RealGenController](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/Generated/Base/RealGenController.md) class.
 
-Next method: [processForm](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/Generated/Base/RealGenController/processForm.md)<br>
+Previous method: [__construct](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/Generated/Base/RealGenController/__construct.md)<br>Next method: [processForm](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/Generated/Base/RealGenController/processForm.md)<br>
 

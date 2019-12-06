@@ -1,5 +1,5 @@
 default: 
-    table: lud_permission_group_has_permission
+    table: lud_permission_group_has_permission pghp
     ric: 
         - permission_group_id
         - permission_id
@@ -7,14 +7,20 @@ default:
     base_fields: 
         - permission_group_id
         - permission_id
+        - concat(pghp.permission_group_id, '. ', pg.name) as permission_group_id_plus
+        - concat(pghp.permission_id, '. ', p.name) as permission_id_plus
+    
+    base_joins: 
+        - inner join lud_permission_group pg on pghp.permission_group_id=pg.id
+        - inner join lud_permission p on pghp.permission_id=p.id
     
     order: 
         col_order: $column $direction
     
     where: 
         general_search: <
-            permission_group_id like :%expression% or
-            permission_id like :%expression%
+            concat(pghp.permission_group_id, '. ', pg.name) like :%expression% or
+            concat(pghp.permission_id, '. ', p.name) like :%expression%
         >
         generic_filter: $column $operator :operator_value
         generic_sub_filter: $column like :%operator_value%
@@ -22,6 +28,7 @@ default:
         close_parenthesis: )
         and: and
         or: or
+        in_rics: (permission_group_id like :permission_group_id and permission_id like :permission_id)
     
     limit: 
         page: $page
@@ -148,43 +155,88 @@ default:
             data_types: 
                 permission_group_id: number
                 permission_id: number
+                permission_group_id_plus: string
+                permission_id_plus: string
                 action: action
             
         
         column_labels: 
             permission_group_id: Permission group id
             permission_id: Permission id
+            permission_group_id_plus: Permission group
+            permission_id_plus: Permission
             action: Actions
+        
+        hidden_columns: 
+            - permission_group_id
+            - permission_id
         
         rows_renderer: 
             identifier: Light_Kit_Admin
             types: 
                 avatar_url: 
-                    type: image
+                    type: Light_Realist.image
                     width: 100
                 
                 action: 
-                    type: lka-edit_link_hub
-                    text: Edit
+                    type: Light_Realist.mixer
+                    separator: " - "
+                    items: 
+                        - 
+                            type: Light_Realist.hub_link
+                            text: Edit
+                            url_params_add_ric: true
+                            url_params: 
+                                controller: Generated/LudPermissionGroupHasPermissionController
+                                plugin: Light_Kit_Admin
+                                m: f
+                            
+                        
+                        - 
+                            type: Light_Kit_Admin.list_action
+                            text: Delete
+                            action_id: realist-delete_rows
+                            csrf_token: true
+                            include_ric: true
+                        
+                    
+                
+                checkbox: Light_Realist.checkbox
+                permission_group_id_plus: 
+                    type: Light_Realist.hub_link
+                    text: null
+                    url_params_add_keys: 
+                        id: permission_group_id
+                    
                     url_params: 
-                        controller: Generated/LudPermissionGroupHasPermissionController
+                        controller: Generated/LudPermissionGroupController
+                        plugin: Light_Kit_Admin
                         m: f
                     
                 
-                checkbox: checkbox
+                permission_id_plus: 
+                    type: Light_Realist.hub_link
+                    text: null
+                    url_params_add_keys: 
+                        id: permission_id
+                    
+                    url_params: 
+                        controller: Generated/LudPermissionController
+                        plugin: Light_Kit_Admin
+                        m: f
+                    
+                
             
             checkbox_column: 
                 name: checkbox
-                label: "#"
             
             action_column: 
                 name: action
-                label: Actions
             
         
         related_links: 
             - 
-                text: Add new permission group has permission
+                text: "Add new \"permission group has permission\" item"
                 url: REALIST(Light_Realist, route, lch_route-hub, {plugin: Light_Kit_Admin, controller: Generated/LudPermissionGroupHasPermissionController, m:f})
                 icon: fas fa-plus-circle
             

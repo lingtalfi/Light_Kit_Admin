@@ -43,6 +43,15 @@ class LudUserController extends RealGenController
         $table = "lud_user";
         $pluginName = "Light_Kit_Admin"; // used for micro-permissions
         $identifier = "Light_Kit_Admin.generated/lud_user";
+        $parentLayout = "Light_Kit_Admin/kit/zeroadmin/dev/mainlayout_base";
+        $vars = [
+            "title" => "User form",
+        ];
+        if (array_key_exists("solo", $_GET)) {
+            $parentLayout = "Light_Kit_Admin/kit/zeroadmin/dev/mainlayout_solo";
+            $vars['related_links'] = []; // cancel any existing related links
+            $this->setOnSuccessIframeSignal("done");
+        }
 
 
         $form = $this->processForm($identifier, $table, $pluginName);
@@ -52,11 +61,10 @@ class LudUserController extends RealGenController
         // RENDERING
         //--------------------------------------------
         return $this->renderAdminPage('Light_Kit_Admin/kit/zeroadmin/generated/lud_user_form', [
+            "parent_layout" => $parentLayout,
             "form" => $form,
-        ], PageConfUpdator::create()->updateWidget("body.chloroform", [
-            'vars' => [
-                'title' => "User form",
-            ],
+        ], PageConfUpdator::create()->updateWidget("body.lka_chloroform", [
+            'vars' => $vars,
         ]));
     }
 }

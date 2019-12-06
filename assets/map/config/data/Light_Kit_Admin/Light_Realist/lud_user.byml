@@ -49,7 +49,7 @@ default:
     use_micro_permission: true
     csrf_token:
         name: realist-request
-        value: REALIST(Light_Realist, csrf_token, realist-request)
+        value: REALIST(Light_Realist, csrf_token)
     rendering:
         title: User list
         list_general_actions:
@@ -159,7 +159,6 @@ default:
                     type: lka-edit_link
                     text: Edit
                     route: lka_route-user_profile
-
                 checkbox: checkbox
             checkbox_column: []
             action_column: []

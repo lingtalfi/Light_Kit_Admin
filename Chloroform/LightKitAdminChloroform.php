@@ -4,11 +4,11 @@
 namespace Ling\Light_Kit_Admin\Chloroform;
 
 
-use Ling\Chloroform\Field\CSRFField;
 use Ling\Chloroform\Form\Chloroform;
-use Ling\Chloroform\Validator\CSRFValidator;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
-use Ling\Light_Csrf\Service\LightCsrfService;
+use Ling\Light_CsrfSimple\Chloroform\Field\LightCsrfSimpleField;
+use Ling\Light_CsrfSimple\Chloroform\Validator\LightCsrfSimpleValidator;
+
 
 /**
  * The LightKitAdminChloroform class.
@@ -28,12 +28,10 @@ class LightKitAdminChloroform extends Chloroform
      */
     public function prepare(LightServiceContainerInterface $container)
     {
-
-        /**
-         * @var $csrf LightCsrfService
-         */
-        $csrf = $container->get('csrf');
-        $this->addField(CSRFField::create("csrf_token")->setCsrfProtector($csrf)->setHasVeryImportantData(false), [CSRFValidator::create()->setCsrfProtector($csrf)]);
+        $this->addField(
+            LightCsrfSimpleField::create("csrf_token")->setContainer($container)->setHasVeryImportantData(false),
+            [LightCsrfSimpleValidator::create()->setContainer($container)]
+        );
     }
 
 
