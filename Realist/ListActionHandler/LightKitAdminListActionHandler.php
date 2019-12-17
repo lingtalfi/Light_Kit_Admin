@@ -14,6 +14,7 @@ use Ling\Light_Realist\Helper\RealistHelper;
 use Ling\Light_Realist\ListActionHandler\LightRealistBaseListActionHandler;
 use Ling\Light_Realist\Service\LightRealistService;
 use Ling\Light_Realist\Tool\LightRealistTool;
+use Ling\Light_ReverseRouter\Service\LightReverseRouterService;
 use Ling\PhpSpreadSheetTool\PhpSpreadSheetTool;
 
 
@@ -34,6 +35,21 @@ class LightKitAdminListActionHandler extends LightRealistBaseListActionHandler
                 $this->decorateGenericActionItemByAssets($actionName, $genericActionItem, $requestId, __DIR__);
                 $table = $this->getTableNameByRequestId($requestId);
                 return $this->hasMicroPermission("Light_Kit_Admin.tables.$table.delete");
+                break;
+            case "realist-edit_rows":
+                $table = $this->getTableNameByRequestId($requestId);
+                $this->decorateGenericActionItemByAssets($actionName, $genericActionItem, $requestId, __DIR__, [
+                    'generate_ajax_params' => false,
+                ]);
+                /**
+                 * @var $rr LightReverseRouterService
+                 */
+                $rr = $this->container->get("reverse_router");
+                $genericActionItem['params'] = [
+                    'url' => $rr->getUrl('lka_route-tool_multiple_form_edit'),
+                    'table' => $table,
+                ];
+                return $this->hasMicroPermission("Light_Kit_Admin.tables.$table.update");
                 break;
             case "realist-rows_to_ods":
             case "realist-rows_to_xlsx":

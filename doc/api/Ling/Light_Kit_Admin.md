@@ -1,6 +1,6 @@
 Ling/Light_Kit_Admin
 ================
-2019-05-17 --> 2019-12-06
+2019-05-17 --> 2019-12-17
 
 
 
@@ -41,8 +41,12 @@ Table of contents
     - Chloroform::getNotifications &ndash; Returns the notifications of this instance.
     - Chloroform::setProperty &ndash; Sets a property.
     - Chloroform::setMode &ndash; Sets the mode.
+    - Chloroform::setJsCode &ndash; Sets the jsCode.
+    - Chloroform::setCssId &ndash; Sets the cssId.
     - Chloroform::hasProperty &ndash; Returns whether the property identified by the given key exists.
     - Chloroform::getProperty &ndash; Returns the value of the property identified by the given key, or the default value otherwise.
+    - Chloroform::getJsCode &ndash; Returns the jsCode of this instance.
+    - Chloroform::getCssId &ndash; Returns the cssId of this instance.
     - Chloroform::toArray &ndash; Returns the array version (template friendly) of the form.
 - [LightKitAdminChloroformRendererUtil](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Chloroform/LightKitAdminChloroformRendererUtil.md) &ndash; The LightKitAdminChloroformRendererUtil class.
     - [LightKitAdminChloroformRendererUtil::renderCsrfControl](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Chloroform/LightKitAdminChloroformRendererUtil/renderCsrfControl.md) &ndash; Prints the csrf field to protect your forms.
@@ -300,6 +304,13 @@ Table of contents
     - [LightKitAdminController::setRoute](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/setRoute.md) &ndash; Sets the matching route to this controller instance.
     - [LightKitAdminController::renderPage](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/renderPage.md) &ndash; Renders the given page using the [kit service](https://github.com/lingtalfi/Light_Kit_Admin).
     - LightController::setLight &ndash; Sets the light instance.
+- [MultipleFormEditController](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/Tools/MultipleFormEditController.md) &ndash; The MultipleFormEditController class.
+    - [MultipleFormEditController::render](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/Tools/MultipleFormEditController/render.md) &ndash; Returns the http response, which body contains a multiple form edit page.
+    - [AdminPageController::renderAdminPage](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/AdminPageController/renderAdminPage.md) &ndash; if she is not connected yet.
+    - [LightKitAdminController::__construct](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/__construct.md) &ndash; Builds the LightController instance.
+    - [LightKitAdminController::setRoute](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/setRoute.md) &ndash; Sets the matching route to this controller instance.
+    - [LightKitAdminController::renderPage](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/renderPage.md) &ndash; Renders the given page using the [kit service](https://github.com/lingtalfi/Light_Kit_Admin).
+    - LightController::setLight &ndash; Sets the light instance.
 - [UserListController](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/User/UserListController.md) &ndash; The UserListController class.
     - [UserListController::render](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/User/UserListController/render.md) &ndash; Renders the user list page, where the admin can administrate other users.
     - [AdminPageController::renderAdminPage](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/AdminPageController/renderAdminPage.md) &ndash; if she is not connected yet.
@@ -309,6 +320,7 @@ Table of contents
     - LightController::setLight &ndash; Sets the light instance.
 - [UserProfileController](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/User/UserProfileController.md) &ndash; The UserProfileController class.
     - [UserProfileController::render](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/User/UserProfileController/render.md) &ndash; Renders the user profile page, where the user can change her profile.
+    - [UserProfileController::processForm](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/User/UserProfileController/processForm.md) &ndash; Work in progress...
     - [AdminPageController::renderAdminPage](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/AdminPageController/renderAdminPage.md) &ndash; if she is not connected yet.
     - [LightKitAdminController::__construct](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/__construct.md) &ndash; Builds the LightController instance.
     - [LightKitAdminController::setRoute](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/setRoute.md) &ndash; Sets the matching route to this controller instance.
@@ -417,7 +429,7 @@ Table of contents
     - [LightKitAdminService::getNotifications](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/getNotifications.md) &ndash; Returns the notifications of this instance.
     - [LightKitAdminService::addNotification](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/addNotification.md) &ndash; Adds a notification to this instance.
     - [LightKitAdminService::getUrlByController](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/getUrlByController.md) &ndash; Returns the url corresponding to the given controller.
-    - [LightKitAdminService::initialize](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/initialize.md) &ndash; Initializes a service with the given Light instance and HttpRequestInterface instance.
+    - [LightKitAdminService::initialize](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/initialize.md) &ndash; Listener for the [Light.initialize_2 event](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/events.md).
     - [LightKitAdminService::installDatabase](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/installDatabase.md) &ndash; Installs the database part of this planet.
     - [LightKitAdminService::uninstallDatabase](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/uninstallDatabase.md) &ndash; Uninstalls the database part of this planet.
 - [LightKitAdminChloroformWidget](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Widget/Picasso/LightKitAdminChloroformWidget.md) &ndash; The LightKitAdminChloroformWidget class.
@@ -447,7 +459,7 @@ Dependencies
 - [Light_UserManager](https://github.com/lingtalfi/Light_UserManager)
 - [Light_User](https://github.com/lingtalfi/Light_User)
 - [Chloroform](https://github.com/lingtalfi/Chloroform)
-- [Light_CsrfSimple](https://github.com/lingtalfi/Light_CsrfSimple)
+- [Light_CsrfSession](https://github.com/lingtalfi/Light_CsrfSession)
 - [Light_ChloroformExtension](https://github.com/lingtalfi/Light_ChloroformExtension)
 - [Light_Kit](https://github.com/lingtalfi/Light_Kit)
 - [WiseTool](https://github.com/lingtalfi/WiseTool)
@@ -457,7 +469,6 @@ Dependencies
 - [Light_Flasher](https://github.com/lingtalfi/Light_Flasher)
 - [Light_MicroPermission](https://github.com/lingtalfi/Light_MicroPermission)
 - [Light_UserDatabase](https://github.com/lingtalfi/Light_UserDatabase)
-- [Light_CsrfSession](https://github.com/lingtalfi/Light_CsrfSession)
 - [Light_RowLookup](https://github.com/lingtalfi/Light_RowLookup)
 - [Light_UserData](https://github.com/lingtalfi/Light_UserData)
 - [Light_ControllerHub](https://github.com/lingtalfi/Light_ControllerHub)
@@ -467,9 +478,9 @@ Dependencies
 - [Light_DatabaseUtils](https://github.com/lingtalfi/Light_DatabaseUtils)
 - [SimplePdoWrapper](https://github.com/lingtalfi/SimplePdoWrapper)
 - [Bootstrap4AdminTable](https://github.com/lingtalfi/Bootstrap4AdminTable)
-- [Light_Initializer](https://github.com/lingtalfi/Light_Initializer)
 - [Light_PluginDatabaseInstaller](https://github.com/lingtalfi/Light_PluginDatabaseInstaller)
 - [Kit_PicassoWidget](https://github.com/lingtalfi/Kit_PicassoWidget)
 - [Chloroform_HeliumRenderer](https://github.com/lingtalfi/Chloroform_HeliumRenderer)
+- [JPostForm](https://github.com/lingtalfi/JPostForm)
 
 

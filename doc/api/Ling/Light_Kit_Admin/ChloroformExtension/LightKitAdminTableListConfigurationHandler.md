@@ -4,7 +4,7 @@
 
 The LightKitAdminTableListConfigurationHandler class
 ================
-2019-05-17 --> 2019-12-06
+2019-05-17 --> 2019-12-17
 
 
 

@@ -4,6 +4,7 @@
 namespace Ling\Light_Kit_Admin\Controller\Generated\Base;
 
 
+use Ling\Bat\UriTool;
 use Ling\Chloroform\Form\Chloroform;
 use Ling\Light\Http\HttpResponseInterface;
 use Ling\Light_Realform\Routine\LightRealformRoutineOne;
@@ -75,6 +76,7 @@ class RealGenController extends AdminPageController
         } else {
             $options['onSuccess'] = function () use ($table) {
                 $this->getFlasher()->addFlash($table, "Congrats, the form was successfully processed.");
+                UriTool::randomize($_GET, '_r');
                 $this->redirectByRoute($this->getLight()->getMatchingRoute()['name']);
             };
         }

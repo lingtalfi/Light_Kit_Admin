@@ -4,7 +4,7 @@
 
 The LightKitAdminRealformHandler class
 ================
-2019-05-17 --> 2019-12-06
+2019-05-17 --> 2019-12-17
 
 
 
@@ -34,7 +34,7 @@ class <span class="pl-k">LightKitAdminRealformHandler</span> extends [BaseRealfo
     - public BaseRealformHandler::__construct() : void
     - public BaseRealformHandler::setContainer([Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) $container) : void
     - public BaseRealformHandler::setId(string $id) : mixed
-    - public BaseRealformHandler::getFormHandler() : [Chloroform](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform.md)
+    - public BaseRealformHandler::getFormHandler(?array $configuration = null) : [Chloroform](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Form/Chloroform.md)
     - public BaseRealformHandler::getConfiguration() : array
     - public BaseRealformHandler::getSuccessHandler() : Ling\Light_Realform\SuccessHandler\RealformSuccessHandlerInterface
     - public BaseRealformHandler::setConfDir(string $confDir) : void

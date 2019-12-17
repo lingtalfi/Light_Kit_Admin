@@ -82,6 +82,12 @@ default:
                 csrf_token: true
             
             - 
+                action_id: Light_Kit_Admin.realist-edit_rows
+                text: Edit
+                icon: fas fa-edit
+                csrf_token: true
+            
+            - 
                 text: Share
                 icon: fas fa-share-square
                 items: 

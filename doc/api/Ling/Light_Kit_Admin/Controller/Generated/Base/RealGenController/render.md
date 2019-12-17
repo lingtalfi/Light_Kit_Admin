@@ -51,7 +51,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [RealGenController::render](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Controller/Generated/Base/RealGenController.php#L43-L49)
+See the source code for method [RealGenController::render](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Controller/Generated/Base/RealGenController.php#L44-L50)
 
 
 See Also

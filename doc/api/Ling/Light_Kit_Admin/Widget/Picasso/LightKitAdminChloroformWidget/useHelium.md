@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightKitAdminChloroformWidget::useHelium](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Widget/Picasso/LightKitAdminChloroformWidget.php#L101-L110)
+See the source code for method [LightKitAdminChloroformWidget::useHelium](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Widget/Picasso/LightKitAdminChloroformWidget.php#L101-L108)
 
 
 See Also

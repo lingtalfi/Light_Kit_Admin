@@ -4,7 +4,7 @@
 
 The LightKitAdminCrudRequestHandler class
 ================
-2019-05-17 --> 2019-12-06
+2019-05-17 --> 2019-12-17
 
 
 
@@ -39,7 +39,6 @@ class <span class="pl-k">LightKitAdminCrudRequestHandler</span> extends [LightBa
     - protected LightBaseCrudRequestHandler::executeDelete(string $pluginContextIdentifier, string $table, ?array $params = [], ?bool $isMultiple = false) : void
     - protected LightBaseCrudRequestHandler::checkMicroPermission(string $pluginContextIdentifier, string $table, string $action) : void
     - protected LightBaseCrudRequestHandler::getAllowedTables() : array
-    - protected LightBaseCrudRequestHandler::getWhereByRics(array $ricColumns, array $userRics, array &$markers) : string
     - protected LightBaseCrudRequestHandler::error(string $msg) : void
 
 }
@@ -60,7 +59,6 @@ Methods
 - LightBaseCrudRequestHandler::executeDelete &ndash; Executes the crud.delete request.
 - LightBaseCrudRequestHandler::checkMicroPermission &ndash; and throws an exception if that's not the case.
 - LightBaseCrudRequestHandler::getAllowedTables &ndash; Returns the array of allowed tables.
-- LightBaseCrudRequestHandler::getWhereByRics &ndash; rics.
 - LightBaseCrudRequestHandler::error &ndash; Throws an error message.
 
 

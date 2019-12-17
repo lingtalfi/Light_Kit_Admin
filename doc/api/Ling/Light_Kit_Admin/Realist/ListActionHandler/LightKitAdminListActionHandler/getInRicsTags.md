@@ -60,7 +60,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightKitAdminListActionHandler::getInRicsTags](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Realist/ListActionHandler/LightKitAdminListActionHandler.php#L431-L466)
+See the source code for method [LightKitAdminListActionHandler::getInRicsTags](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Realist/ListActionHandler/LightKitAdminListActionHandler.php#L447-L482)
 
 
 See Also

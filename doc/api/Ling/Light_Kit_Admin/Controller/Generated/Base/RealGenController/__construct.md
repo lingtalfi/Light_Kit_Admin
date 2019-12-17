@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [RealGenController::__construct](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Controller/Generated/Base/RealGenController.php#L31-L35)
+See the source code for method [RealGenController::__construct](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Controller/Generated/Base/RealGenController.php#L32-L36)
 
 
 See Also

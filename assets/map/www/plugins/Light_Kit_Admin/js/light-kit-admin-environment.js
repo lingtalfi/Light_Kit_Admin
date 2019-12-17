@@ -129,9 +129,30 @@ if ('undefined' === typeof LightKitAdminEnvironment) {
                 link.click();
                 document.body.removeChild(link);
             },
+            escapeHtml: function (text) {
+                var map = {
+                    '&': '&amp;',
+                    '<': '&lt;',
+                    '>': '&gt;',
+                    '"': '&quot;',
+                    "'": '&#039;'
+                };
+                return text.replace(/[&<>"']/g, function (m) {
+                    return map[m];
+                });
+            },
             error: function (msg) {
                 throw new Error("LightKitAdminEnvironment error: " + msg);
-            }
+            },
+            /**
+             * Creates a form on the fly, filled with the key2Values data, and post it (with method=POST)
+             * to the given url.
+             *
+             */
+            postForm: function (url, key2Values) {
+                // from JPostForm planet
+                window.postForm(key2Values, url);
+            },
         };
 
         //----------------------------------------

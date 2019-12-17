@@ -33,7 +33,6 @@ class UserProfileController extends AdminPageController
     public function render()
     {
 
-
         $renderMode = $_GET['render'] ?? 'default';
         $container = $this->getContainer();
         $flasher = $this->getFlasher();
@@ -159,5 +158,18 @@ class UserProfileController extends AdminPageController
             "is_root" => RightsHelper::isRoot($container),
             "rights" => RightsHelper::getGroupedRights($user->getRights()),
         ]);
+    }
+
+
+    /**
+     * Work in progress...
+     */
+    public function processForm()
+    {
+        /**
+         * Todo: test serailize with this..
+         * call me with hub
+         */
+        az(__FILE__, $_GET, $_POST, $_FILES);
     }
 }

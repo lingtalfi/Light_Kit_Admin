@@ -4,7 +4,7 @@
 
 The LightKitAdminChloroform class
 ================
-2019-05-17 --> 2019-12-06
+2019-05-17 --> 2019-12-17
 
 
 
@@ -30,6 +30,8 @@ class <span class="pl-k">LightKitAdminChloroform</span> extends [Chloroform](htt
     - protected string [Chloroform::$formId](#property-formId) ;
     - protected array [Chloroform::$properties](#property-properties) ;
     - protected string [Chloroform::$mode](#property-mode) ;
+    - protected string|null [Chloroform::$jsCode](#property-jsCode) ;
+    - protected string|null [Chloroform::$cssId](#property-cssId) ;
 
 - Methods
     - public [prepare](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Chloroform/LightKitAdminChloroform/prepare.md)([Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) $container) : void
@@ -42,17 +44,21 @@ class <span class="pl-k">LightKitAdminChloroform</span> extends [Chloroform](htt
     - public Chloroform::validates() : bool
     - public Chloroform::getVeryImportantData() : array
     - public Chloroform::executeDataTransformers(array &$postedData) : void
-    - public Chloroform::getFields() : [FieldInterface[]](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/FieldInterface.md)
+    - public Chloroform::getFields() : [FieldInterface](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/FieldInterface.md)
     - public Chloroform::getField(string $fieldId) : [FieldInterface](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/FieldInterface.md)
     - public Chloroform::getMode() : string
     - public Chloroform::injectValues(array $values) : void
     - public Chloroform::addField([Ling\Chloroform\Field\FieldInterface](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/FieldInterface.md) $field, ?array $validators = []) : void
     - public Chloroform::addNotification([Ling\Chloroform\FormNotification\FormNotificationInterface](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/FormNotification/FormNotificationInterface.md) $notification) : void
-    - public Chloroform::getNotifications() : [FormNotificationInterface[]](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/FormNotification/FormNotificationInterface.md)
+    - public Chloroform::getNotifications() : [FormNotificationInterface](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/FormNotification/FormNotificationInterface.md)
     - public Chloroform::setProperty(string $key, $value) : void
     - public Chloroform::setMode(string $mode) : void
+    - public Chloroform::setJsCode(string $jsCode) : void
+    - public Chloroform::setCssId(string $cssId) : void
     - public Chloroform::hasProperty(string $key) : bool
     - public Chloroform::getProperty(string $key, ?$default = null) : mixed
+    - public Chloroform::getJsCode() : string
+    - public Chloroform::getCssId() : string | null
     - public Chloroform::toArray() : array
     - private Chloroform::getFieldPostedValue([Ling\Chloroform\Field\FieldInterface](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/Field/FieldInterface.md) $field, array $postedData) : mixed | null
 
@@ -83,8 +89,12 @@ Methods
 - Chloroform::getNotifications &ndash; Returns the notifications of this instance.
 - Chloroform::setProperty &ndash; Sets a property.
 - Chloroform::setMode &ndash; Sets the mode.
+- Chloroform::setJsCode &ndash; Sets the jsCode.
+- Chloroform::setCssId &ndash; Sets the cssId.
 - Chloroform::hasProperty &ndash; Returns whether the property identified by the given key exists.
 - Chloroform::getProperty &ndash; Returns the value of the property identified by the given key, or the default value otherwise.
+- Chloroform::getJsCode &ndash; Returns the jsCode of this instance.
+- Chloroform::getCssId &ndash; Returns the cssId of this instance.
 - Chloroform::toArray &ndash; Returns the array version (template friendly) of the form.
 - Chloroform::getFieldPostedValue &ndash; Returns the field posted value for the given field and posted data.
 

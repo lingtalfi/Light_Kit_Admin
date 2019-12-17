@@ -10,7 +10,7 @@ dependencies:
         - Light_UserManager
         - Light_User
         - Chloroform
-        - Light_CsrfSimple
+        - Light_CsrfSession
         - Light_ChloroformExtension
         - Light_Kit
         - WiseTool
@@ -20,7 +20,6 @@ dependencies:
         - Light_Flasher
         - Light_MicroPermission
         - Light_UserDatabase
-        - Light_CsrfSession
         - Light_RowLookup
         - Light_UserData
         - Light_ControllerHub
@@ -30,10 +29,10 @@ dependencies:
         - Light_DatabaseUtils
         - SimplePdoWrapper
         - Bootstrap4AdminTable
-        - Light_Initializer
         - Light_PluginDatabaseInstaller
         - Kit_PicassoWidget
         - Chloroform_HeliumRenderer
+        - JPostForm
     
 
 post_install: 

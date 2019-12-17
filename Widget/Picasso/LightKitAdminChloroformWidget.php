@@ -102,10 +102,8 @@ class LightKitAdminChloroformWidget extends EasyLightPicassoWidget
     {
         $this->registerLibrary("Chloroform_HeliumRenderer", [
             "/libs/universe/Ling/Chloroform_HeliumRenderer/helium.css",
-            "/plugins/Light_Kit_Admin/fileuploader/fileuploader.css",
         ], [
             "/libs/universe/Ling/Chloroform_HeliumRenderer/helium.js",
-            "/plugins/Light_Kit_Admin/fileuploader/fileuploader.js",
         ]);
     }
 

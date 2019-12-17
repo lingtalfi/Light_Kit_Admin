@@ -81,17 +81,12 @@ kit_admin:
                 notifications:
                     # alert|toast
                     default_type: alert
+#        setUserRowOwnershipManager:
+#            manager:
+#                instance: Ling\Light_Kit_Admin\UserRowOwnership\LightKitAdminUserRowOwnershipManager
 
-kit_admin_rights:
-    instance: Ling\Light\Light_Kit_Admin\Rights\LightKitAdminRightsManager
-    methods_collection: []
-#        -
-#            method: registerRights:
-#            args:
-#                rights: []
-#            method: registerRightsAssigner:
-#            args:
-#                assigner: []
+
+
 
 
 # --------------------------------------
@@ -134,6 +129,21 @@ $bmenu.methods_collection:
                     setDefaultItemsParentPath:
                         path: plugins
 
+
+$chloroform_extension.methods_collection:
+    -
+        method: registerTableListConfigurationHandler
+        args:
+            plugin: Light_Kit_Admin
+            handler:
+                instance: Ling\Light_Kit_Admin\ChloroformExtension\LightKitAdminTableListConfigurationHandler
+                methods:
+                    setConfigurationFile:
+                        files:
+                            - ${app_dir}/config/data/Light_Kit_Admin/Light_ChloroformExtension/generated/lkagen-table_list.byml
+                            - ${app_dir}/config/data/Light_Kit_Admin/Light_ChloroformExtension/table_list.byml
+
+
 $controller_hub.methods_collection:
     -
         method: registerHandler
@@ -145,6 +155,15 @@ $controller_hub.methods_collection:
                     setContainer:
                         container: @container()
 
+$crud.methods_collection:
+    -
+        method: registerHandler
+        args:
+            pluginId: Light_Kit_Admin
+            handler:
+                instance: Ling\Light_Kit_Admin\Crud\CrudRequestHandler\LightKitAdminCrudRequestHandler
+
+
 
 $easy_route.methods_collection:
     -
@@ -152,13 +171,18 @@ $easy_route.methods_collection:
         args:
             file: config/data/Light_Kit_Admin/Light_EasyRoute/lka_routes.byml
 
-$initializer.methods_collection:
+
+$events.methods_collection:
     -
-        method: registerInitializer
+        method: registerListener
         args:
-            initializer: @service(kit_admin)
-            slot: install
-            parent: Light_UserDatabase
+            events: Light.Light.initialize_2
+            listener:
+                instance: @service(kit_admin)
+                callable_method: initialize
+
+
+
 
 
 $kit.methods_collection:
@@ -212,7 +236,7 @@ $realist.methods_collection:
         args:
             identifier: Light_Kit_Admin
             renderer:
-                instance: Ling\Bootstrap4AdminTable\Renderer\StandardBootstrap4AdminTableRenderer
+                instance: Ling\Light_Kit_Admin\Realist\Rendering\LightKitAdminRealistListRenderer
     -
         method: registerRealistRowsRenderer
         args:
@@ -238,6 +262,19 @@ $realist.methods_collection:
                 instance: Ling\Light_Kit_Admin\Realist\ListGeneralActionHandler\LightKitAdminListGeneralActionHandler
 
 
+$row_lookup.methods_collection:
+    -
+        method: registerConfigurationStorage
+        args:
+            plugin: Light_Kit_Admin
+            storage:
+                instance: Ling\Light_Kit_Admin\RowLookup\ConfigurationStorage\LightKitAdminRowLookupConfigurationStorage
+                methods:
+                    setBaseDir:
+                        dir: ${app_dir}/config/data/Light_Kit_Admin/Light_RowLookup/tables
+
+
+
 $user_database.methods_collection:
     -
         method: setRootAvatarUrl
@@ -257,6 +294,8 @@ $user_data_vars.install_parent_plugin: Light_Kit_Admin
 $user_data_vars.micro_permission_plugin: Light_Kit_Admin
 
 
+
+
 ```
 
 
@@ -273,6 +312,10 @@ $user_data_vars.micro_permission_plugin: Light_Kit_Admin
 History Log
 =============
         
+- 0.4.0 -- 2019-12-17
+
+    - update plugin to accommodate Light 0.50 new initialization system
+    
 - 0.3.0 -- 2019-12-06
 
     - checkpoint commit

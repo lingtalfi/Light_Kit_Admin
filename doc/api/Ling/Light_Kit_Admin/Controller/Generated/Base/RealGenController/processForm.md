@@ -63,7 +63,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [RealGenController::processForm](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Controller/Generated/Base/RealGenController.php#L67-L83)
+See the source code for method [RealGenController::processForm](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Controller/Generated/Base/RealGenController.php#L68-L85)
 
 
 See Also

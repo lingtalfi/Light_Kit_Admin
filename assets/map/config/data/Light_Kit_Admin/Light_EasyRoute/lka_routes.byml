@@ -33,10 +33,7 @@ Light_Kit_Admin:
         lka_route-group_has_permission:
             pattern: /permission/group_has_permission
             controller: Ling\Light_Kit_Admin\Controller\User\UserListController->render
-        lka_route-test:
-            pattern: /test
-            controller: Ling\Light_Kit_Admin\Controller\TestPageController->render
-        lka_route-test2:
-            pattern: /test2
-            controller: Ling\Light_Kit_Admin\Controller\Test2PageController->render
+        lka_route-tool_multiple_form_edit:
+            pattern: /tool/multiple-form-edit
+            controller: Ling\Light_Kit_Admin\Controller\Tools\MultipleFormEditController->render
 

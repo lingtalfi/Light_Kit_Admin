@@ -16,6 +16,7 @@ use Ling\Light_Flasher\Service\LightFlasher;
 use Ling\Light_Flasher\Service\LightFlasherService;
 use Ling\Light_Kit\PageConfigurationUpdator\PageConfUpdator;
 use Ling\Light_Kit\PageRenderer\LightKitPageRenderer;
+use Ling\Light_Kit_Admin\Exception\LightKitAdminException;
 use Ling\Light_Kit_Admin\Service\LightKitAdminService;
 use Ling\Light_MicroPermission\Service\LightMicroPermissionService;
 use Ling\Light_User\WebsiteLightUser;
@@ -112,6 +113,13 @@ class LightKitAdminController extends LightController implements RouteAwareContr
             "/plugins/Light_Kit_Admin/js/light-kit-admin-init.js",
         ]);
 
+        /**
+         * postForm is used by light kit admin environment (i.e. it's a dependency of lka)
+         */
+        $copilot->registerLibrary("postForm", [
+            "/libs/universe/Ling/JPostForm/post-form.js",
+        ]);
+
 
         /**
          * @var $kit LightKitPageRenderer
@@ -203,5 +211,17 @@ class LightKitAdminController extends LightController implements RouteAwareContr
             $redirectRoute = $this->getKitAdmin()->getOption("access_denied.access_denied_route");
             throw LightRedirectException::create()->setRedirectRoute($redirectRoute);
         }
+    }
+
+
+    /**
+     * Throws an exception.
+     *
+     * @param string $msg
+     * @throws LightKitAdminException
+     */
+    protected function error(string $msg)
+    {
+        throw new LightKitAdminException($msg);
     }
 }

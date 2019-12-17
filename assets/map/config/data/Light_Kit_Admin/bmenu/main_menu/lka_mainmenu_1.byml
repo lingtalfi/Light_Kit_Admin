@@ -19,6 +19,7 @@
             badge_text: HOT
             badge_class: bg-danger text-white
             children: []
+            active: true
             _right: Light_Kit_Admin.user
         -
             id: user-file_manager

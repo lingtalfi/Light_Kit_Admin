@@ -106,13 +106,18 @@ $easy_route.methods_collection:
         args:
             file: config/data/Light_Kit_Admin/Light_EasyRoute/lka_routes.byml
 
-$initializer.methods_collection:
+
+$events.methods_collection:
     -
-        method: registerInitializer
+        method: registerListener
         args:
-            initializer: @service(kit_admin)
-            slot: install
-            parent: Light_UserDatabase
+            events: Light.Light.initialize_2
+            listener:
+                instance: @service(kit_admin)
+                callable_method: initialize
+
+
+
 
 
 $kit.methods_collection:

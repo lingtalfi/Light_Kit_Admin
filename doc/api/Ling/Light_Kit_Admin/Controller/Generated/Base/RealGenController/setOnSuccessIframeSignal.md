@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [RealGenController::setOnSuccessIframeSignal](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Controller/Generated/Base/RealGenController.php#L91-L94)
+See the source code for method [RealGenController::setOnSuccessIframeSignal](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Controller/Generated/Base/RealGenController.php#L93-L96)
 
 
 See Also

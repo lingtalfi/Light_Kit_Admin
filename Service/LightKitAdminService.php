@@ -5,17 +5,16 @@ namespace Ling\Light_Kit_Admin\Service;
 
 
 use Ling\BabyYaml\Helper\BdotTool;
-use Ling\Light\Core\Light;
-use Ling\Light\Http\HttpRequestInterface;
+use Ling\Light\Events\LightEvent;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 use Ling\Light_ControllerHub\Service\LightControllerHubService;
-use Ling\Light_Initializer\Initializer\LightInitializerInterface;
 use Ling\Light_Kit_Admin\Notification\LightKitAdminNotification;
-//use Ling\Light_Kit_Admin\UserRowOwnership\LightKitAdminUserRowOwnershipManager;
 use Ling\Light_PluginDatabaseInstaller\Service\LightPluginDatabaseInstallerService;
 use Ling\Light_ReverseRouter\Service\LightReverseRouterService;
 use Ling\Light_UserDatabase\LightWebsiteUserDatabaseInterface;
 use Ling\SimplePdoWrapper\SimplePdoWrapperInterface;
+
+//use Ling\Light_Kit_Admin\UserRowOwnership\LightKitAdminUserRowOwnershipManager;
 
 /**
  * The LightKitAdminService class.
@@ -28,7 +27,7 @@ use Ling\SimplePdoWrapper\SimplePdoWrapperInterface;
  *
  *
  */
-class LightKitAdminService implements LightInitializerInterface
+class LightKitAdminService
 {
 
 
@@ -191,11 +190,19 @@ class LightKitAdminService implements LightInitializerInterface
     //
     //--------------------------------------------
     /**
-     * @implementation
+     * Listener for the @page(Light.initialize_2 event).
+     * It will populate the light kit admin data into the tables from the @page(Light_UserDatabase plugin).
+     *
+     * This listener depends on Light_UserDatabase plugin being installed first (hence using a level 2 light initializer).
+     * See more details on the @page(light events page).
+     *
+     *
+     * @param LightEvent $event
+     * @throws \Exception
      */
-    public function initialize(Light $light, HttpRequestInterface $httpRequest)
+    public function initialize(LightEvent $event)
     {
-        /**
+        /**light initializer
          * @var $pih LightPluginDatabaseInstallerService
          */
         $pih = $this->container->get("plugin_database_installer");
@@ -203,6 +210,8 @@ class LightKitAdminService implements LightInitializerInterface
             $pih->install("Light_Kit_Admin");
         }
     }
+
+
 
     /**
      * Installs the database part of this planet.
