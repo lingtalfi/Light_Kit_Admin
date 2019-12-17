@@ -176,7 +176,7 @@ $events.methods_collection:
     -
         method: registerListener
         args:
-            events: Light.Light.initialize_2
+            events: Light.initialize_2
             listener:
                 instance: @service(kit_admin)
                 callable_method: initialize
@@ -290,9 +290,7 @@ $user_database.methods_collection:
 # vars
 # --------------------------------------
 $user_database_vars.bullsheeter_avatar_img_dir: ${app_dir}/www/plugins/Light_Kit_Admin/img/avatars2
-$user_data_vars.install_parent_plugin: Light_Kit_Admin
 $user_data_vars.micro_permission_plugin: Light_Kit_Admin
-
 
 
 
@@ -312,6 +310,10 @@ $user_data_vars.micro_permission_plugin: Light_Kit_Admin
 History Log
 =============
         
+- 0.4.1 -- 2019-12-17
+
+    - fix functional typo in service configuration
+    
 - 0.4.0 -- 2019-12-17
 
     - update plugin to accommodate Light 0.50 new initialization system
