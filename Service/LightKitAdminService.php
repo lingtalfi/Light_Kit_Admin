@@ -6,12 +6,16 @@ namespace Ling\Light_Kit_Admin\Service;
 
 use Ling\BabyYaml\Helper\BdotTool;
 use Ling\Light\Events\LightEvent;
+use Ling\Light\Http\HttpRedirectResponse;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 use Ling\Light_ControllerHub\Service\LightControllerHubService;
+use Ling\Light_Kit_Admin\Exception\LightKitAdminMicroPermissionDeniedException;
+use Ling\Light_Kit_Admin\LightKitAdminPlugin\LightKitAdminPluginInterface;
 use Ling\Light_Kit_Admin\Notification\LightKitAdminNotification;
-use Ling\Light_PluginDatabaseInstaller\Service\LightPluginDatabaseInstallerService;
+use Ling\Light_PluginInstaller\PluginInstaller\PluginInstallerInterface;
+use Ling\Light_PluginInstaller\Service\LightPluginInstallerService;
 use Ling\Light_ReverseRouter\Service\LightReverseRouterService;
-use Ling\Light_UserDatabase\LightWebsiteUserDatabaseInterface;
+use Ling\Light_UserDatabase\Service\LightUserDatabaseService;
 use Ling\SimplePdoWrapper\SimplePdoWrapperInterface;
 
 //use Ling\Light_Kit_Admin\UserRowOwnership\LightKitAdminUserRowOwnershipManager;
@@ -27,7 +31,7 @@ use Ling\SimplePdoWrapper\SimplePdoWrapperInterface;
  *
  *
  */
-class LightKitAdminService
+class LightKitAdminService implements PluginInstallerInterface
 {
 
 
@@ -53,6 +57,20 @@ class LightKitAdminService
      */
     protected $options;
 
+    /**
+     *
+     * This property holds the lkaPlugins for this instance.
+     * It's an array of pluginName => LightKitAdminPluginInterface.
+     * @var LightKitAdminPluginInterface[]
+     */
+    protected $lkaPlugins;
+
+    /**
+     * This property holds the lkaPluginOptions for this instance.
+     * @var array
+     */
+    protected $lkaPluginOptions;
+
 //    /**
 //     * This property holds the userRowOwnershipManager for this instance.
 //     * @var LightKitAdminUserRowOwnershipManager
@@ -67,6 +85,8 @@ class LightKitAdminService
     {
         $this->notifications = [];
         $this->options = [];
+        $this->lkaPlugins = [];
+        $this->lkaPluginOptions = [];
         $this->container = null;
     }
 
@@ -110,6 +130,33 @@ class LightKitAdminService
 
 
     /**
+     * Registers the give plugin to the light kit admin service.
+     *
+     * @param string $pluginName
+     * @param LightKitAdminPluginInterface $plugin
+     */
+    public function registerPlugin(string $pluginName, LightKitAdminPluginInterface $plugin)
+    {
+        $this->lkaPlugins[$pluginName] = $plugin;
+        $this->lkaPluginOptions = array_replace_recursive($this->lkaPluginOptions, $plugin->getPluginOptions());
+    }
+
+    /**
+     * Returns the lka plugin option value identified by the given key (@page(bdot path)),
+     * or returns the given $default otherwise (if the key is not found).
+     *
+     *
+     * @param string $key
+     * @param null $default
+     * @return mixed
+     */
+    public function getPluginOption(string $key, $default = null)
+    {
+        return BdotTool::getDotValue($key, $this->lkaPluginOptions, $default);
+    }
+
+
+    /**
      * Returns the notifications of this instance.
      *
      * @return LightKitAdminNotification[]
@@ -138,9 +185,6 @@ class LightKitAdminService
 //    {
 //        $this->userRowOwnershipManager = $userRowOwnershipManager;
 //    }
-
-
-
 
 
     /**
@@ -184,62 +228,131 @@ class LightKitAdminService
     }
 
 
+    /**
+     * Creates and returns an HttpRedirectResponse, based on the given arguments.
+     *
+     * @param string $route
+     * @param array $urlParams
+     * @return HttpRedirectResponse
+     * @throws \Exception
+     */
+    public function getRedirectResponseByRoute(string $route, array $urlParams = [])
+    {
+        /**
+         * @var $rr LightReverseRouterService
+         */
+        $rr = $this->container->get("reverse_router");
+        $url = $rr->getUrl($route, $urlParams, true);
+        return HttpRedirectResponse::create($url);
+    }
+
+
+    /**
+     *
+     * Handles the following exceptions in a special way:
+     *
+     * - LightKitAdminMicroPermissionDeniedException:
+     *      redirect the user to the "access denied" page (access_denied.access_denied_route in the service configuration)
+     *
+     *
+     *
+     *
+     * @param LightEvent $event
+     *
+     */
+    public function onLightExceptionCaught(LightEvent $event): void
+    {
+        $e = $event->getVar("exception");
+        if ($e instanceof LightKitAdminMicroPermissionDeniedException) {
+            $redirectRoute = $this->getOption("access_denied.access_denied_route");
+            $urlParams = $_GET;
+            $this->container->get("flasher")->addFlash("AdminPageControllerForbidden", $e->getMessage(), "w");
+            $response = $this->getRedirectResponseByRoute($redirectRoute, $urlParams);
+            $event->setVar("httpResponse", $response);
+        }
+    }
 
 
     //--------------------------------------------
     //
     //--------------------------------------------
     /**
-     * Listener for the @page(Light.initialize_2 event).
-     * It will populate the light kit admin data into the tables from the @page(Light_UserDatabase plugin).
-     *
-     * This listener depends on Light_UserDatabase plugin being installed first (hence using a level 2 light initializer).
-     * See more details on the @page(light events page).
-     *
-     *
-     * @param LightEvent $event
-     * @throws \Exception
+     * @implementation
      */
-    public function initialize(LightEvent $event)
+    public function install()
     {
-        /**light initializer
-         * @var $pih LightPluginDatabaseInstallerService
+
+        //--------------------------------------------
+        // PROTECTIVE INSTALL
+        //--------------------------------------------
+        /**
+         * @var $installer LightPluginInstallerService
          */
-        $pih = $this->container->get("plugin_database_installer");
-        if (false === $pih->isInstalled("Light_Kit_Admin")) {
-            $pih->install("Light_Kit_Admin");
+        $installer = $this->container->get("plugin_installer");
+        if (
+            true === $installer->hasTable("lud_permission_group") &&
+            true === $installer->tableHasColumnValue("lud_permission_group", "name", "Light_Kit_Admin.admin")
+        ) {
+            return;
         }
-    }
 
 
-
-    /**
-     * Installs the database part of this planet.
-     *
-     * @throws \Exception
-     */
-    public function installDatabase()
-    {
-
-
+        //--------------------------------------------
+        //
+        //--------------------------------------------
         /**
          * @var $db SimplePdoWrapperInterface
          */
         $db = $this->container->get("database");
+
+
+        /**
+         * @var $userDb LightUserDatabaseService
+         */
+        $userDb = $this->container->get("user_database");
+
         /**
          * @var $exception \Exception
          */
         $exception = null;
-        $res = $db->transaction(function () {
+        $res = $db->transaction(function () use ($userDb) {
 
 
             /**
-             * @var $userDb LightWebsiteUserDatabaseInterface
+             * Here we will do the following:
+             *
+             * - create "lka_admin" user in the "default" user group
+             * - create a "lka_dude" user in the "default" user group
+             *
+             * - create a "Light_Kit_Admin.admin" permission group
+             * - create a "Light_Kit_Admin.user" permission group
+             *
+             * - create a "Light_Kit_Admin.admin" permission
+             * - create a "Light_Kit_Admin.user" permission
+             *
+             * - bind the "Light_Kit_Admin.admin" permission to the "Light_Kit_Admin.admin" permission group
+             * - bind the "Light_Kit_Admin.user" permission to the "Light_Kit_Admin.admin" permission group
+             * - bind the "Light_Kit_Admin.user" permission to the "Light_Kit_Admin.user" permission group
+             *
+             * - bind the "lka_admin" user to the "Light_Kit_Admin.admin" permission group
+             * - bind the "lka_dude" user to the "Light_Kit_Admin.user" permission group
+             *
              */
-            $userDb = $this->container->get("user_database");
 
+
+            $defaultGroupId = $userDb->getUserGroupApi()->getUserGroupIdByName('default');
+
+            $adminId = $userDb->addUser([
+                'user_group_id' => $defaultGroupId,
+                'identifier' => "lka_admin",
+                'pseudo' => "Boss",
+                'password' => "boss",
+                'avatar_url' => "/plugins/Light_Kit_Admin/img/avatars/lka_admin.png",
+                'extra' => [],
+            ]);
 
             $userId = $userDb->addUser([
+                'user_group_id' => $defaultGroupId,
                 'identifier' => "lka_dude",
                 'pseudo' => "Dude",
                 'password' => "dude",
@@ -247,13 +360,6 @@ class LightKitAdminService
                 'extra' => [],
             ]);
 
-            $adminId = $userDb->addUser([
-                'identifier' => "lka_admin",
-                'pseudo' => "Boss",
-                'password' => "boss",
-                'avatar_url' => "/plugins/Light_Kit_Admin/img/avatars/lka_admin.png",
-                'extra' => [],
-            ]);
 
             $groupAdminId = $userDb->getPermissionGroupApi()->insertPermissionGroup([
                 "name" => "Light_Kit_Admin.admin",
@@ -275,6 +381,12 @@ class LightKitAdminService
                 "permission_group_id" => $groupAdminId,
                 "permission_id" => $permissionAdminId,
             ]);
+
+            $userDb->getPermissionGroupHasPermissionApi()->insertPermissionGroupHasPermission([
+                "permission_group_id" => $groupAdminId,
+                "permission_id" => $permissionUserId,
+            ]);
+
             $userDb->getPermissionGroupHasPermissionApi()->insertPermissionGroupHasPermission([
                 "permission_group_id" => $groupUserId,
                 "permission_id" => $permissionUserId,
@@ -284,21 +396,15 @@ class LightKitAdminService
             //--------------------------------------------
             // USERS
             //--------------------------------------------
-            // user
-            $userDb->getUserHasPermissionGroupApi()->insertUserHasPermissionGroup([
-                "user_id" => $userId,
-                "permission_group_id" => $groupUserId,
-            ]);
-
-
             // admin
             $userDb->getUserHasPermissionGroupApi()->insertUserHasPermissionGroup([
                 "user_id" => $adminId,
                 "permission_group_id" => $groupAdminId,
             ]);
 
+            // user
             $userDb->getUserHasPermissionGroupApi()->insertUserHasPermissionGroup([
-                "user_id" => $adminId,
+                "user_id" => $userId,
                 "permission_group_id" => $groupUserId,
             ]);
 
@@ -312,51 +418,66 @@ class LightKitAdminService
 
 
     /**
-     * Uninstalls the database part of this planet.
-     *
-     * @throws \Exception
+     * @implementation
      */
-    public function uninstallDatabase()
+    public function uninstall()
     {
         /**
-         * @var $wrapper SimplePdoWrapperInterface
+         * @var $installer LightPluginInstallerService
          */
-        $wrapper = $this->container->get('database');
-        /**
-         * @var $exception \Exception
-         */
-        $exception = null;
-        $res = $wrapper->transaction(function () use ($wrapper) {
+        $installer = $this->container->get("plugin_installer");
+        if (true === $installer->hasTable("lud_user")) {
 
-            $wrapper->delete("lud_user", [
-                "identifier" => "lka_dude",
-            ]);
 
-            $wrapper->delete("lud_user", [
-                "identifier" => "lka_admin",
-            ]);
-            $wrapper->delete("lud_permission_group", [
-                "name" => "Light_Kit_Admin.admin",
-            ]);
-            $wrapper->delete("lud_permission_group", [
-                "name" => "Light_Kit_Admin.user",
-            ]);
+            /**
+             * @var $wrapper SimplePdoWrapperInterface
+             */
+            $wrapper = $this->container->get('database');
+            /**
+             * @var $exception \Exception
+             */
+            $exception = null;
+            $res = $wrapper->transaction(function () use ($wrapper) {
 
-            $wrapper->delete("lud_permission", [
-                "name" => "Light_Kit_Admin.admin",
-            ]);
+                $wrapper->delete("lud_user", [
+                    "identifier" => "lka_dude",
+                ]);
 
-            $wrapper->delete("lud_permission", [
-                "name" => "Light_Kit_Admin.user",
-            ]);
+                $wrapper->delete("lud_user", [
+                    "identifier" => "lka_admin",
+                ]);
+                $wrapper->delete("lud_permission_group", [
+                    "name" => "Light_Kit_Admin.admin",
+                ]);
+                $wrapper->delete("lud_permission_group", [
+                    "name" => "Light_Kit_Admin.user",
+                ]);
 
-        }, $exception);
+                $wrapper->delete("lud_permission", [
+                    "name" => "Light_Kit_Admin.admin",
+                ]);
 
-        if (false === $res) {
-            throw $exception;
+                $wrapper->delete("lud_permission", [
+                    "name" => "Light_Kit_Admin.user",
+                ]);
+
+            }, $exception);
+
+            if (false === $res) {
+                throw $exception;
+            }
         }
-
-
     }
+
+    /**
+     * @implementation
+     */
+    public function getDependencies(): array
+    {
+        return [
+            "Light_UserDatabase",
+        ];
+    }
+
 
 }

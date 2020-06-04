@@ -5,9 +5,8 @@ namespace Ling\Light_Kit_Admin\Controller;
 
 
 use Ling\Light\Http\HttpResponseInterface;
-use Ling\Light_AjaxHandler\Service\LightAjaxHandlerService;
-use Ling\Light_CsrfSession\Service\LightCsrfSessionService;
-use Ling\Light_RowLookup\Service\LightRowLookupService;
+use Ling\Light_MicroPermission\Service\LightMicroPermissionService;
+use Ling\Light_UserDatabase\Service\LightUserDatabaseService;
 
 /**
  * The TestPageController class.
@@ -26,48 +25,31 @@ class TestPageController extends AdminPageController
     public function render()
     {
 
-        $defaultPage = 'Light_Kit_Admin/kit/zeroadmin/test/test';
-
-
-        //--------------------------------------------
-        //
-        //--------------------------------------------
-        $identifier = 'Light_Kit_Admin.lud_user_has_permission_group';
-        /**
-         * @var $lookup LightRowLookupService
-         */
-        $lookup = $this->getContainer()->get('row_lookup');
-        list($pane1Info, $pane2Info, $pane1FormInfo, $pane2FormInfo) = $lookup->init($identifier);
-
 
         /**
-         * @var $csrfService LightCsrfSessionService
+         * @var $microService LightMicroPermissionService
          */
-        $csrfService = $this->getContainer()->get('csrf_session');
-        $csrfToken = $csrfService->getToken();
-
+        $microService = $this->getContainer()->get("micro_permission");
+        $microService->disableNamespace("tables");
 
         /**
-         * @var $ajaxHandler LightAjaxHandlerService
+         * @var $userDb LightUserDatabaseService
          */
-        $ajaxHandler = $this->getContainer()->get("ajax_handler");
-        $ajaxHandlerUrl = $ajaxHandler->getServiceUrl();
 
-        //--------------------------------------------
-        //
-        //--------------------------------------------
-        $page = $_GET['page'] ?? $defaultPage;
-        $this->checkRight("Light_Kit_Admin.admin");
-        $params = [
-            'ajaxHandlerUrl' => $ajaxHandlerUrl,
-            'ajaxHandlerId' => 'Light_RowLookup',
-            'identifier' => $identifier,
-            'csrfToken' => $csrfToken,
-            'pane1Info' => $pane1Info,
-            'pane2Info' => $pane2Info,
-            'pane1FormInfo' => $pane1FormInfo,
-            'pane2FormInfo' => $pane2FormInfo,
-        ];
-        return $this->renderAdminPage($page, $params);
+        $userDb = $this->getContainer()->get("user_database");
+        $userDb->addUser([
+            "user_group_id" => $userDb->getUserGroupApi()->getUserGroupIdByName("default"),
+            "identifier" => "reynolds",
+            "pseudo" => "reynolds",
+            "password" => "maurice",
+            "avatar_url" => "",
+            "extra" => [],
+
+        ]);
+
+
+        $microService->restoreNamespaces();
+
+        return "ok";
     }
 }

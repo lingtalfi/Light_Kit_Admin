@@ -33,7 +33,7 @@ class LightKitAdminListGeneralActionHandler extends LightRealistBaseListGeneralA
             case "realist-generate_random_rows":
                 $this->decorateGenericActionItemByAssets($actionName, $genericActionItem, $requestId, __DIR__);
                 $table = $this->getTableNameByRequestId($requestId);
-                return $this->hasMicroPermission("Light_Kit_Admin.tables.$table.create");
+                return $this->hasMicroPermission("tables.$table.create");
                 break;
             case "realist-save_table":
                 $table = $this->getTableNameByRequestId($requestId);
@@ -44,7 +44,7 @@ class LightKitAdminListGeneralActionHandler extends LightRealistBaseListGeneralA
                         "table" => $table,
                     ],
                 ]);
-                return $this->hasMicroPermission("Light_Kit_Admin.tables.$table.read");
+                return $this->hasMicroPermission("tables.$table.read");
                 break;
             case "realist-load_table":
                 $table = $this->getTableNameByRequestId($requestId);
@@ -60,7 +60,7 @@ class LightKitAdminListGeneralActionHandler extends LightRealistBaseListGeneralA
                         "table" => $table,
                     ],
                 ]);
-                return $this->hasMicroPermission("Light_Kit_Admin.tables.$table.create");
+                return $this->hasMicroPermission("tables.$table.create");
                 break;
             default:
                 break;
@@ -129,7 +129,7 @@ class LightKitAdminListGeneralActionHandler extends LightRealistBaseListGeneralA
                 //--------------------------------------------
                 // CHECK PERMISSION
                 //--------------------------------------------
-                $this->checkMicroPermission("Light_Kit_Admin.tables.$table.create");
+                $this->checkMicroPermission("tables.$table.create");
 
 
                 //--------------------------------------------
@@ -142,7 +142,8 @@ class LightKitAdminListGeneralActionHandler extends LightRealistBaseListGeneralA
                         $bullsheetTable = "Light_UserDatabase.lud_user";
                         break;
                     default:
-                        $this->error("Unhandled table $table.");
+                        $bullsheetTable = "Light_Kit_Admin.default";
+//                        $this->error("Unhandled table $table.");
                         break;
                 }
 
@@ -152,7 +153,9 @@ class LightKitAdminListGeneralActionHandler extends LightRealistBaseListGeneralA
                  */
                 $bull = $this->container->get("bullsheet");
 
-                $bull->generateRows($bullsheetTable, $number);
+                $bull->generateRows($bullsheetTable, $number, [
+                    "table" => $table,
+                ]);
                 return [
                     "type" => "success",
                     "toast_type" => "success",
@@ -208,7 +211,7 @@ class LightKitAdminListGeneralActionHandler extends LightRealistBaseListGeneralA
                     //--------------------------------------------
                     // CHECK PERMISSION
                     //--------------------------------------------
-                    $this->checkMicroPermission("Light_Kit_Admin.tables.$table.read");
+                    $this->checkMicroPermission("tables.$table.read");
 
 
                     //--------------------------------------------
@@ -292,7 +295,7 @@ class LightKitAdminListGeneralActionHandler extends LightRealistBaseListGeneralA
                 //--------------------------------------------
                 // CHECK PERMISSION
                 //--------------------------------------------
-                $this->checkMicroPermission("Light_Kit_Admin.tables.$table.create");
+                $this->checkMicroPermission("tables.$table.create");
 
 
                 //--------------------------------------------

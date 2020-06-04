@@ -51,7 +51,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [MultipleFormEditController::render](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Controller/Tools/MultipleFormEditController.php#L29-L89)
+See the source code for method [MultipleFormEditController::render](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Controller/Tools/MultipleFormEditController.php#L31-L99)
 
 
 See Also

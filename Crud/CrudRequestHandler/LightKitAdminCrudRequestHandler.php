@@ -13,14 +13,4 @@ class LightKitAdminCrudRequestHandler extends LightBaseCrudRequestHandler
 {
 
 
-    /**
-     * @overrides
-     */
-    public function __construct()
-    {
-        parent::__construct();
-        $this->pluginName = 'Light_Kit_Admin';
-    }
-
-
 }

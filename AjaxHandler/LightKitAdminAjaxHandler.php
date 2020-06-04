@@ -4,24 +4,26 @@
 namespace Ling\Light_Kit_Admin\AjaxHandler;
 
 
-use Ling\Light_AjaxHandler\Handler\ContainerAwareLightAjaxHandler;
+use Ling\Light\Http\HttpRequestInterface;
+use Ling\Light_AjaxHandler\Handler\BaseLightAjaxHandler;
 use Ling\Light_Kit_Admin\Exception\LightKitAdminException;
 use Ling\Light_Realist\Service\LightRealistService;
 
 /**
  * The LightKitAdminAjaxHandler class.
  */
-class LightKitAdminAjaxHandler extends ContainerAwareLightAjaxHandler
+class LightKitAdminAjaxHandler extends BaseLightAjaxHandler
 {
 
 
     /**
      * @implementation
      */
-    public function handle(string $actionId, array $params): array
+    protected function doHandle(string $action, HttpRequestInterface $request): array
     {
+        $params = $request->getPost();
         $response = [];
-        switch ($actionId) {
+        switch ($action) {
             //--------------------------------------------
             // LIST ACTIONS
             //--------------------------------------------
@@ -34,7 +36,7 @@ class LightKitAdminAjaxHandler extends ContainerAwareLightAjaxHandler
             case "realist-rows_to_html":
             case "realist-rows_to_csv":
             case "realist-rows_to_pdf":
-                $response = $this->executeListAction($actionId, $params);
+                $response = $this->executeListAction($action, $params);
                 break;
             //--------------------------------------------
             // GENERAL LIST ACTIONS
@@ -42,10 +44,10 @@ class LightKitAdminAjaxHandler extends ContainerAwareLightAjaxHandler
             case "realist-generate_random_rows":
             case "realist-save_table":
             case "realist-load_table":
-                $response = $this->executeListGeneralAction($actionId, $params);
+                $response = $this->executeListGeneralAction($action, $params);
                 break;
             default:
-                throw new LightKitAdminException("LightKitAdminAjaxHandler: Unknown action $actionId.");
+                throw new LightKitAdminException("LightKitAdminAjaxHandler: Unknown action $action.");
                 break;
         }
         return $response;

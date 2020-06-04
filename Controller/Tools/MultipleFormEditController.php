@@ -10,6 +10,8 @@ use Ling\Light_CsrfSession\Service\LightCsrfSessionService;
 use Ling\Light_Kit\PageConfigurationUpdator\PageConfUpdator;
 use Ling\Light_Kit_Admin\Controller\AdminPageController;
 use Ling\Light_Realform\Routine\LightRealformRoutineTwo;
+use Ling\Light_UserRowRestriction\Service\LightUserRowRestrictionService;
+use Ling\SqlWizard\Tool\SqlWizardGeneralTool;
 
 
 /**
@@ -28,7 +30,6 @@ class MultipleFormEditController extends AdminPageController
      */
     public function render(): HttpResponseInterface
     {
-
 
         if (
             array_key_exists("table", $_POST) &&
@@ -63,11 +64,21 @@ class MultipleFormEditController extends AdminPageController
         }
 
 
+        $prefix = SqlWizardGeneralTool::getTablePrefix($table);
+        $mfeOptions = $this->getKitAdmin()->getPluginOption("multipleFormEditor.prefixes.$prefix", []);
+
+        $realFormIdentifier = $mfeOptions["realform_identifier"] ?? "Light_Kit_Admin.generated/{table}";
+        $page = $mfeOptions["kit_page"] ?? "Light_Kit_Admin/kit/zeroadmin/generated/{table}_form";
+        $widgetName = $mfeOptions["widget_name"] ?? "lka_chloroform";
+
+
+        $realFormIdentifier = str_replace('{table}', $table, $realFormIdentifier);
+        $page = str_replace('{table}', $table, $page);
+
+
         $routine = new LightRealformRoutineTwo();
-        $realFormIdentifier = "Light_Kit_Admin.generated/$table";
         $routine->setContainer($this->getContainer());
         $form = $routine->processForm($realFormIdentifier, $table, $rics, [
-            "pluginName" => "Light_Kit_Admin",
             'post' => [
                 "table" => $table,
                 "rics" => $rics,
@@ -75,7 +86,6 @@ class MultipleFormEditController extends AdminPageController
         ]);
 
 
-        $page = "Light_Kit_Admin/kit/zeroadmin/generated/$table" . "_form";
         //--------------------------------------------
         // RENDERING
         //--------------------------------------------
@@ -83,7 +93,7 @@ class MultipleFormEditController extends AdminPageController
         return $this->renderAdminPage($page, [
             "form" => $form,
             "parent_layout" => "Light_Kit_Admin/kit/zeroadmin/dev/mainlayout_base",
-        ], PageConfUpdator::create()->updateWidget('body.lka_chloroform', function (&$conf) {
+        ], PageConfUpdator::create()->updateWidget('body.' . $widgetName, function (&$conf) {
             $conf['vars']['title'] .= ' (multiple edit)';
         }));
     }
