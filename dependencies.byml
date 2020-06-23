@@ -37,6 +37,7 @@ dependencies:
         - Chloroform_HeliumRenderer
         - FontAwesome
         - JPostForm
+        - Jquery
     
 
 post_install: 

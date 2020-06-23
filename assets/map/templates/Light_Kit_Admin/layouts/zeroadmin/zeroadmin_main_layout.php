@@ -13,7 +13,7 @@ $this->copilot->registerLibrary("FontAwesome", [], [
     '/libs/universe/Ling/FontAwesome/5.13/css/all.min.css',
 ]);
 
-$copilot->registerLibrary("Jquery", [], [], [
+$this->copilot->registerLibrary("Jquery", [], [], [
     'override' => true,
 ]); // hard written in this file
 

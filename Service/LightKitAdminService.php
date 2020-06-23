@@ -283,16 +283,19 @@ class LightKitAdminService implements PluginInstallerInterface
     {
 
         //--------------------------------------------
-        // PROTECTIVE INSTALL
+        // DB TABLES INSTALL
         //--------------------------------------------
         /**
-         * @var $installer LightPluginInstallerService
+         * The peculiarity of lka plugin is that it doesn't own any tables.
+         * Instead, it uses the tables provided by the Light_UserDatabase plugin.
+         *
          */
-        $installer = $this->container->get("plugin_installer");
-        if (
-            true === $installer->hasTable("lud_permission_group") &&
-            true === $installer->tableHasColumnValue("lud_permission_group", "name", "Light_Kit_Admin.admin")
-        ) {
+
+
+        //--------------------------------------------
+        // PROTECTIVE INSTALL
+        //--------------------------------------------
+        if (true === $this->isInstalled()) {
             return;
         }
 
@@ -315,6 +318,13 @@ class LightKitAdminService implements PluginInstallerInterface
          * @var $exception \Exception
          */
         $exception = null;
+
+
+        /**
+         * @var $installer LightPluginInstallerService
+         */
+        $installer = $this->container->get("plugin_installer");
+        $installer->debugLog("kit_admin: adding tables content.");
         $res = $db->transaction(function () use ($userDb) {
 
 
@@ -426,13 +436,17 @@ class LightKitAdminService implements PluginInstallerInterface
          * @var $installer LightPluginInstallerService
          */
         $installer = $this->container->get("plugin_installer");
+        $installer->debugLog("kit_admin: removing tables content.");
+
+        /**
+         * @var $wrapper SimplePdoWrapperInterface
+         */
+        $wrapper = $this->container->get('database');
+
+
         if (true === $installer->hasTable("lud_user")) {
 
 
-            /**
-             * @var $wrapper SimplePdoWrapperInterface
-             */
-            $wrapper = $this->container->get('database');
             /**
              * @var $exception \Exception
              */
@@ -446,12 +460,44 @@ class LightKitAdminService implements PluginInstallerInterface
                 $wrapper->delete("lud_user", [
                     "identifier" => "lka_admin",
                 ]);
+            }, $exception);
+
+            if (false === $res) {
+                throw $exception;
+            }
+        }
+
+        if (true === $installer->hasTable("lud_permission_group")) {
+
+
+            /**
+             * @var $exception \Exception
+             */
+            $exception = null;
+            $res = $wrapper->transaction(function () use ($wrapper) {
+
                 $wrapper->delete("lud_permission_group", [
                     "name" => "Light_Kit_Admin.admin",
                 ]);
                 $wrapper->delete("lud_permission_group", [
                     "name" => "Light_Kit_Admin.user",
                 ]);
+
+            }, $exception);
+
+            if (false === $res) {
+                throw $exception;
+            }
+        }
+
+        if (true === $installer->hasTable("lud_permission")) {
+
+
+            /**
+             * @var $exception \Exception
+             */
+            $exception = null;
+            $res = $wrapper->transaction(function () use ($wrapper) {
 
                 $wrapper->delete("lud_permission", [
                     "name" => "Light_Kit_Admin.admin",
@@ -468,6 +514,26 @@ class LightKitAdminService implements PluginInstallerInterface
             }
         }
     }
+
+
+    /**
+     * @implementation
+     */
+    public function isInstalled(): bool
+    {
+        /**
+         * @var $installer LightPluginInstallerService
+         */
+        $installer = $this->container->get("plugin_installer");
+        if (
+            true === $installer->hasTable("lud_permission_group") &&
+            true === $installer->tableHasColumnValue("lud_permission_group", "name", "Light_Kit_Admin.admin")
+        ) {
+            return true;
+        }
+        return false;
+    }
+
 
     /**
      * @implementation

@@ -4,7 +4,7 @@
 
 The ForbiddenController class
 ================
-2019-05-17 --> 2020-06-04
+2019-05-17 --> 2020-06-23
 
 
 
@@ -90,4 +90,4 @@ See the source code of [Ling\Light_Kit_Admin\Controller\ForbiddenController](htt
 
 SeeAlso
 ==============
-Previous class: [DashboardController](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/DashboardController.md)<br>Next class: [LightKitAdminController](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController.md)<br>
+Previous class: [DashboardController](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/DashboardController.md)<br>Next class: [ForgottenPasswordController](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/ForgottenPasswordController.md)<br>
