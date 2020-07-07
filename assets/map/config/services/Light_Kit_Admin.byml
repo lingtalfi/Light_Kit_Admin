@@ -51,7 +51,7 @@ $bmenu.methods_collection:
                     setMenuStructureId:
                         id: lka_mainmenu_1
                     setDefaultItemsParentPath:
-                        path: plugins
+                        path: lka-plugins
 
 $bullsheet.methods_collection:
     -

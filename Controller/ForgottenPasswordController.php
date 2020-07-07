@@ -9,14 +9,14 @@ use Ling\Light\Http\HttpRequestInterface;
 use Ling\Light\Http\HttpResponseInterface;
 
 /**
- * The DashboardController class.
+ * The ForgottenPasswordController class.
  */
 class ForgottenPasswordController extends LightKitAdminController
 {
 
 
     /**
-     * Renders the dashboard page and returns the result.
+     * Renders the forgot password page and returns the result.
      *
      * @param HttpRequestInterface $httpRequest
      * @return string|HttpResponseInterface
@@ -41,12 +41,16 @@ class ForgottenPasswordController extends LightKitAdminController
             }
 
 
-            /**
-             * Todo: here email not found in database...
-             */
-            $matchingUser = $this->getContainer()->get("user_database")->getFactory()->getUserApi()->getUserByIdentifier($email);
-            if (null === $matchingUser) {
-                $error = "This email wasn't found in our database, please consider registering first.";
+            if ('' === $error) {
+                $matchingUsers = $this->getContainer()->get("user_database")->getFactory()->getUserApi()->getUsersByEmail($email);
+                if ($matchingUsers) {
+
+                    az($matchingUsers);
+
+
+                } else {
+                    $error = "This email wasn't found in our database, please consider registering first.";
+                }
             }
 
         }

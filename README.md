@@ -1,6 +1,6 @@
 Light_Kit_Admin
 ===========
-2019-10-24 -> 2020-06-23
+2019-10-24 -> 2020-07-07
 
 
 
@@ -119,7 +119,7 @@ $bmenu.methods_collection:
                     setMenuStructureId:
                         id: lka_mainmenu_1
                     setDefaultItemsParentPath:
-                        path: plugins
+                        path: lka-plugins
 
 $bullsheet.methods_collection:
     -
@@ -266,6 +266,7 @@ $user_database_vars.bullsheeter_avatar_img_dir: ${app_dir}/www/plugins/Light_Kit
 
 
 
+
 ```
 
 
@@ -282,6 +283,10 @@ $user_database_vars.bullsheeter_avatar_img_dir: ${app_dir}/www/plugins/Light_Kit
 History Log
 =============
         
+- 0.7.0 -- 2020-07-07
+
+    - checkpoint commit
+    
 - 0.6.0 -- 2020-06-23
 
     - checkpoint commit

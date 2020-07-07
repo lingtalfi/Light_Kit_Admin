@@ -7,7 +7,7 @@ LightKitAdminService::registerPlugin
 
 
 
-LightKitAdminService::registerPlugin — Registers the give plugin to the light kit admin service.
+LightKitAdminService::registerPlugin — Registers the given plugin to the light kit admin service.
 
 
 
@@ -21,7 +21,7 @@ public [LightKitAdminService::registerPlugin](https://github.com/lingtalfi/Light
 
 
 
-Registers the give plugin to the light kit admin service.
+Registers the given plugin to the light kit admin service.
 
 
 

@@ -23,7 +23,6 @@ dependencies:
         - Light_MicroPermission
         - Light_UserDatabase
         - Light_Realform
-        - Light_UserRowRestriction
         - SqlWizard
         - Light_ControllerHub
         - Light_Crud

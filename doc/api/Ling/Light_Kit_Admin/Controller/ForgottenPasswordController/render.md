@@ -7,7 +7,7 @@ ForgottenPasswordController::render
 
 
 
-ForgottenPasswordController::render — Renders the dashboard page and returns the result.
+ForgottenPasswordController::render — Renders the forgot password page and returns the result.
 
 
 
@@ -21,7 +21,7 @@ public [ForgottenPasswordController::render](https://github.com/lingtalfi/Light_
 
 
 
-Renders the dashboard page and returns the result.
+Renders the forgot password page and returns the result.
 
 
 
@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [ForgottenPasswordController::render](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Controller/ForgottenPasswordController.php#L25-L59)
+See the source code for method [ForgottenPasswordController::render](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Controller/ForgottenPasswordController.php#L25-L63)
 
 
 See Also

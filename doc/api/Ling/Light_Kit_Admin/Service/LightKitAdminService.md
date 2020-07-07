@@ -4,7 +4,7 @@
 
 The LightKitAdminService class
 ================
-2019-05-17 --> 2020-06-23
+2019-05-17 --> 2020-07-07
 
 
 
@@ -103,7 +103,7 @@ Methods
 - [LightKitAdminService::setContainer](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/setContainer.md) &ndash; Sets the container.
 - [LightKitAdminService::setOptions](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/setOptions.md) &ndash; Set the options for this light kit admin service instance.
 - [LightKitAdminService::getOption](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/getOption.md) &ndash; or returns the given $default otherwise (if the key is not found in the options array).
-- [LightKitAdminService::registerPlugin](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/registerPlugin.md) &ndash; Registers the give plugin to the light kit admin service.
+- [LightKitAdminService::registerPlugin](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/registerPlugin.md) &ndash; Registers the given plugin to the light kit admin service.
 - [LightKitAdminService::getPluginOption](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/getPluginOption.md) &ndash; or returns the given $default otherwise (if the key is not found).
 - [LightKitAdminService::getNotifications](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/getNotifications.md) &ndash; Returns the notifications of this instance.
 - [LightKitAdminService::addNotification](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/addNotification.md) &ndash; Adds a notification to this instance.

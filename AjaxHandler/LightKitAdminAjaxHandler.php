@@ -21,7 +21,10 @@ class LightKitAdminAjaxHandler extends BaseLightAjaxHandler
      */
     protected function doHandle(string $action, HttpRequestInterface $request): array
     {
-        $params = $request->getPost();
+        $post = $request->getPost();
+        $get = $request->getGet();
+        $params = array_replace($get, $post);
+
         $response = [];
         switch ($action) {
             //--------------------------------------------

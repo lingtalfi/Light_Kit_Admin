@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightKitAdminAjaxHandler::error](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/AjaxHandler/LightKitAdminAjaxHandler.php#L67-L70)
+See the source code for method [LightKitAdminAjaxHandler::error](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/AjaxHandler/LightKitAdminAjaxHandler.php#L70-L73)
 
 
 See Also

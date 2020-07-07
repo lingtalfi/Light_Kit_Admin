@@ -130,7 +130,7 @@ class LightKitAdminService implements PluginInstallerInterface
 
 
     /**
-     * Registers the give plugin to the light kit admin service.
+     * Registers the given plugin to the light kit admin service.
      *
      * @param string $pluginName
      * @param LightKitAdminPluginInterface $plugin

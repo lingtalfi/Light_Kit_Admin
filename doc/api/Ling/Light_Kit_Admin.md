@@ -1,6 +1,6 @@
 Ling/Light_Kit_Admin
 ================
-2019-05-17 --> 2020-06-23
+2019-05-17 --> 2020-07-07
 
 
 
@@ -88,8 +88,8 @@ Table of contents
     - [LightKitAdminController::setRoute](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/setRoute.md) &ndash; Sets the matching route to this controller instance.
     - [LightKitAdminController::renderPage](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/renderPage.md) &ndash; Renders the given page using the [kit service](https://github.com/lingtalfi/Light_Kit).
     - LightController::setLight &ndash; Sets the light instance.
-- [ForgottenPasswordController](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/ForgottenPasswordController.md) &ndash; The DashboardController class.
-    - [ForgottenPasswordController::render](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/ForgottenPasswordController/render.md) &ndash; Renders the dashboard page and returns the result.
+- [ForgottenPasswordController](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/ForgottenPasswordController.md) &ndash; The ForgottenPasswordController class.
+    - [ForgottenPasswordController::render](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/ForgottenPasswordController/render.md) &ndash; Renders the forgot password page and returns the result.
     - [LightKitAdminController::__construct](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/__construct.md) &ndash; Builds the LightController instance.
     - [LightKitAdminController::setRoute](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/setRoute.md) &ndash; Sets the matching route to this controller instance.
     - [LightKitAdminController::renderPage](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/renderPage.md) &ndash; Renders the given page using the [kit service](https://github.com/lingtalfi/Light_Kit).
@@ -239,7 +239,7 @@ Table of contents
     - [LightKitAdminService::setContainer](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/setContainer.md) &ndash; Sets the container.
     - [LightKitAdminService::setOptions](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/setOptions.md) &ndash; Set the options for this light kit admin service instance.
     - [LightKitAdminService::getOption](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/getOption.md) &ndash; or returns the given $default otherwise (if the key is not found in the options array).
-    - [LightKitAdminService::registerPlugin](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/registerPlugin.md) &ndash; Registers the give plugin to the light kit admin service.
+    - [LightKitAdminService::registerPlugin](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/registerPlugin.md) &ndash; Registers the given plugin to the light kit admin service.
     - [LightKitAdminService::getPluginOption](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/getPluginOption.md) &ndash; or returns the given $default otherwise (if the key is not found).
     - [LightKitAdminService::getNotifications](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/getNotifications.md) &ndash; Returns the notifications of this instance.
     - [LightKitAdminService::addNotification](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/addNotification.md) &ndash; Adds a notification to this instance.
@@ -290,7 +290,6 @@ Dependencies
 - [Light_MicroPermission](https://github.com/lingtalfi/Light_MicroPermission)
 - [Light_UserDatabase](https://github.com/lingtalfi/Light_UserDatabase)
 - [Light_Realform](https://github.com/lingtalfi/Light_Realform)
-- [Light_UserRowRestriction](https://github.com/lingtalfi/Light_UserRowRestriction)
 - [SqlWizard](https://github.com/lingtalfi/SqlWizard)
 - [Light_ControllerHub](https://github.com/lingtalfi/Light_ControllerHub)
 - [Light_Crud](https://github.com/lingtalfi/Light_Crud)

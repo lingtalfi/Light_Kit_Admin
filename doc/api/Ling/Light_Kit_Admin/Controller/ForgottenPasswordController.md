@@ -4,7 +4,7 @@
 
 The ForgottenPasswordController class
 ================
-2019-05-17 --> 2020-06-23
+2019-05-17 --> 2020-07-07
 
 
 
@@ -14,7 +14,7 @@ The ForgottenPasswordController class
 Introduction
 ============
 
-The DashboardController class.
+The ForgottenPasswordController class.
 
 
 
@@ -58,7 +58,7 @@ class <span class="pl-k">ForgottenPasswordController</span> extends [LightKitAdm
 Methods
 ==============
 
-- [ForgottenPasswordController::render](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/ForgottenPasswordController/render.md) &ndash; Renders the dashboard page and returns the result.
+- [ForgottenPasswordController::render](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/ForgottenPasswordController/render.md) &ndash; Renders the forgot password page and returns the result.
 - [LightKitAdminController::__construct](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/__construct.md) &ndash; Builds the LightController instance.
 - [LightKitAdminController::setRoute](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/setRoute.md) &ndash; Sets the matching route to this controller instance.
 - [LightKitAdminController::getKitAdmin](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController/getKitAdmin.md) &ndash; Returns the kit admin service instance.

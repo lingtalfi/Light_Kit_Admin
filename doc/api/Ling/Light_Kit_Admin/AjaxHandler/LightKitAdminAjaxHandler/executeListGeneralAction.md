@@ -58,7 +58,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightKitAdminAjaxHandler::executeListGeneralAction](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/AjaxHandler/LightKitAdminAjaxHandler.php#L101-L108)
+See the source code for method [LightKitAdminAjaxHandler::executeListGeneralAction](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/AjaxHandler/LightKitAdminAjaxHandler.php#L104-L111)
 
 
 See Also
