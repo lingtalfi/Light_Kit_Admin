@@ -1,6 +1,6 @@
 Light_Kit_Admin
 ===========
-2019-10-24 -> 2020-08-04
+2019-10-24 -> 2020-08-07
 
 
 
@@ -283,6 +283,10 @@ $user_database_vars.bullsheeter_avatar_img_dir: ${app_dir}/www/plugins/Light_Kit
 History Log
 =============
         
+- 0.9.0 -- 2020-08-07
+
+    - checkpoint commit
+    
 - 0.8.0 -- 2020-08-04
 
     - checkpoint commit

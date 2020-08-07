@@ -4,7 +4,7 @@
 
 The LightKitAdminControllerHubHandler class
 ================
-2019-05-17 --> 2020-08-04
+2019-05-17 --> 2020-08-07
 
 
 
