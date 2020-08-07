@@ -54,7 +54,7 @@ Returns mixed.
 
 Source Code
 ===========
-See the source code for method [LightKitAdminService::getOption](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Service/LightKitAdminService.php#L126-L129)
+See the source code for method [LightKitAdminService::getOption](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Service/LightKitAdminService.php#L127-L130)
 
 
 See Also

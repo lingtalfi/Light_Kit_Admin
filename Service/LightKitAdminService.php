@@ -12,6 +12,7 @@ use Ling\Light_ControllerHub\Service\LightControllerHubService;
 use Ling\Light_Kit_Admin\Exception\LightKitAdminMicroPermissionDeniedException;
 use Ling\Light_Kit_Admin\LightKitAdminPlugin\LightKitAdminPluginInterface;
 use Ling\Light_Kit_Admin\Notification\LightKitAdminNotification;
+use Ling\Light_Kit_Admin\Realform\Handler\LightKitAdminRealformHandler;
 use Ling\Light_PluginInstaller\PluginInstaller\PluginInstallerInterface;
 use Ling\Light_PluginInstaller\Service\LightPluginInstallerService;
 use Ling\Light_ReverseRouter\Service\LightReverseRouterService;
@@ -269,6 +270,53 @@ class LightKitAdminService implements PluginInstallerInterface
             $this->container->get("flasher")->addFlash("AdminPageControllerForbidden", $e->getMessage(), "w");
             $response = $this->getRedirectResponseByRoute($redirectRoute, $urlParams);
             $event->setVar("httpResponse", $response);
+        }
+    }
+
+
+    /**
+     * Allows lka plugins to register their services to some plugins in a dynamic way.
+     *
+     * See the @page(late registration concept) for more details.
+     *
+     * The services plugins can register to are defined in the type, which can be one of:
+     *
+     * - realform: @page(the realform service)
+     *
+     *
+     * If the type is realform, then the identifier must be of the form:
+     *
+     * - planet.formIdentifier
+     *
+     * With:
+     *
+     * - planet: the planet name
+     * - formIdentifier: an arbitrary identifier representing the form
+     *
+     *
+     *
+     *
+     * @param string $type
+     * @param string $identifier
+     */
+    public function lateRegistration(string $type, string $identifier)
+    {
+        switch ($type) {
+            case "realform":
+                if (true === $this->container->has('realform')) {
+                    $p = explode('.', $identifier);
+                    if (count($p) >= 2) {
+                        $planet = array_shift($p);
+                        $realform = $this->container->get("realform");
+                        $o = new LightKitAdminRealformHandler();
+                        $app_dir = $this->container->getApplicationDir();
+                        $o->setConfDir("${app_dir}/config/data/$planet/Light_Realform");
+                        $realform->registerFormHandler($planet, $o);
+                    }
+                }
+                break;
+            default:
+                break;
         }
     }
 
@@ -546,4 +594,7 @@ class LightKitAdminService implements PluginInstallerInterface
     }
 
 
+    //--------------------------------------------
+    //
+    //--------------------------------------------
 }
