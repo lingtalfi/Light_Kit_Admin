@@ -251,6 +251,16 @@ Table of contents
     - [LightKitAdminService::uninstall](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/uninstall.md) &ndash; Uninstalls the plugin.
     - [LightKitAdminService::isInstalled](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/isInstalled.md) &ndash; Returns whether the core install phase of the plugin is fully completed.
     - [LightKitAdminService::getDependencies](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/getDependencies.md) &ndash; Returns the array of dependencies.
+- [LightKitAdminStandardServicePlugin](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminStandardServicePlugin.md) &ndash; The LightKitAdminStandardServicePlugin class.
+    - [LightKitAdminStandardServicePlugin::__construct](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminStandardServicePlugin/__construct.md) &ndash; Builds the LightLingStandardService01 instance.
+    - [LightKitAdminStandardServicePlugin::setContainer](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminStandardServicePlugin/setContainer.md) &ndash; Sets the container.
+    - [LightKitAdminStandardServicePlugin::setOptions](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminStandardServicePlugin/setOptions.md) &ndash; Sets the options.
+    - [LightKitAdminStandardServicePlugin::install](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminStandardServicePlugin/install.md) &ndash; Installs the plugin in the light application.
+    - [LightKitAdminStandardServicePlugin::isInstalled](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminStandardServicePlugin/isInstalled.md) &ndash; Returns whether the core install phase of the plugin is fully completed.
+    - [LightKitAdminStandardServicePlugin::uninstall](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminStandardServicePlugin/uninstall.md) &ndash; Uninstalls the plugin.
+    - [LightKitAdminStandardServicePlugin::getDependencies](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminStandardServicePlugin/getDependencies.md) &ndash; Returns the array of dependencies.
+    - [LightKitAdminStandardServicePlugin::registerRealistByRequestId](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminStandardServicePlugin/registerRealistByRequestId.md) &ndash; Registers the plugin to the realist service.
+    - [LightKitAdminStandardServicePlugin::registerRealformByIdentifier](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminStandardServicePlugin/registerRealformByIdentifier.md) &ndash; Registers the plugin to the realform service.
 - [LightKitAdminChloroformWidget](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Widget/Picasso/LightKitAdminChloroformWidget.md) &ndash; The LightKitAdminChloroformWidget class.
     - EasyLightPicassoWidget::__construct &ndash; Builds the EasyPicassoWidget instance.
     - EasyLightPicassoWidget::setKitPageRenderer &ndash; Sets the KitPageRenderer instance.
@@ -300,6 +310,8 @@ Dependencies
 - [SimplePdoWrapper](https://github.com/lingtalfi/SimplePdoWrapper)
 - [Bootstrap4AdminTable](https://github.com/lingtalfi/Bootstrap4AdminTable)
 - [Light_PluginInstaller](https://github.com/lingtalfi/Light_PluginInstaller)
+- [Light_LingStandardService](https://github.com/lingtalfi/Light_LingStandardService)
+- [UniverseTools](https://github.com/lingtalfi/UniverseTools)
 - [Kit_PicassoWidget](https://github.com/lingtalfi/Kit_PicassoWidget)
 - [Chloroform_HeliumRenderer](https://github.com/lingtalfi/Chloroform_HeliumRenderer)
 - [FontAwesome](https://github.com/lingtalfi/FontAwesome)

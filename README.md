@@ -283,6 +283,10 @@ $user_database_vars.bullsheeter_avatar_img_dir: ${app_dir}/www/plugins/Light_Kit
 History Log
 =============
         
+- 0.11.0 -- 2020-08-07
+
+    - add LightKitAdminStandardServicePlugin class
+    
 - 0.10.0 -- 2020-08-07
 
     - add LightKitAdminService->lateRegistration method

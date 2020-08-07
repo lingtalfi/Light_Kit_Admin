@@ -6,15 +6,16 @@ namespace Ling\Light_Kit_Admin\Service;
 
 use Ling\BabyYaml\Helper\BdotTool;
 use Ling\Light\Events\LightEvent;
+use Ling\Light\Helper\LightNamesAndPathHelper;
 use Ling\Light\Http\HttpRedirectResponse;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 use Ling\Light_ControllerHub\Service\LightControllerHubService;
 use Ling\Light_Kit_Admin\Exception\LightKitAdminMicroPermissionDeniedException;
 use Ling\Light_Kit_Admin\LightKitAdminPlugin\LightKitAdminPluginInterface;
 use Ling\Light_Kit_Admin\Notification\LightKitAdminNotification;
-use Ling\Light_Kit_Admin\Realform\Handler\LightKitAdminRealformHandler;
 use Ling\Light_PluginInstaller\PluginInstaller\PluginInstallerInterface;
 use Ling\Light_PluginInstaller\Service\LightPluginInstallerService;
+use Ling\Light_Realform\Service\LightRealformLateServiceRegistrationInterface;
 use Ling\Light_ReverseRouter\Service\LightReverseRouterService;
 use Ling\Light_UserDatabase\Service\LightUserDatabaseService;
 use Ling\SimplePdoWrapper\SimplePdoWrapperInterface;
@@ -72,6 +73,14 @@ class LightKitAdminService implements PluginInstallerInterface
      */
     protected $lkaPluginOptions;
 
+
+    /**
+     * This property holds the array of plugin names dynamically registering to some other services.
+     * @var array
+     */
+    private $lateRegister;
+
+
 //    /**
 //     * This property holds the userRowOwnershipManager for this instance.
 //     * @var LightKitAdminUserRowOwnershipManager
@@ -89,6 +98,7 @@ class LightKitAdminService implements PluginInstallerInterface
         $this->lkaPlugins = [];
         $this->lkaPluginOptions = [];
         $this->container = null;
+        $this->lateRegister = [];
     }
 
 
@@ -303,15 +313,23 @@ class LightKitAdminService implements PluginInstallerInterface
     {
         switch ($type) {
             case "realform":
-                if (true === $this->container->has('realform')) {
-                    $p = explode('.', $identifier);
-                    if (count($p) >= 2) {
+                if (false === in_array('realform-' . $identifier, $this->lateRegister, true)) {
+
+                    $p = explode('.', $identifier, 2);
+                    if (2 === count($p)) {
                         $planet = array_shift($p);
-                        $realform = $this->container->get("realform");
-                        $o = new LightKitAdminRealformHandler();
-                        $app_dir = $this->container->getApplicationDir();
-                        $o->setConfDir("${app_dir}/config/data/$planet/Light_Realform");
-                        $realform->registerFormHandler($planet, $o);
+                        $serviceName = LightNamesAndPathHelper::getServiceName($planet);
+
+                        if (true === $this->container->has($serviceName)) {
+                            $this->lateRegister[] = 'realform-' . $identifier;
+                            /**
+                             * @var $service LightRealformLateServiceRegistrationInterface
+                             */
+                            $service = $this->container->get($serviceName);
+                            if ($service instanceof LightRealformLateServiceRegistrationInterface) {
+                                $service->registerRealformByIdentifier($identifier);
+                            }
+                        }
                     }
                 }
                 break;

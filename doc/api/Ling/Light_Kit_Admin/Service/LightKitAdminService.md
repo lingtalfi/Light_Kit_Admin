@@ -36,6 +36,7 @@ class <span class="pl-k">LightKitAdminService</span> implements [PluginInstaller
     - protected array [$options](#property-options) ;
     - protected [Ling\Light_Kit_Admin\LightKitAdminPlugin\LightKitAdminPluginInterface[]](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/LightKitAdminPlugin/LightKitAdminPluginInterface.md) [$lkaPlugins](#property-lkaPlugins) ;
     - protected array [$lkaPluginOptions](#property-lkaPluginOptions) ;
+    - private array [$lateRegister](#property-lateRegister) ;
 
 - Methods
     - public [__construct](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/__construct.md)() : void
@@ -95,6 +96,12 @@ Properties
     
     
 
+- <span id="property-lateRegister"><b>lateRegister</b></span>
+
+    This property holds the array of plugin names dynamically registering to some other services.
+    
+    
+
 
 
 Methods
@@ -130,4 +137,4 @@ See the source code of [Ling\Light_Kit_Admin\Service\LightKitAdminService](https
 
 SeeAlso
 ==============
-Previous class: [RightsHelper](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Rights/RightsHelper.md)<br>Next class: [LightKitAdminChloroformWidget](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Widget/Picasso/LightKitAdminChloroformWidget.md)<br>
+Previous class: [RightsHelper](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Rights/RightsHelper.md)<br>Next class: [LightKitAdminStandardServicePlugin](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminStandardServicePlugin.md)<br>

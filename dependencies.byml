@@ -32,6 +32,8 @@ dependencies:
         - SimplePdoWrapper
         - Bootstrap4AdminTable
         - Light_PluginInstaller
+        - Light_LingStandardService
+        - UniverseTools
         - Kit_PicassoWidget
         - Chloroform_HeliumRenderer
         - FontAwesome
