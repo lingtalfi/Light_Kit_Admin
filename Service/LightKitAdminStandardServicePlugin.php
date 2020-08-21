@@ -4,6 +4,7 @@
 namespace Ling\Light_Kit_Admin\Service;
 
 
+use Ling\Bat\ClassTool;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 use Ling\Light_Kit_Admin\Realform\Handler\LightKitAdminRealformHandler;
 use Ling\Light_Kit_Admin\Realist\ActionHandler\LightKitAdminRealistActionHandler;
@@ -216,11 +217,27 @@ abstract class LightKitAdminStandardServicePlugin implements
         /**
          * @var $realist LightRealistService
          */
+
+
+        $tight = PlanetTool::getTightPlanetName($planet);
+
+
         $realist = $this->container->get("realist");
         $realist->registerListRenderer($planet, new LightKitAdminRealistListRenderer());
         $realist->registerRealistRowsRenderer($planet, new LightKitAdminRealistRowsRenderer());
         $realist->registerActionHandler(new LightKitAdminRealistActionHandler());
-        $realist->registerListActionHandler($planet, new LightKitAdminListActionHandler());
+
+
+        // list action handler
+        $lah = $galaxy . "\\" . $planet . "\\Light_Realist\\ListActionHandler\\" . $tight . "ListActionHandler";
+        if (true === ClassTool::isLoaded($lah)) {
+            $lah = new $lah();
+        } else {
+            $lah = new LightKitAdminListActionHandler();
+        }
+        $realist->registerListActionHandler($planet, $lah);
+
+
         $realist->registerListGeneralActionHandler($planet, new LightKitAdminListGeneralActionHandler());
     }
 

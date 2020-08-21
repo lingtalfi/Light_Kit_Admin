@@ -33,6 +33,14 @@ class AdminPageController extends LightKitAdminController
      *
      *
      *
+     * Example of page values:
+     *
+     * - Light_Kit_Admin_UserPreferences/kit/zeroadmin/generated/lup_user_preference_list
+     *
+     *
+     *
+     *
+     *
      * @param string $page
      * @param array $params
      * @param PageConfUpdator|null $updator

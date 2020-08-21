@@ -209,6 +209,7 @@ https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_
 https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin.md
 https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/bmenu.md
 https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/conception-notes.md
+https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/debug/realist-synopsis.md
 https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/error-handling.md
 https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/events.md
 https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/how-to-debug.md

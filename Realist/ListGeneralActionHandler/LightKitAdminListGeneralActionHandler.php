@@ -33,7 +33,7 @@ class LightKitAdminListGeneralActionHandler extends LightRealistBaseListGeneralA
             case "realist-generate_random_rows":
                 $this->decorateGenericActionItemByAssets($actionName, $genericActionItem, $requestId, __DIR__);
                 $table = $this->getTableNameByRequestId($requestId);
-                return $this->hasMicroPermission("tables.$table.create");
+                return $this->hasMicroPermission("store.$table.create");
                 break;
             case "realist-save_table":
                 $table = $this->getTableNameByRequestId($requestId);
@@ -44,7 +44,7 @@ class LightKitAdminListGeneralActionHandler extends LightRealistBaseListGeneralA
                         "table" => $table,
                     ],
                 ]);
-                return $this->hasMicroPermission("tables.$table.read");
+                return $this->hasMicroPermission("store.$table.read");
                 break;
             case "realist-load_table":
                 $table = $this->getTableNameByRequestId($requestId);
@@ -60,7 +60,7 @@ class LightKitAdminListGeneralActionHandler extends LightRealistBaseListGeneralA
                         "table" => $table,
                     ],
                 ]);
-                return $this->hasMicroPermission("tables.$table.create");
+                return $this->hasMicroPermission("store.$table.create");
                 break;
             default:
                 break;
@@ -129,7 +129,7 @@ class LightKitAdminListGeneralActionHandler extends LightRealistBaseListGeneralA
                 //--------------------------------------------
                 // CHECK PERMISSION
                 //--------------------------------------------
-                $this->checkMicroPermission("tables.$table.create");
+                $this->checkMicroPermission("store.$table.create");
 
 
                 //--------------------------------------------
@@ -211,7 +211,7 @@ class LightKitAdminListGeneralActionHandler extends LightRealistBaseListGeneralA
                     //--------------------------------------------
                     // CHECK PERMISSION
                     //--------------------------------------------
-                    $this->checkMicroPermission("tables.$table.read");
+                    $this->checkMicroPermission("store.$table.read");
 
 
                     //--------------------------------------------
@@ -295,7 +295,7 @@ class LightKitAdminListGeneralActionHandler extends LightRealistBaseListGeneralA
                 //--------------------------------------------
                 // CHECK PERMISSION
                 //--------------------------------------------
-                $this->checkMicroPermission("tables.$table.create");
+                $this->checkMicroPermission("store.$table.create");
 
 
                 //--------------------------------------------

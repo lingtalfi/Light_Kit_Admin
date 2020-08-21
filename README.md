@@ -1,6 +1,6 @@
 Light_Kit_Admin
 ===========
-2019-10-24 -> 2020-08-07
+2019-10-24 -> 2020-08-21
 
 
 
@@ -191,6 +191,11 @@ $kit.methods_collection:
             -
                 instance: Ling\Light_Kit_Admin\PageConfigurationTransformer\LightKitAdminPageConfigurationTransformer
 
+$micro_permission.methods_collection:
+    -
+        method: registerMicroPermissionsByProfile
+        args:
+            file: ${app_dir}/config/data/Light_Kit_Admin/Light_MicroPermission/kit_admin.profile.byml
 
 
 $plugin_installer.methods_collection:
@@ -266,7 +271,6 @@ $user_database_vars.bullsheeter_avatar_img_dir: ${app_dir}/www/plugins/Light_Kit
 
 
 
-
 ```
 
 
@@ -283,6 +287,10 @@ $user_database_vars.bullsheeter_avatar_img_dir: ${app_dir}/www/plugins/Light_Kit
 History Log
 =============
         
+- 0.12.0 -- 2020-08-21
+
+    - acknowledge micro-permission3
+    
 - 0.11.0 -- 2020-08-07
 
     - add LightKitAdminStandardServicePlugin class

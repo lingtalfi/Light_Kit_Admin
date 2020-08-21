@@ -52,7 +52,7 @@ Returns mixed.
 
 Source Code
 ===========
-See the source code for method [LightKitAdminStandardServicePlugin::registerRealformByIdentifier](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Service/LightKitAdminStandardServicePlugin.php#L235-L243)
+See the source code for method [LightKitAdminStandardServicePlugin::registerRealformByIdentifier](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Service/LightKitAdminStandardServicePlugin.php#L252-L260)
 
 
 See Also

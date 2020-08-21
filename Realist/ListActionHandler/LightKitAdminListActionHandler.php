@@ -32,7 +32,7 @@ class LightKitAdminListActionHandler extends LightRealistBaseListActionHandler
             case "realist-delete_rows":
                 $this->decorateGenericActionItemByAssets($actionName, $genericActionItem, $requestId, __DIR__);
                 $table = $this->getTableNameByRequestId($requestId);
-                return $this->hasMicroPermission("tables.$table.delete");
+                return $this->hasMicroPermission("store.$table.delete");
                 break;
             case "realist-edit_rows":
                 $table = $this->getTableNameByRequestId($requestId);
@@ -47,7 +47,7 @@ class LightKitAdminListActionHandler extends LightRealistBaseListActionHandler
                     'url' => $rr->getUrl('lka_route-tool_multiple_form_edit'),
                     'table' => $table,
                 ];
-                return $this->hasMicroPermission("tables.$table.update");
+                return $this->hasMicroPermission("store.$table.update");
                 break;
             case "realist-rows_to_ods":
             case "realist-rows_to_xlsx":
@@ -59,14 +59,14 @@ class LightKitAdminListActionHandler extends LightRealistBaseListActionHandler
                     "jsActionName" => "realist-rows_to_extension",
                 ]);
                 $table = $this->getTableNameByRequestId($requestId);
-                return $this->hasMicroPermission("tables.$table.read");
+                return $this->hasMicroPermission("store.$table.read");
 
 
                 break;
             case "realist-print":
                 $this->decorateGenericActionItemByAssets($actionName, $genericActionItem, $requestId, __DIR__);
                 $table = $this->getTableNameByRequestId($requestId);
-                return $this->hasMicroPermission("tables.$table.read");
+                return $this->hasMicroPermission("store.$table.read");
                 break;
             default:
                 break;
@@ -129,9 +129,19 @@ class LightKitAdminListActionHandler extends LightRealistBaseListActionHandler
                  */
                 $service = $this->container->get("realist");
                 $conf = $service->getConfigurationArrayByRequestId($requestId);
+
+
+
+
                 $useRowRestriction = $conf['use_row_restriction'] ?? false;
                 $table = DuelistHelper::getRawTableName($conf['table']);
                 $toolbarItem = LightRealistTool::getToolbarItemByActionId($actionId, $conf);
+
+
+                //--------------------------------------------
+                // CHECK MICRO PERMISSION TO BE CONSISTENT WITH PREPARE METHOD
+                //--------------------------------------------
+                $this->checkMicroPermission("store.$table.delete");
 
 
                 //--------------------------------------------
@@ -195,6 +205,15 @@ class LightKitAdminListActionHandler extends LightRealistBaseListActionHandler
                 $conf = $service->getConfigurationArrayByRequestId($requestId);
                 $table = DuelistHelper::getRawTableName($conf['table']);
                 $res = $this->executeFetchAllRequestByActionId($actionId, $params);
+
+
+
+                //--------------------------------------------
+                // CHECK MICRO PERMISSION TO BE CONSISTENT WITH PREPARE METHOD
+                //--------------------------------------------
+                $this->checkMicroPermission("store.$table.read");
+
+
 
 
                 $rows = $res['rows'];
@@ -293,6 +312,15 @@ class LightKitAdminListActionHandler extends LightRealistBaseListActionHandler
                 $service = $this->container->get("realist");
                 $conf = $service->getConfigurationArrayByRequestId($requestId);
                 $res = $this->executeFetchAllRequestByActionId($actionId, $params);
+
+                $table = DuelistHelper::getRawTableName($conf['table']);
+
+                //--------------------------------------------
+                // CHECK MICRO PERMISSION TO BE CONSISTENT WITH PREPARE METHOD
+                //--------------------------------------------
+                $this->checkMicroPermission("store.$table.read");
+
+
 
 
                 $columns = $conf['rendering']['column_labels'];
@@ -484,7 +512,7 @@ class LightKitAdminListActionHandler extends LightRealistBaseListActionHandler
         //--------------------------------------------
         // CHECK PERMISSION
         //--------------------------------------------
-        $this->checkMicroPermission("tables.$table.read");
+        $this->checkMicroPermission("store.$table.read");
 
         //--------------------------------------------
         // GETTING THE ROWS

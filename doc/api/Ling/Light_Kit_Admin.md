@@ -1,6 +1,6 @@
 Ling/Light_Kit_Admin
 ================
-2019-05-17 --> 2020-08-07
+2019-05-17 --> 2020-08-21
 
 
 
@@ -34,6 +34,7 @@ Table of contents
     - Chloroform::isPosted &ndash; Returns whether this form instance was posted.
     - Chloroform::getPostedData &ndash; Returns an array of posted data (for this instance).
     - Chloroform::validates &ndash; Returns whether all fields attached to this form validate.
+    - Chloroform::getValidationErrors &ndash; Returns the validationErrors of this instance.
     - Chloroform::getVeryImportantData &ndash; Returns the [very important data](https://github.com/lingtalfi/Chloroform/blob/master/doc/pages/chloroform-discussion.md#the-concept-of-very-important-data) of a form.
     - Chloroform::executeDataTransformers &ndash; Execute the data transformers (see the [DataTransformerInterface](https://github.com/lingtalfi/Chloroform/blob/master/doc/api/Ling/Chloroform/DataTransformer/DataTransformerInterface.md) for more details) on the given postedData.
     - Chloroform::getFields &ndash; Returns the fields of this instance.
