@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightKitAdminStandardServicePlugin::prepareTheNames](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Service/LightKitAdminStandardServicePlugin.php#L285-L315)
+See the source code for method [LightKitAdminStandardServicePlugin::prepareTheNames](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Service/LightKitAdminStandardServicePlugin.php#L283-L313)
 
 
 See Also

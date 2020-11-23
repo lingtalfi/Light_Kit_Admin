@@ -10,6 +10,7 @@ use Ling\Light_Kit_Admin\Realform\Handler\LightKitAdminRealformHandler;
 use Ling\Light_Kit_Admin\Realist\ActionHandler\LightKitAdminRealistActionHandler;
 use Ling\Light_Kit_Admin\Realist\ListActionHandler\LightKitAdminListActionHandler;
 use Ling\Light_Kit_Admin\Realist\ListGeneralActionHandler\LightKitAdminListGeneralActionHandler;
+use Ling\Light_Kit_Admin\Realist\Rendering\LightKitAdminRealistListItemRenderer;
 use Ling\Light_Kit_Admin\Realist\Rendering\LightKitAdminRealistListRenderer;
 use Ling\Light_Kit_Admin\Realist\Rendering\LightKitAdminRealistRowsRenderer;
 use Ling\Light_LingStandardService\Exception\LightLingStandardServiceException;
@@ -224,7 +225,7 @@ abstract class LightKitAdminStandardServicePlugin implements
 
         $realist = $this->container->get("realist");
         $realist->registerListRenderer($planet, new LightKitAdminRealistListRenderer());
-        $realist->registerRealistRowsRenderer($planet, new LightKitAdminRealistRowsRenderer());
+        $realist->registerRealistRowsRenderer($planet, new LightKitAdminRealistListItemRenderer());
         $realist->registerActionHandler(new LightKitAdminRealistActionHandler());
 
 
@@ -236,9 +237,6 @@ abstract class LightKitAdminStandardServicePlugin implements
             $lah = new LightKitAdminListActionHandler();
         }
         $realist->registerListActionHandler($planet, $lah);
-
-
-        $realist->registerListGeneralActionHandler($planet, new LightKitAdminListGeneralActionHandler());
     }
 
 

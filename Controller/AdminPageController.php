@@ -27,6 +27,16 @@ class AdminPageController extends LightKitAdminController
 {
 
 
+
+    /**
+     * @overrides
+     */
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
+
     /**
      * Renders the given page using the @page(kit service), or redirects the user to the login page
      * if she is not connected yet.

@@ -15,13 +15,12 @@
                             <div class="mt-2">/backups/database/<?php echo $z['table']; ?></div>
                         </div>
                     </div>
-
                     <div class="form-group row">
                         <label for="mlkast-backup-name" class="col-sm-4 col-form-label">Backup</label>
                         <div class="col-sm-6">
                             <select class="form-control the-select" id="mlkast-backup-name">
-                                <?php foreach ($z['backup_list'] as $path): ?>
-                                    <option value="<?php echo htmlspecialchars($path); ?>"><?php echo $path; ?></option>
+                                <?php foreach ($z['backup_list'] as $resourceId => $path): ?>
+                                    <option value="<?php echo htmlspecialchars($resourceId); ?>"><?php echo $path; ?></option>
                                 <?php endforeach; ?>
                             </select>
                         </div>

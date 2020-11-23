@@ -5,6 +5,7 @@ kit_admin:
             container: @container()
         setOptions:
             options:
+                lang: eng
                 login:
                     # Used by LoginFormController to redirect the user after a successful connection on the login form.
                     on_success_route: lka_route-home
@@ -63,18 +64,6 @@ $bullsheet.methods_collection:
 
 
 
-$chloroform_extension.methods_collection:
-    -
-        method: registerTableListConfigurationHandler
-        args:
-            plugin: Light_Kit_Admin
-            handler:
-                instance: Ling\Light_Kit_Admin\ChloroformExtension\LightKitAdminTableListConfigurationHandler
-                methods:
-                    setConfigurationFile:
-                        files:
-                            - ${app_dir}/config/data/Light_Kit_Admin/Light_ChloroformExtension/generated/lkagen-table_list.byml
-                            - ${app_dir}/config/data/Light_Kit_Admin/Light_ChloroformExtension/table_list.byml
 
 
 $controller_hub.methods_collection:
@@ -87,16 +76,6 @@ $controller_hub.methods_collection:
                 methods:
                     setContainer:
                         container: @container()
-
-$crud.methods_collection:
-    -
-        method: registerHandler
-        args:
-            pluginId: Light_Kit_Admin
-            handler:
-                instance: Ling\Light_Kit_Admin\Crud\CrudRequestHandler\LightKitAdminCrudRequestHandler
-
-
 
 $easy_route.methods_collection:
     -
@@ -138,16 +117,6 @@ $plugin_installer.methods_collection:
             installer: @service(kit_admin)
 
 
-$realform.methods_collection:
-    -
-        method: registerFormHandler
-        args:
-            plugin: Light_Kit_Admin
-            handler:
-                instance: Ling\Light_Kit_Admin\Realform\Handler\LightKitAdminRealformHandler
-                methods:
-                    setConfDir:
-                        dir: ${app_dir}/config/data/Light_Kit_Admin/Light_Realform
 
 
 $realist.methods_collection:
@@ -158,29 +127,11 @@ $realist.methods_collection:
             renderer:
                 instance: Ling\Light_Kit_Admin\Realist\Rendering\LightKitAdminRealistListRenderer
     -
-        method: registerRealistRowsRenderer
+        method: registerListItemRenderer
         args:
             identifier: Light_Kit_Admin
             renderer:
-                instance: Ling\Light_Kit_Admin\Realist\Rendering\LightKitAdminRealistRowsRenderer
-    -
-        method: registerActionHandler
-        args:
-            renderer:
-                instance: Ling\Light_Kit_Admin\Realist\ActionHandler\LightKitAdminRealistActionHandler
-    -
-        method: registerListActionHandler
-        args:
-            plugin: Light_Kit_Admin
-            renderer:
-                instance: Ling\Light_Kit_Admin\Realist\ListActionHandler\LightKitAdminListActionHandler
-    -
-        method: registerListGeneralActionHandler
-        args:
-            plugin: Light_Kit_Admin
-            renderer:
-                instance: Ling\Light_Kit_Admin\Realist\ListGeneralActionHandler\LightKitAdminListGeneralActionHandler
-
+                instance: Ling\Light_Kit_Admin\Realist\Rendering\LightKitAdminRealistListItemRenderer
 
 
 

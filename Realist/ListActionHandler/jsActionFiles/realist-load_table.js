@@ -11,7 +11,7 @@ function f(jBtn, jContainer, params) {
             var jSelect = jModal.find('.the-select');
 
             var url = params.url;
-            params.relative_path = jSelect.val();
+            params.resource_file_id = jSelect.val();
 
             AcpHepHelper.post(url, params, function (response) {
                 jModal.modal("hide");

@@ -2,7 +2,6 @@ dependencies:
     Ling: 
         - Light
         - Light_AjaxHandler
-        - Light_Realist
         - BabyYaml
         - Bat
         - Light_BMenu
@@ -14,7 +13,6 @@ dependencies:
         - Light_Database
         - Chloroform
         - Light_CsrfSession
-        - Light_ChloroformExtension
         - Light_Kit
         - WiseTool
         - HtmlPageTools
@@ -23,20 +21,22 @@ dependencies:
         - Light_MicroPermission
         - Light_UserDatabase
         - Light_Realform
-        - SqlWizard
-        - Light_ControllerHub
-        - Light_Crud
-        - PhpSpreadSheetTool
-        - Light_DatabaseUtils
-        - Light_UserData
+        - Light_Nugget
         - SimplePdoWrapper
+        - Light_ControllerHub
+        - Light_DatabaseUtils
+        - UniverseTools
+        - Light_Crud
+        - Light_Realist
+        - Light_UserData
+        - PhpSpreadSheetTool
         - Bootstrap4AdminTable
         - Light_PluginInstaller
         - Light_LingStandardService
-        - UniverseTools
         - Kit_PicassoWidget
         - Chloroform_HeliumRenderer
         - FontAwesome
+        - JBee
         - JPostForm
         - Jquery
     
