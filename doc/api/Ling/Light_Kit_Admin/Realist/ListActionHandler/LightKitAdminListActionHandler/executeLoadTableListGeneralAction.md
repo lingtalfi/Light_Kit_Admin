@@ -59,7 +59,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightKitAdminListActionHandler::executeLoadTableListGeneralAction](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Realist/ListActionHandler/LightKitAdminListActionHandler.php#L641-L695)
+See the source code for method [LightKitAdminListActionHandler::executeLoadTableListGeneralAction](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Realist/ListActionHandler/LightKitAdminListActionHandler.php#L647-L695)
 
 
 See Also

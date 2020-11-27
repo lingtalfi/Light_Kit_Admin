@@ -4,7 +4,7 @@
 
 The LightKitAdminListActionHandler class
 ================
-2019-05-17 --> 2020-11-23
+2019-05-17 --> 2020-11-27
 
 
 
@@ -46,6 +46,7 @@ class <span class="pl-k">LightKitAdminListActionHandler</span> extends [LightRea
     - private [executeFetchAllRequestByActionId](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Realist/ListActionHandler/LightKitAdminListActionHandler/executeFetchAllRequestByActionId.md)(string $actionId, array $params) : array
     - private [getParam](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Realist/ListActionHandler/LightKitAdminListActionHandler/getParam.md)(string $name, array $params) : mixed
     - private [getTableBackupDir](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Realist/ListActionHandler/LightKitAdminListActionHandler/getTableBackupDir.md)(string $table) : string
+    - private [selectiveMerge](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Realist/ListActionHandler/LightKitAdminListActionHandler/selectiveMerge.md)(array $arr1, array $arr2, array $keys) : array
 
 - Inherited methods
     - public LightRealistBaseListActionHandler::__construct() : void
@@ -83,6 +84,7 @@ Methods
 - [LightKitAdminListActionHandler::executeFetchAllRequestByActionId](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Realist/ListActionHandler/LightKitAdminListActionHandler/executeFetchAllRequestByActionId.md) &ndash; Returns the result of the LightRealistService->executeRequestById method.
 - [LightKitAdminListActionHandler::getParam](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Realist/ListActionHandler/LightKitAdminListActionHandler/getParam.md) &ndash; Returns the value of the parameter  which name is given, from the given params array.
 - [LightKitAdminListActionHandler::getTableBackupDir](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Realist/ListActionHandler/LightKitAdminListActionHandler/getTableBackupDir.md) &ndash; Returns the backup symbolic directory for the given table.
+- [LightKitAdminListActionHandler::selectiveMerge](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Realist/ListActionHandler/LightKitAdminListActionHandler/selectiveMerge.md) &ndash; Merges the values of arr2 in arr1, but only if the key (of arr2) is in keys; then return the result.
 - LightRealistBaseListActionHandler::__construct &ndash; Builds the LightRealistBaseListActionHandler instance.
 - LightRealistBaseListActionHandler::setContainer &ndash; Sets the container.
 - LightRealistBaseListActionHandler::decorateGenericActionItemByAssets &ndash; the calling class source file.

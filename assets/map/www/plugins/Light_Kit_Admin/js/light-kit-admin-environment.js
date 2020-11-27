@@ -23,13 +23,10 @@ if ('undefined' === typeof LightKitAdminEnvironment) {
              * - title: the title of the modal. Defaults to null (no title)
              * - cancelText: the text to display for the cancel action. Defaults to "Cancel"
              * - okText: the text to display for the ok action. Defaults to "Ok"
-             * - loader: bool = false. Whether to display a loader while the action is executing.
+             * - loader: bool = true. Whether to display a loader while the action is executing.
              *      If false, the modal will close directly as the user clicks the "Ok" button.
              *      If true, the modal will show a loader inside the modal when the user clicks the "Ok" button,
              *      and the developer needs to close the modal once the action is done.
-             *      TODO: define how the developer closes the modal and explain it here...
-             *      TODO: define how the developer closes the modal and explain it here...
-             *      TODO: define how the developer closes the modal and explain it here...
              *
              *
              *
@@ -49,7 +46,7 @@ if ('undefined' === typeof LightKitAdminEnvironment) {
                 var cancelText = options.cancelText || 'Cancel';
                 var okText = options.okText || 'Ok';
                 var loadingText = options.loadingText || 'Loading...';
-                var loader = options.loader || false;
+                var loader = options.loader || true;
                 var modalId = 'lka-confirm-modal';
                 var okId = 'lka-confirm-modal-ok-btn';
                 var loaderId = 'lka-confirm-modal-loader-btn';
@@ -103,7 +100,7 @@ if ('undefined' === typeof LightKitAdminEnvironment) {
                 var jOk = jModal.find('#' + okId);
                 var jLoader = jModal.find('#' + loaderId);
                 jOk.on('click', function () {
-                    if (true === loader) {
+                    if (true === loader || "1" === loader) {
                         jOk.hide();
                         jLoader.removeClass("d-none");
                         callback({

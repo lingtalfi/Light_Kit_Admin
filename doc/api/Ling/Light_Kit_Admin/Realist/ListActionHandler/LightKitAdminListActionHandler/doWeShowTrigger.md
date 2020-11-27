@@ -53,7 +53,7 @@ Returns bool.
 
 Source Code
 ===========
-See the source code for method [LightKitAdminListActionHandler::doWeShowTrigger](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Realist/ListActionHandler/LightKitAdminListActionHandler.php#L36-L68)
+See the source code for method [LightKitAdminListActionHandler::doWeShowTrigger](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Realist/ListActionHandler/LightKitAdminListActionHandler.php#L37-L77)
 
 
 See Also

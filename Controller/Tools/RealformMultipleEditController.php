@@ -181,7 +181,6 @@ class RealformMultipleEditController extends AdminPageController
     {
         $container = $this->getContainer();
 
-
         //--------------------------------------------
         // SECURITY CHECK (1/2)
         //--------------------------------------------
@@ -255,6 +254,7 @@ class RealformMultipleEditController extends AdminPageController
              */
             $db = $container->get('database');
             $markers = [];
+
             $sWhere = RicHelper::getWhereByRics($ric, $rics, $markers);
 
             $q = "select * from `$storageId` where $sWhere";
@@ -439,8 +439,29 @@ class RealformMultipleEditController extends AdminPageController
                             foreach ($rics as $updateRic) {
 
                                 $updateRow = array_shift($updateRows);
-
-                                $newUpdateRics[] = $updateRow;
+                                /**
+                                 * Here we want to work around the problem that when you change the ric value in a HAS table,
+                                 * the form can't display properly anymore, because the old ric it was referring to doesn't point
+                                 * to a record anymore.
+                                 *
+                                 * But we also have to keep in mind that this particular multiple edit form works in a peculiar way:
+                                 *
+                                 * - it doesn't provide the ai for non HAS tables.
+                                 *
+                                 * So basically this affects the content of $updateRows:
+                                 * - if it's a HAS table, it will contain the ric by definition
+                                 * - if it's a regular table which ric is an aik, then it will not contain the ric
+                                 *
+                                 * In both cases, we want $newUpdateRics to contain the ric to refresh the page with.
+                                 *
+                                 */
+                                $newUpdateRow = $updateRic; // for regular tables
+                                foreach ($updateRic as $k => $v) { // for HAS tables
+                                    if (array_key_exists($k, $updateRow)) {
+                                        $newUpdateRow[$k] = $updateRow[$k];
+                                    }
+                                }
+                                $newUpdateRics[] = $newUpdateRow;
 
                                 $successOptions = [
                                     "updateRic" => $updateRic,

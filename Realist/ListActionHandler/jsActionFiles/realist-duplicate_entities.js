@@ -1,6 +1,5 @@
 function f(jBtn, rics, jContainer, jTable, params) {
 
-
     var useConfirmExecute = ('confirmexecute-text' in params);
     var func = function (options) {
         /**
@@ -47,7 +46,7 @@ function f(jBtn, rics, jContainer, jTable, params) {
         }
         LightKitAdminEnvironment.confirmExecute(params['confirmexecute-text'], func, ceOptions);
     } else {
-        if (true === LightKitAdminEnvironment.confirm("Are you sure you want to delete the selected rows?")) {
+        if (true === LightKitAdminEnvironment.confirm("Are you sure you want to duplicate the selected entities?")) {
             func();
         }
     }
