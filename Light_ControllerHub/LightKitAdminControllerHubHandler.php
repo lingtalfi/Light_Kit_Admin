@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Ling\Light_Kit_Admin\ControllerHub;
+namespace Ling\Light_Kit_Admin\Light_ControllerHub;
 
 
 use Ling\Light\Http\HttpRequestInterface;

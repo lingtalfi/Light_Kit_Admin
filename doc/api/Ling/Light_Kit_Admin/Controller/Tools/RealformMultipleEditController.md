@@ -4,7 +4,7 @@
 
 The RealformMultipleEditController class
 ================
-2019-05-17 --> 2020-11-27
+2019-05-17 --> 2020-12-01
 
 
 
@@ -123,4 +123,4 @@ See the source code of [Ling\Light_Kit_Admin\Controller\Tools\RealformMultipleEd
 
 SeeAlso
 ==============
-Previous class: [TestPageController](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/TestPageController.md)<br>Next class: [LightKitAdminControllerHubHandler](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/ControllerHub/LightKitAdminControllerHubHandler.md)<br>
+Previous class: [TestPageController](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/TestPageController.md)<br>Next class: [MessagesDataExtractor](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/DataExtractor/MessagesDataExtractor.md)<br>

@@ -4,7 +4,7 @@
 
 The LightKitAdminChloroformWidget class
 ================
-2019-05-17 --> 2020-11-27
+2019-05-17 --> 2020-12-01
 
 
 
