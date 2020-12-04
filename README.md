@@ -1,6 +1,6 @@
 Light_Kit_Admin
 ===========
-2019-10-24 -> 2020-12-01
+2019-10-24 -> 2020-12-03
 
 
 
@@ -250,7 +250,15 @@ $user_database_vars.bullsheeter_avatar_img_dir: ${app_dir}/www/plugins/Light_Kit
 
 History Log
 =============
-        
+
+- 0.12.4 -- 2020-12-04
+
+    - Add lpi-deps.byml file
+
+-- 0.12.4 -- 2020-12-03
+
+    - add concept of lka_parent_layout variable
+    
 - 0.12.3 -- 2020-12-01
 
     - update login form, now accepts remember me
