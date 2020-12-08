@@ -251,6 +251,10 @@ $user_database_vars.bullsheeter_avatar_img_dir: ${app_dir}/www/plugins/Light_Kit
 History Log
 =============
 
+- 0.12.5 -- 2020-12-08
+
+    - Fix lpi-deps not using natsort.
+
 - 0.12.4 -- 2020-12-04
 
     - Add lpi-deps.byml file
