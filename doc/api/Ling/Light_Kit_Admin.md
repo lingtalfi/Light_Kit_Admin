@@ -1,6 +1,6 @@
 Ling/Light_Kit_Admin
 ================
-2019-05-17 --> 2020-12-08
+2019-05-17 --> 2021-01-28
 
 
 
@@ -167,6 +167,14 @@ Table of contents
     - [LightKitAdminControllerHubHandler::handle](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_ControllerHub/LightKitAdminControllerHubHandler/handle.md) &ndash; Process the given controllerIdentifier and returns an appropriate http response.
     - LightBaseControllerHubHandler::__construct &ndash; Builds the LightKitAdminControllerHubHandler instance.
     - LightBaseControllerHubHandler::setContainer &ndash; Sets the light service container interface.
+- [LightKitAdminPluginInstaller](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_PluginInstaller/LightKitAdminPluginInstaller.md) &ndash; The LightKitAdminPluginInstaller class.
+    - [LightKitAdminPluginInstaller::getDependencies](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_PluginInstaller/LightKitAdminPluginInstaller/getDependencies.md) &ndash; Returns the array of dependencies.
+    - [LightKitAdminPluginInstaller::install](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_PluginInstaller/LightKitAdminPluginInstaller/install.md) &ndash; Installs the plugin in the light application.
+    - [LightKitAdminPluginInstaller::uninstall](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_PluginInstaller/LightKitAdminPluginInstaller/uninstall.md) &ndash; Uninstalls the plugin.
+    - LightBasePluginInstaller::__construct &ndash; Builds the LightBasePluginInstaller instance.
+    - LightBasePluginInstaller::setContainer &ndash; Sets the container.
+    - LightBasePluginInstaller::isInstalled &ndash; Returns whether the core install phase of the plugin is fully completed.
+    - LightBasePluginInstaller::getTableScope &ndash; Returns the [table scope](https://github.com/lingtalfi/TheBar/blob/master/discussions/table-scope.md) for this planet.
 - [LightKitAdminNotification](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Notification/LightKitAdminNotification.md) &ndash; The LightKitAdminNotification class.
     - [LightKitAdminNotification::__construct](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Notification/LightKitAdminNotification/__construct.md) &ndash; Builds the LightKitAdminNotification instance.
     - [LightKitAdminNotification::createSuccess](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Notification/LightKitAdminNotification/createSuccess.md) &ndash; Creates a notification instance of type success and returns it.
@@ -246,10 +254,6 @@ Table of contents
     - [LightKitAdminService::onLightExceptionCaught](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/onLightExceptionCaught.md) &ndash; The onLightExceptionCaught method
     - [LightKitAdminService::onWebsiteUserLogin](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/onWebsiteUserLogin.md) &ndash; This method is called by default when a website user logs in.
     - [LightKitAdminService::lateRegistration](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/lateRegistration.md) &ndash; Allows lka plugins to register their services to some plugins in a dynamic way.
-    - [LightKitAdminService::install](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/install.md) &ndash; Installs the plugin in the light application.
-    - [LightKitAdminService::uninstall](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/uninstall.md) &ndash; Uninstalls the plugin.
-    - [LightKitAdminService::isInstalled](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/isInstalled.md) &ndash; Returns whether the core install phase of the plugin is fully completed.
-    - [LightKitAdminService::getDependencies](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/getDependencies.md) &ndash; Returns the array of dependencies.
 - [LightKitAdminStandardServicePlugin](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminStandardServicePlugin.md) &ndash; The LightKitAdminStandardServicePlugin class.
     - [LightKitAdminStandardServicePlugin::__construct](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminStandardServicePlugin/__construct.md) &ndash; Builds the LightLingStandardService01 instance.
     - [LightKitAdminStandardServicePlugin::setContainer](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminStandardServicePlugin/setContainer.md) &ndash; Sets the container.
@@ -302,12 +306,12 @@ Dependencies
 - [Light_DatabaseUtils](https://github.com/lingtalfi/Light_DatabaseUtils)
 - [UniverseTools](https://github.com/lingtalfi/UniverseTools)
 - [Light_ControllerHub](https://github.com/lingtalfi/Light_ControllerHub)
+- [Light_PluginInstaller](https://github.com/lingtalfi/Light_PluginInstaller)
 - [Light_Crud](https://github.com/lingtalfi/Light_Crud)
 - [Light_Realist](https://github.com/lingtalfi/Light_Realist)
 - [Light_UserData](https://github.com/lingtalfi/Light_UserData)
 - [PhpSpreadSheetTool](https://github.com/lingtalfi/PhpSpreadSheetTool)
 - [Bootstrap4AdminTable](https://github.com/lingtalfi/Bootstrap4AdminTable)
-- [Light_PluginInstaller](https://github.com/lingtalfi/Light_PluginInstaller)
 - [Light_LingStandardService](https://github.com/lingtalfi/Light_LingStandardService)
 - [Kit_PicassoWidget](https://github.com/lingtalfi/Kit_PicassoWidget)
 - [Chloroform_HeliumRenderer](https://github.com/lingtalfi/Chloroform_HeliumRenderer)
