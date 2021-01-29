@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightKitAdminBasePortPluginInstallerWithDatabase::prepareTheNames](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Light_PluginInstaller/LightKitAdminBasePortPluginInstallerWithDatabase.php#L191-L222)
+See the source code for method [LightKitAdminBasePortPluginInstallerWithDatabase::prepareTheNames](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Light_PluginInstaller/LightKitAdminBasePortPluginInstallerWithDatabase.php#L196-L227)
 
 
 See Also

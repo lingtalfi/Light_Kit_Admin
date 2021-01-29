@@ -244,6 +244,10 @@ $user_database_vars.bullsheeter_avatar_img_dir: ${app_dir}/www/plugins/Light_Kit
 History Log
 =============
 
+- 0.12.8 -- 2021-01-29
+
+    - fix LightKitAdminBasePortPluginInstallerWithDatabase->isInstalled expecting permission tables to exist
+  
 - 0.12.7 -- 2021-01-29
 
     - add LightKitAdminBasePortPluginInstallerWithDatabase class

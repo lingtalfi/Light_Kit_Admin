@@ -47,7 +47,7 @@ Returns bool.
 
 Source Code
 ===========
-See the source code for method [LightKitAdminBasePortPluginInstallerWithDatabase::isInstalled](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Light_PluginInstaller/LightKitAdminBasePortPluginInstallerWithDatabase.php#L81-L107)
+See the source code for method [LightKitAdminBasePortPluginInstallerWithDatabase::isInstalled](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Light_PluginInstaller/LightKitAdminBasePortPluginInstallerWithDatabase.php#L81-L112)
 
 
 See Also

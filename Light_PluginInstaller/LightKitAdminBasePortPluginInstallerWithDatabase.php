@@ -91,15 +91,20 @@ abstract class LightKitAdminBasePortPluginInstallerWithDatabase extends LightBas
             $permGroupApi = $userDb->getFactory()->getPermissionGroupApi();
             $basePluginName = $this->_sourcePluginName;
             $permApi = $userDb->getFactory()->getPermissionApi();
-            $groupAdminId = $permGroupApi->getPermissionGroupIdByName("Light_Kit_Admin.admin", null, true);
-            $adminId = $permApi->getPermissionIdByName("$basePluginName.admin", null, true);
-            $res = $userDb->getFactory()->getPermissionGroupHasPermissionApi()->getPermissionGroupHasPermission(Where::inst()
-                ->key("permission_group_id")->equals($groupAdminId)
-                ->and()->key("permission_id")->equals($adminId)
-            );
 
-            if (false === empty($res)) {
-                return true;
+            if (null !== ($groupAdminId = $permGroupApi->getPermissionGroupIdByName("Light_Kit_Admin.admin"))) {
+
+                if (null !== ($adminId = $permApi->getPermissionIdByName("$basePluginName.admin"))) {
+
+                    $res = $userDb->getFactory()->getPermissionGroupHasPermissionApi()->getPermissionGroupHasPermission(Where::inst()
+                        ->key("permission_group_id")->equals($groupAdminId)
+                        ->and()->key("permission_id")->equals($adminId)
+                    );
+
+                    if (false === empty($res)) {
+                        return true;
+                    }
+                }
             }
         }
 

@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightKitAdminBasePortPluginInstallerWithDatabase::uninstall](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Light_PluginInstaller/LightKitAdminBasePortPluginInstallerWithDatabase.php#L112-L152)
+See the source code for method [LightKitAdminBasePortPluginInstallerWithDatabase::uninstall](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Light_PluginInstaller/LightKitAdminBasePortPluginInstallerWithDatabase.php#L117-L157)
 
 
 See Also

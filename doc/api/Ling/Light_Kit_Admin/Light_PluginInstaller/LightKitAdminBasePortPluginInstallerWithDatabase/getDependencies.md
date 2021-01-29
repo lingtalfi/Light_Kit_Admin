@@ -48,7 +48,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [LightKitAdminBasePortPluginInstallerWithDatabase::getDependencies](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Light_PluginInstaller/LightKitAdminBasePortPluginInstallerWithDatabase.php#L157-L165)
+See the source code for method [LightKitAdminBasePortPluginInstallerWithDatabase::getDependencies](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Light_PluginInstaller/LightKitAdminBasePortPluginInstallerWithDatabase.php#L162-L170)
 
 
 See Also
