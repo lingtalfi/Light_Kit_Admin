@@ -4,7 +4,7 @@
 
 The LightKitAdminPluginInstaller class
 ================
-2019-05-17 --> 2021-01-28
+2019-05-17 --> 2021-01-29
 
 
 
@@ -87,4 +87,4 @@ See the source code of [Ling\Light_Kit_Admin\Light_PluginInstaller\LightKitAdmin
 
 SeeAlso
 ==============
-Previous class: [LightKitAdminControllerHubHandler](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_ControllerHub/LightKitAdminControllerHubHandler.md)<br>Next class: [LightKitAdminNotification](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Notification/LightKitAdminNotification.md)<br>
+Previous class: [LightKitAdminBasePortPluginInstallerWithDatabase](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_PluginInstaller/LightKitAdminBasePortPluginInstallerWithDatabase.md)<br>Next class: [LightKitAdminNotification](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Notification/LightKitAdminNotification.md)<br>

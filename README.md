@@ -1,6 +1,6 @@
 Light_Kit_Admin
 ===========
-2019-10-24 -> 2021-01-28
+2019-10-24 -> 2021-01-29
 
 
 
@@ -244,6 +244,10 @@ $user_database_vars.bullsheeter_avatar_img_dir: ${app_dir}/www/plugins/Light_Kit
 History Log
 =============
 
+- 0.12.7 -- 2021-01-29
+
+    - add LightKitAdminBasePortPluginInstallerWithDatabase class
+  
 - 0.12.6 -- 2021-01-28
 
     - adapt to work with new PluginInstaller api

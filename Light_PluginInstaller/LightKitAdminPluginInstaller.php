@@ -6,7 +6,6 @@ namespace Ling\Light_Kit_Admin\Light_PluginInstaller;
 
 use Ling\Light_Database\Service\LightDatabaseService;
 use Ling\Light_PluginInstaller\PluginInstaller\LightBasePluginInstaller;
-use Ling\Light_PluginInstaller\Service\LightPluginInstallerService;
 use Ling\Light_UserDatabase\Service\LightUserDatabaseService;
 use Ling\SimplePdoWrapper\SimplePdoWrapperInterface;
 
@@ -66,7 +65,7 @@ class LightKitAdminPluginInstaller extends LightBasePluginInstaller
          */
         $exception = null;
 
-        $this->debugMsg("kit_admin: adding tables content.");
+        $this->debugMsg("kit_admin: adding tables content." . PHP_EOL);
         $res = $db->transaction(function () use ($userDb) {
 
 
@@ -175,7 +174,7 @@ class LightKitAdminPluginInstaller extends LightBasePluginInstaller
     public function uninstall()
     {
 
-        $this->debugMsg("kit_admin: removing tables content.");
+        $this->debugMsg("kit_admin: removing tables content." . PHP_EOL);
 
         /**
          * @var $wrapper SimplePdoWrapperInterface
