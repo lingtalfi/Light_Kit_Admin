@@ -5,7 +5,7 @@ namespace Ling\Light_Kit_Admin\Light_PluginInstaller;
 
 
 use Ling\Light_Database\Service\LightDatabaseService;
-use Ling\Light_PluginInstaller\PluginInstaller\LightBasePluginInstaller;
+use Ling\Light_UserDatabase\Light_PluginInstaller\LightUserDatabaseBasePluginInstaller;
 use Ling\Light_UserDatabase\Service\LightUserDatabaseService;
 use Ling\SimplePdoWrapper\SimplePdoWrapperInterface;
 
@@ -13,7 +13,7 @@ use Ling\SimplePdoWrapper\SimplePdoWrapperInterface;
 /**
  * The LightKitAdminPluginInstaller class.
  */
-class LightKitAdminPluginInstaller extends LightBasePluginInstaller
+class LightKitAdminPluginInstaller extends LightUserDatabaseBasePluginInstaller
 {
 
 

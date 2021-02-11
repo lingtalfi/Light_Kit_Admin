@@ -27,12 +27,12 @@ dependencies:
         - Light_DatabaseUtils
         - UniverseTools
         - Light_ControllerHub
-        - Light_PluginInstaller
         - Light_Crud
         - Light_Realist
         - Light_UserData
         - PhpSpreadSheetTool
         - Bootstrap4AdminTable
+        - Light_PluginInstaller
         - Kit_PicassoWidget
         - Chloroform_HeliumRenderer
         - FontAwesome

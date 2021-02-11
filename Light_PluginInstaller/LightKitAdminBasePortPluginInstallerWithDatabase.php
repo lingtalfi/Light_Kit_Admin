@@ -6,7 +6,7 @@ namespace Ling\Light_Kit_Admin\Light_PluginInstaller;
 
 use Ling\Light_Kit_Admin\Exception\LightKitAdminException;
 use Ling\Light_Kit_Admin\Helper\LightKitAdminPermissionHelper;
-use Ling\Light_PluginInstaller\PluginInstaller\LightBasePluginInstaller;
+use Ling\Light_UserDatabase\Light_PluginInstaller\LightUserDatabaseBasePluginInstaller;
 use Ling\Light_UserDatabase\Service\LightUserDatabaseService;
 use Ling\SimplePdoWrapper\Util\Where;
 use Ling\UniverseTools\PlanetTool;
@@ -17,7 +17,7 @@ use Ling\UniverseTools\PlanetTool;
  *
  *
  */
-abstract class LightKitAdminBasePortPluginInstallerWithDatabase extends LightBasePluginInstaller
+abstract class LightKitAdminBasePortPluginInstallerWithDatabase extends LightUserDatabaseBasePluginInstaller
 {
 
 

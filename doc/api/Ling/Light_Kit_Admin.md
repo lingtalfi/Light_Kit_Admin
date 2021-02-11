@@ -1,6 +1,6 @@
 Ling/Light_Kit_Admin
 ================
-2019-05-17 --> 2021-01-29
+2019-05-17 --> 2021-02-11
 
 
 
@@ -175,16 +175,16 @@ Table of contents
     - [LightKitAdminBasePortPluginInstallerWithDatabase::isInstalled](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_PluginInstaller/LightKitAdminBasePortPluginInstallerWithDatabase/isInstalled.md) &ndash; Returns whether the core install phase of the plugin is fully completed.
     - [LightKitAdminBasePortPluginInstallerWithDatabase::uninstall](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_PluginInstaller/LightKitAdminBasePortPluginInstallerWithDatabase/uninstall.md) &ndash; Uninstalls the plugin.
     - [LightKitAdminBasePortPluginInstallerWithDatabase::getDependencies](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_PluginInstaller/LightKitAdminBasePortPluginInstallerWithDatabase/getDependencies.md) &ndash; Returns the array of dependencies.
-    - LightBasePluginInstaller::setContainer &ndash; Sets the container.
-    - LightBasePluginInstaller::getTableScope &ndash; Returns the [table scope](https://github.com/lingtalfi/TheBar/blob/master/discussions/table-scope.md) for this planet.
+    - LightUserDatabaseBasePluginInstaller::setContainer &ndash; Sets the container.
+    - LightUserDatabaseBasePluginInstaller::getTableScope &ndash; Returns the [table scope](https://github.com/lingtalfi/TheBar/blob/master/discussions/table-scope.md) for this planet.
 - [LightKitAdminPluginInstaller](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_PluginInstaller/LightKitAdminPluginInstaller.md) &ndash; The LightKitAdminPluginInstaller class.
     - [LightKitAdminPluginInstaller::getDependencies](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_PluginInstaller/LightKitAdminPluginInstaller/getDependencies.md) &ndash; Returns the array of dependencies.
     - [LightKitAdminPluginInstaller::install](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_PluginInstaller/LightKitAdminPluginInstaller/install.md) &ndash; Installs the plugin in the light application.
     - [LightKitAdminPluginInstaller::uninstall](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_PluginInstaller/LightKitAdminPluginInstaller/uninstall.md) &ndash; Uninstalls the plugin.
-    - LightBasePluginInstaller::__construct &ndash; Builds the LightBasePluginInstaller instance.
-    - LightBasePluginInstaller::setContainer &ndash; Sets the container.
-    - LightBasePluginInstaller::isInstalled &ndash; Returns whether the core install phase of the plugin is fully completed.
-    - LightBasePluginInstaller::getTableScope &ndash; Returns the [table scope](https://github.com/lingtalfi/TheBar/blob/master/discussions/table-scope.md) for this planet.
+    - LightUserDatabaseBasePluginInstaller::__construct &ndash; Builds the LightBasePluginInstaller instance.
+    - LightUserDatabaseBasePluginInstaller::setContainer &ndash; Sets the container.
+    - LightUserDatabaseBasePluginInstaller::isInstalled &ndash; Returns whether the core install phase of the plugin is fully completed.
+    - LightUserDatabaseBasePluginInstaller::getTableScope &ndash; Returns the [table scope](https://github.com/lingtalfi/TheBar/blob/master/discussions/table-scope.md) for this planet.
 - [LightKitAdminNotification](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Notification/LightKitAdminNotification.md) &ndash; The LightKitAdminNotification class.
     - [LightKitAdminNotification::__construct](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Notification/LightKitAdminNotification/__construct.md) &ndash; Builds the LightKitAdminNotification instance.
     - [LightKitAdminNotification::createSuccess](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Notification/LightKitAdminNotification/createSuccess.md) &ndash; Creates a notification instance of type success and returns it.
@@ -312,12 +312,12 @@ Dependencies
 - [Light_DatabaseUtils](https://github.com/lingtalfi/Light_DatabaseUtils)
 - [UniverseTools](https://github.com/lingtalfi/UniverseTools)
 - [Light_ControllerHub](https://github.com/lingtalfi/Light_ControllerHub)
-- [Light_PluginInstaller](https://github.com/lingtalfi/Light_PluginInstaller)
 - [Light_Crud](https://github.com/lingtalfi/Light_Crud)
 - [Light_Realist](https://github.com/lingtalfi/Light_Realist)
 - [Light_UserData](https://github.com/lingtalfi/Light_UserData)
 - [PhpSpreadSheetTool](https://github.com/lingtalfi/PhpSpreadSheetTool)
 - [Bootstrap4AdminTable](https://github.com/lingtalfi/Bootstrap4AdminTable)
+- [Light_PluginInstaller](https://github.com/lingtalfi/Light_PluginInstaller)
 - [Kit_PicassoWidget](https://github.com/lingtalfi/Kit_PicassoWidget)
 - [Chloroform_HeliumRenderer](https://github.com/lingtalfi/Chloroform_HeliumRenderer)
 - [FontAwesome](https://github.com/lingtalfi/FontAwesome)
