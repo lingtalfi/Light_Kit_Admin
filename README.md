@@ -244,6 +244,10 @@ $user_database_vars.bullsheeter_avatar_img_dir: ${app_dir}/www/plugins/Light_Kit
 History Log
 =============
 
+- 0.12.12 -- 2021-02-22
+
+    - clean assets/map dir
+  
 - 0.12.11 -- 2021-02-22
 
     - adapt to new light universe assets organization
