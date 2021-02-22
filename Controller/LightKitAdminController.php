@@ -145,8 +145,8 @@ class LightKitAdminController extends LightController implements RouteAwareContr
         $copilot = $this->getContainer()->get("html_page_copilot");
         $copilot->registerLibrary("lka_environment", [
             "/libs/universe/Ling/JBee/bee.js",
-            "/plugins/Light_Kit_Admin/js/light-kit-admin-environment.js",
-            "/plugins/Light_Kit_Admin/js/light-kit-admin-init.js",
+            "/libs/universe/Ling/Light_Kit_Admin/js/light-kit-admin-environment.js",
+            "/libs/universe/Ling/Light_Kit_Admin/js/light-kit-admin-init.js",
         ]);
 
         /**

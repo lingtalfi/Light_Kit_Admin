@@ -58,8 +58,8 @@ $modals = $this->copilot->getModals()
               content="<?php echo htmlspecialchars($this->copilot->getDescription()); ?>"><?php endif; ?>
 
 
-    <link rel="stylesheet" href="/plugins/Light_Kit_Admin/zeroadmin/css/style.css">
-    <link rel="stylesheet" href="/plugins/Light_Kit_Admin/zeroadmin/css/my_colors.css">
+    <link rel="stylesheet" href="/libs/universe/Ling/Light_Kit_Admin/zeroadmin/css/style.css">
+    <link rel="stylesheet" href="/libs/universe/Ling/Light_Kit_Admin/zeroadmin/css/my_colors.css">
 
     <?php if (true === "deprecated, remove me"): ?>
         <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
@@ -548,7 +548,7 @@ echo StringTool::htmlAttributes($this->copilot->getBodyTagAttributes()); ?>>
 <?php endforeach; ?>
 
 
-<!--<script src="/plugins/Light_Kit_Admin/zeroadmin/js/bottom.js"></script>-->
+<!--<script src="/libs/universe/Ling/Light_Kit_Admin/zeroadmin/js/bottom.js"></script>-->
 
 
 <?php if (true === $this->copilot->hasJsCodeBlocks()): ?>

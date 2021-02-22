@@ -67,7 +67,7 @@ $style = $z['style'] ?? 'lka';
 
     <?php switch ($style):
         case 'lka': ?>
-            <link rel="stylesheet" href="/plugins/Light_Kit_Admin/zeroadmin/css/style.css">
+            <link rel="stylesheet" href="/libs/universe/Ling/Light_Kit_Admin/zeroadmin/css/style.css">
             <?php break; ?>
         <?php default: ?>
             <?php break; ?>
