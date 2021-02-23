@@ -77,12 +77,6 @@ $bullsheet.methods_collection:
 #                    setContainer:
 #                        container: @container()
 
-$easy_route.methods_collection:
-    -
-        method: registerBundleFile
-        args:
-            file: config/data/Light_Kit_Admin/Light_EasyRoute/lka_routes.byml
-
 
 
 

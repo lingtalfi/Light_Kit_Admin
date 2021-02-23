@@ -5,6 +5,7 @@ dependencies:
         - Bootstrap4AdminTable
         - Chloroform
         - Chloroform_HeliumRenderer
+        - CliTools
         - FontAwesome
         - HtmlPageTools
         - JBee
@@ -21,12 +22,14 @@ dependencies:
         - Light_Database
         - Light_DatabaseInfo
         - Light_DatabaseUtils
+        - Light_EasyRoute
         - Light_Events
         - Light_Flasher
         - Light_Kit
         - Light_Mailer
         - Light_MicroPermission
         - Light_Nugget
+        - Light_PlanetInstaller
         - Light_PluginInstaller
         - Light_Realform
         - Light_Realist

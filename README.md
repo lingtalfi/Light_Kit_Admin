@@ -1,13 +1,8 @@
 Light_Kit_Admin
 ===========
-2019-10-24 -> 2021-02-22
-
-
-
-
+2019-10-24 -> 2021-02-23
 
 An admin system with gui for the [Light](https://github.com/lingtalfi/Light) framework.
-
 
 This is a [Light framework plugin](https://github.com/lingtalfi/Light/blob/master/doc/pages/plugin.md).
 
@@ -19,6 +14,7 @@ This is part of the [universe framework](https://github.com/karayabin/universe-s
 Install
 ==========
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
+
 ```bash
 uni import Ling/Light_Kit_Admin
 ```
@@ -32,7 +28,9 @@ Or just download it and place it where you want otherwise.
 
 Summary
 ===========
-- [Light_Kit_Admin api](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin.md) (generated with [DocTools](https://github.com/lingtalfi/DocTools))
+
+- [Light_Kit_Admin api](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin.md) (
+  generated with [DocTools](https://github.com/lingtalfi/DocTools))
 - [Services](#services)
 - Pages
     - [Bmenu](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/bmenu.md)
@@ -50,20 +48,14 @@ Summary
     - [User notifications](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/user-notifications.md)
     - [User](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/user.md)
 
-
-
 Services
 =========
-
+2019-10-24 -> 2021-02-23
 
 This plugin provides the following services:
 
 - kit_admin (returns a LightKitAdminService instance)
 - ?kit_admin_rights (returns a LightKitAdminRightsManager instance)
-
- 
-
-
 
 Here is an example of the service configuration:
 
@@ -99,8 +91,7 @@ kit_admin:
 # hooks
 # --------------------------------------
 $ajax_handler.methods_collection:
-    -
-        method: registerHandler
+    -   method: registerHandler
         args:
             id: Light_Kit_Admin
             handler:
@@ -108,8 +99,7 @@ $ajax_handler.methods_collection:
 
 
 $bmenu.methods_collection:
-    -
-        method: registerHost
+    -   method: registerHost
         args:
             menu_type: admin_main_menu
             host:
@@ -125,8 +115,7 @@ $bmenu.methods_collection:
                         path: lka-plugins
 
 $bullsheet.methods_collection:
-    -
-        method: registerBullsheeter
+    -   method: registerBullsheeter
         args:
             identifier: Light_Kit_Admin.default
             bullsheeter:
@@ -147,27 +136,19 @@ $bullsheet.methods_collection:
 #                    setContainer:
 #                        container: @container()
 
-$easy_route.methods_collection:
-    -
-        method: registerBundleFile
-        args:
-            file: config/data/Light_Kit_Admin/Light_EasyRoute/lka_routes.byml
-
 
 
 
 
 $events.methods_collection:
-    -
-        method: registerListener
+    -   method: registerListener
         args:
             events:
                 - Light_Kit_Admin.on_user_successful_connexion
             listener:
                 instance: @service(kit_admin)
                 callable_method: onWebsiteUserLogin
-    -
-        method: registerListener
+    -   method: registerListener
         args:
             events:
                 - Light.on_exception_caught
@@ -177,15 +158,12 @@ $events.methods_collection:
 
 
 $kit.methods_collection:
-    -
-        method: addPageConfigurationTransformer
+    -   method: addPageConfigurationTransformer
         args:
-            -
-                instance: Ling\Light_Kit_Admin\PageConfigurationTransformer\LightKitAdminPageConfigurationTransformer
+            -   instance: Ling\Light_Kit_Admin\PageConfigurationTransformer\LightKitAdminPageConfigurationTransformer
 
 $micro_permission.methods_collection:
-    -
-        method: registerMicroPermissionsByProfile
+    -   method: registerMicroPermissionsByProfile
         args:
             file: ${app_dir}/config/data/Light_Kit_Admin/Light_MicroPermission/kit_admin.profile.byml
 
@@ -193,15 +171,14 @@ $micro_permission.methods_collection:
 
 
 
+
 $realist.methods_collection:
-    -
-        method: registerListRenderer
+    -   method: registerListRenderer
         args:
             identifier: Light_Kit_Admin
             renderer:
                 instance: Ling\Light_Kit_Admin\Realist\Rendering\LightKitAdminRealistListRenderer
-    -
-        method: registerListItemRenderer
+    -   method: registerListItemRenderer
         args:
             identifier: Light_Kit_Admin
             renderer:
@@ -210,12 +187,11 @@ $realist.methods_collection:
 
 
 $user_database.methods_collection:
-    -
-        method: setRootAvatarUrl
-        args:
-            avatar_url: /plugins/Light_Kit_Admin/img/avatars/root_avatar.png
-    -
-        method: setPasswordProtector
+    #    -
+    #        method: setRootAvatarUrl
+    #        args:
+    #            avatar_url: /plugins/Light_Kit_Admin/img/avatars/root_avatar.png
+    -   method: setPasswordProtector
         args:
             protector: @service(password_protector)
 
@@ -228,26 +204,22 @@ $user_database_vars.bullsheeter_avatar_img_dir: ${app_dir}/www/plugins/Light_Kit
 
 
 
+
 ```
-
-
-
-
-
-
-
-
-
 
 
 
 History Log
 =============
 
+- 0.12.13 -- 2021-02-23
+
+    - switch to Light_EasyRoute open registration system
+
 - 0.12.12 -- 2021-02-22
 
     - clean assets/map dir
-  
+
 - 0.12.11 -- 2021-02-22
 
     - adapt to new light universe assets organization
@@ -258,20 +230,20 @@ History Log
 
 - 0.12.9 -- 2021-02-11
 
-    - update api, plugin installer now extends LightUserDatabaseBasePluginInstaller 
-  
+    - update api, plugin installer now extends LightUserDatabaseBasePluginInstaller
+
 - 0.12.8 -- 2021-01-29
 
     - fix LightKitAdminBasePortPluginInstallerWithDatabase->isInstalled expecting permission tables to exist
-  
+
 - 0.12.7 -- 2021-01-29
 
     - add LightKitAdminBasePortPluginInstallerWithDatabase class
-  
+
 - 0.12.6 -- 2021-01-28
 
     - adapt to work with new PluginInstaller api
-  
+
 - 0.12.5 -- 2020-12-08
 
     - Fix lpi-deps not using natsort.
@@ -279,68 +251,68 @@ History Log
 - 0.12.4 -- 2020-12-04
 
     - Add lpi-deps.byml file
-    
+
 - 0.12.3 -- 2020-12-01
 
     - update login form, now accepts remember me
     - update api to accommodate latest ControllerHub api
-    
+
 - 0.12.2 -- 2020-11-27
 
     - update to accommodate latest Light_Kit api
-    
+
 - 0.12.1 -- 2020-11-23
 
     - checkpoint commit
-    
+
 - 0.12.0 -- 2020-08-21
 
     - acknowledge micro-permission3
-    
+
 - 0.11.0 -- 2020-08-07
 
     - add LightKitAdminStandardServicePlugin class
-    
+
 - 0.10.0 -- 2020-08-07
 
     - add LightKitAdminService->lateRegistration method
-    
+
 - 0.9.0 -- 2020-08-07
 
     - checkpoint commit
-    
+
 - 0.8.0 -- 2020-08-04
 
     - checkpoint commit
-    
+
 - 0.7.0 -- 2020-07-07
 
     - checkpoint commit
-    
+
 - 0.6.0 -- 2020-06-23
 
     - checkpoint commit
-    
+
 - 0.5.0 -- 2020-06-04
 
     - checkpoint commit
-    
+
 - 0.4.1 -- 2019-12-17
 
     - fix functional typo in service configuration
-    
+
 - 0.4.0 -- 2019-12-17
 
     - update plugin to accommodate Light 0.50 new initialization system
-    
+
 - 0.3.0 -- 2019-12-06
 
     - checkpoint commit
-    
+
 - 0.2.0 -- 2019-11-05
 
     - checkpoint commit
-    
+
 - 0.1.0 -- 2019-10-25
 
     - initial commit

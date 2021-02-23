@@ -1,6 +1,6 @@
 Ling/Light_Kit_Admin
 ================
-2019-05-17 --> 2021-02-22
+2019-05-17 --> 2021-02-23
 
 
 
@@ -290,6 +290,7 @@ Dependencies
 - [Bootstrap4AdminTable](https://github.com/lingtalfi/Bootstrap4AdminTable)
 - [Chloroform](https://github.com/lingtalfi/Chloroform)
 - [Chloroform_HeliumRenderer](https://github.com/lingtalfi/Chloroform_HeliumRenderer)
+- [CliTools](https://github.com/lingtalfi/CliTools)
 - [FontAwesome](https://github.com/lingtalfi/FontAwesome)
 - [HtmlPageTools](https://github.com/lingtalfi/HtmlPageTools)
 - [JBee](https://github.com/lingtalfi/JBee)
@@ -306,12 +307,14 @@ Dependencies
 - [Light_Database](https://github.com/lingtalfi/Light_Database)
 - [Light_DatabaseInfo](https://github.com/lingtalfi/Light_DatabaseInfo)
 - [Light_DatabaseUtils](https://github.com/lingtalfi/Light_DatabaseUtils)
+- [Light_EasyRoute](https://github.com/lingtalfi/Light_EasyRoute)
 - [Light_Events](https://github.com/lingtalfi/Light_Events)
 - [Light_Flasher](https://github.com/lingtalfi/Light_Flasher)
 - [Light_Kit](https://github.com/lingtalfi/Light_Kit)
 - [Light_Mailer](https://github.com/lingtalfi/Light_Mailer)
 - [Light_MicroPermission](https://github.com/lingtalfi/Light_MicroPermission)
 - [Light_Nugget](https://github.com/lingtalfi/Light_Nugget)
+- [Light_PlanetInstaller](https://github.com/lingtalfi/Light_PlanetInstaller)
 - [Light_PluginInstaller](https://github.com/lingtalfi/Light_PluginInstaller)
 - [Light_Realform](https://github.com/lingtalfi/Light_Realform)
 - [Light_Realist](https://github.com/lingtalfi/Light_Realist)
