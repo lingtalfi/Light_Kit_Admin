@@ -212,9 +212,13 @@ $user_database_vars.bullsheeter_avatar_img_dir: ${app_dir}/www/plugins/Light_Kit
 History Log
 =============
 
+- 0.12.16 -- 2021-02-23
+
+    - Update dependencies (pushed by SubscribersUtil)
+
 - 0.12.15 -- 2021-02-23
 
-    - Update dependencies
+    - Update dependencies (pushed by SubscribersUtil)
 
 - 0.12.14 -- 2021-02-23
 
