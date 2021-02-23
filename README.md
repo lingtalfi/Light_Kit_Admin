@@ -212,6 +212,10 @@ $user_database_vars.bullsheeter_avatar_img_dir: ${app_dir}/www/plugins/Light_Kit
 History Log
 =============
 
+- 0.12.14 -- 2021-02-23
+
+    - fix typo in LightKitAdminPlanetInstaller's namespace
+  
 - 0.12.13 -- 2021-02-23
 
     - switch to Light_EasyRoute open registration system

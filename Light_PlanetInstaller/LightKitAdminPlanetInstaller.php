@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Ling\Light_Database\Light_PlanetInstaller;
+namespace Ling\Light_Kit_Admin\Light_PlanetInstaller;
 
 
 use Ling\CliTools\Output\OutputInterface;
