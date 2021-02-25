@@ -328,6 +328,7 @@ Dependencies
 - [Light_UserData](https://github.com/lingtalfi/Light_UserData)
 - [Light_UserDatabase](https://github.com/lingtalfi/Light_UserDatabase)
 - [Light_UserManager](https://github.com/lingtalfi/Light_UserManager)
+- [Light_Vars](https://github.com/lingtalfi/Light_Vars)
 - [PhpSpreadSheetTool](https://github.com/lingtalfi/PhpSpreadSheetTool)
 - [SimplePdoWrapper](https://github.com/lingtalfi/SimplePdoWrapper)
 - [UniverseTools](https://github.com/lingtalfi/UniverseTools)

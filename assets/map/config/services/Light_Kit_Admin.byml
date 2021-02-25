@@ -23,11 +23,24 @@ kit_admin:
 
 
 
+kit_admin_vars:
+    route_prefix: /admin
+
+
+
 
 
 # --------------------------------------
 # hooks
 # --------------------------------------
+$vars.methods_collection:
+    -
+        method: setVar
+        args:
+            key: kit_admin_vars
+            value: ${kit_admin_vars}
+
+
 $ajax_handler.methods_collection:
     -
         method: registerHandler
@@ -149,5 +162,7 @@ $user_database.methods_collection:
 # vars
 # --------------------------------------
 $user_database_vars.bullsheeter_avatar_img_dir: ${app_dir}/www/plugins/Light_Kit_Admin/img/avatars2
+
+
 
 

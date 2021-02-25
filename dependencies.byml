@@ -39,6 +39,7 @@ dependencies:
         - Light_UserData
         - Light_UserDatabase
         - Light_UserManager
+        - Light_Vars
         - PhpSpreadSheetTool
         - SimplePdoWrapper
         - UniverseTools
