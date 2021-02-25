@@ -1,6 +1,6 @@
 Light_Kit_Admin
 ===========
-2019-10-24 -> 2021-02-23
+2019-10-24 -> 2021-02-25
 
 An admin system with gui for the [Light](https://github.com/lingtalfi/Light) framework.
 
@@ -212,6 +212,10 @@ $user_database_vars.bullsheeter_avatar_img_dir: ${app_dir}/www/plugins/Light_Kit
 History Log
 =============
 
+- 0.12.18 -- 2021-02-25
+
+    - fix assets/map removed
+  
 - 0.12.17 -- 2021-02-23
 
     - Update dependencies (pushed by SubscribersUtil)
