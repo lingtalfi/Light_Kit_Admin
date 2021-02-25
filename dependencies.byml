@@ -25,6 +25,7 @@ dependencies:
         - Light_EasyRoute
         - Light_Events
         - Light_Flasher
+        - Light_HtmlPageCopilot
         - Light_Kit
         - Light_Mailer
         - Light_MicroPermission

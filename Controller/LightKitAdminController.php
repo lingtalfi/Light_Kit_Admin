@@ -4,7 +4,6 @@
 namespace Ling\Light_Kit_Admin\Controller;
 
 
-use Ling\HtmlPageTools\Copilot\HtmlPageCopilot;
 use Ling\Light\Controller\LightController;
 use Ling\Light\Controller\RouteAwareControllerInterface;
 use Ling\Light\Events\LightEvent;
@@ -13,6 +12,7 @@ use Ling\Light\Http\HttpResponse;
 use Ling\Light\Http\HttpResponseInterface;
 use Ling\Light_Events\Service\LightEventsService;
 use Ling\Light_Flasher\Service\LightFlasherService;
+use Ling\Light_HtmlPageCopilot\Service\LightHtmlPageCopilotService;
 use Ling\Light_Kit\PageConfigurationUpdator\PageConfUpdator;
 use Ling\Light_Kit\PageRenderer\LightKitPageRenderer;
 use Ling\Light_Kit_Admin\Exception\LightKitAdminException;
@@ -140,7 +140,7 @@ class LightKitAdminController extends LightController implements RouteAwareContr
 
 
         /**
-         * @var $copilot HtmlPageCopilot
+         * @var $copilot LightHtmlPageCopilotService
          */
         $copilot = $this->getContainer()->get("html_page_copilot");
         $copilot->registerLibrary("lka_environment", [

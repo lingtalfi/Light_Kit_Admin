@@ -212,6 +212,10 @@ $user_database_vars.bullsheeter_avatar_img_dir: ${app_dir}/www/plugins/Light_Kit
 History Log
 =============
 
+- 0.12.19 -- 2021-02-25
+
+    - fix LightKitAdminController not stating its dependency to html_page_copilot service
+  
 - 0.12.18 -- 2021-02-25
 
     - fix assets/map removed

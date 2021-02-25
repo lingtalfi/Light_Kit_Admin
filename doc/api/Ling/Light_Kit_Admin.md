@@ -314,6 +314,7 @@ Dependencies
 - [Light_EasyRoute](https://github.com/lingtalfi/Light_EasyRoute)
 - [Light_Events](https://github.com/lingtalfi/Light_Events)
 - [Light_Flasher](https://github.com/lingtalfi/Light_Flasher)
+- [Light_HtmlPageCopilot](https://github.com/lingtalfi/Light_HtmlPageCopilot)
 - [Light_Kit](https://github.com/lingtalfi/Light_Kit)
 - [Light_Mailer](https://github.com/lingtalfi/Light_Mailer)
 - [Light_MicroPermission](https://github.com/lingtalfi/Light_MicroPermission)
