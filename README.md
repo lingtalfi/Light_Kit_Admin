@@ -241,6 +241,10 @@ $user_database_vars.bullsheeter_avatar_img_dir: ${app_dir}/www/plugins/Light_Kit
 History Log
 =============
 
+- 0.12.22 -- 2021-02-26
+
+    - fix undeclared dependency to Light_Kit_BootstrapWidgetLibrary 
+  
 - 0.12.21 -- 2021-02-26
 
     - update conf, now use "/admin" prefix by default for all urls

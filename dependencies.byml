@@ -27,6 +27,7 @@ dependencies:
         - Light_Flasher
         - Light_HtmlPageCopilot
         - Light_Kit
+        - Light_Kit_BootstrapWidgetLibrary
         - Light_Mailer
         - Light_MicroPermission
         - Light_Nugget
