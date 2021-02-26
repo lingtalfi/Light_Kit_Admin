@@ -1,5 +1,5 @@
 Light_Kit_Admin:
-    prefix: null
+    prefix: ${kit_admin_vars.route_prefix}
     routes:
         lka_route-home:
             pattern: /

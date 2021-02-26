@@ -1,6 +1,6 @@
 Light_Kit_Admin
 ===========
-2019-10-24 -> 2021-02-25
+2019-10-24 -> 2021-02-26
 
 An admin system with gui for the [Light](https://github.com/lingtalfi/Light) framework.
 
@@ -241,6 +241,10 @@ $user_database_vars.bullsheeter_avatar_img_dir: ${app_dir}/www/plugins/Light_Kit
 History Log
 =============
 
+- 0.12.21 -- 2021-02-26
+
+    - update conf, now use "/admin" prefix by default for all urls
+  
 - 0.12.20 -- 2021-02-25
 
     - now provide some public variables via Light_Vars
