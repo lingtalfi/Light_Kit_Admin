@@ -278,5 +278,6 @@ https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/recipes/lka-d
 https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/recipes/lka-developer/2-create-a-controller.md
 https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/service-dependencies.md
 https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/user-data.md
+https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/user-guide/lka-user-guide.md
 https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/user-notifications.md
 https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/user.md

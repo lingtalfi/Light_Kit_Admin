@@ -1,6 +1,6 @@
 Light_Kit_Admin
 ===========
-2019-10-24 -> 2021-02-26
+2019-10-24 -> 2021-03-01
 
 An admin system with gui for the [Light](https://github.com/lingtalfi/Light) framework.
 
@@ -50,7 +50,7 @@ Summary
 
 Services
 =========
-2019-10-24 -> 2021-02-25
+2019-10-24 -> 2021-03-01
 
 This plugin provides the following services:
 
@@ -61,24 +61,24 @@ Here is an example of the service configuration:
 
 ```yaml
 kit_admin:
-  instance: Ling\Light_Kit_Admin\Service\LightKitAdminService
-  methods:
-    setContainer:
-      container: @container()
-    setOptions:
-      options:
-        lang: eng
-        login:
-          # Used by LoginFormController to redirect the user after a successful connection on the login form.
-          on_success_route: lka_route-home
-          # Used by ProtectedPageController to redirect a non valid user.
-          # Used by LogoutController to redirect a valid user after a disconnect.
-          login_route: lka_route-login
-        access_denied:
-          access_denied_route: lka_route-forbidden_page
-        notifications:
-          # alert|toast
-          default_type: alert
+    instance: Ling\Light_Kit_Admin\Service\LightKitAdminService
+    methods:
+        setContainer:
+            container: @container()
+        setOptions:
+            options:
+                lang: eng
+                login:
+                    # Used by LoginFormController to redirect the user after a successful connection on the login form.
+                    on_success_route: lka_route-home
+                    # Used by ProtectedPageController to redirect a non valid user.
+                    # Used by LogoutController to redirect a valid user after a disconnect.
+                    login_route: lka_route-login
+                access_denied:
+                    access_denied_route: lka_route-forbidden_page
+                notifications:
+                    # alert|toast
+                    default_type: alert
 #        setUserRowOwnershipManager:
 #            manager:
 #                instance: Ling\Light_Kit_Admin\UserRowOwnership\LightKitAdminUserRowOwnershipManager
@@ -86,7 +86,7 @@ kit_admin:
 
 
 kit_admin_vars:
-  route_prefix: /admin
+    route_prefix: /admin
 
 
 
@@ -96,46 +96,46 @@ kit_admin_vars:
 # hooks
 # --------------------------------------
 $vars.methods_collection:
-  -
-    method: setVar
-    args:
-      key: kit_admin_vars
-      value: ${kit_admin_vars}
+    -
+        method: setVar
+        args:
+            key: kit_admin_vars
+            value: ${kit_admin_vars}
 
 
 $ajax_handler.methods_collection:
-  -
-    method: registerHandler
-    args:
-      id: Light_Kit_Admin
-      handler:
-        instance: Ling\Light_Kit_Admin\AjaxHandler\LightKitAdminAjaxHandler
+    -
+        method: registerHandler
+        args:
+            id: Light_Kit_Admin
+            handler:
+                instance: Ling\Light_Kit_Admin\AjaxHandler\LightKitAdminAjaxHandler
 
 
 $bmenu.methods_collection:
-  -
-    method: registerHost
-    args:
-      menu_type: admin_main_menu
-      host:
-        instance: Ling\Light_Kit_Admin\BMenu\LightKitAdminBMenuHost
-        methods:
-          setContainer:
-            container: @container()
-          setBaseDir:
-            dir: ${app_dir}/config/data/Light_Kit_Admin/bmenu
-          setMenuStructureId:
-            id: lka_mainmenu_1
-          setDefaultItemsParentPath:
-            path: lka-plugins
+    -
+        method: registerHost
+        args:
+            menu_type: admin_main_menu
+            host:
+                instance: Ling\Light_Kit_Admin\BMenu\LightKitAdminBMenuHost
+                methods:
+                    setContainer:
+                        container: @container()
+                    setBaseDir:
+                        dir: ${app_dir}/config/data/Light_Kit_Admin/bmenu
+                    setMenuStructureId:
+                        id: lka_mainmenu_1
+                    setDefaultItemsParentPath:
+                        path: lka-plugins
 
 $bullsheet.methods_collection:
-  -
-    method: registerBullsheeter
-    args:
-      identifier: Light_Kit_Admin.default
-      bullsheeter:
-        instance: Ling\Light_Kit_Admin\Bullsheet\LightKitAdminGeneralBullsheeter
+    -
+        method: registerBullsheeter
+        args:
+            identifier: Light_Kit_Admin.default
+            bullsheeter:
+                instance: Ling\Light_Kit_Admin\Bullsheet\LightKitAdminGeneralBullsheeter
 
 
 
@@ -157,36 +157,36 @@ $bullsheet.methods_collection:
 
 
 $events.methods_collection:
-  -
-    method: registerListener
-    args:
-      events:
-        - Light_Kit_Admin.on_user_successful_connexion
-      listener:
-        instance: @service(kit_admin)
-        callable_method: onWebsiteUserLogin
-  -
-    method: registerListener
-    args:
-      events:
-        - Light.on_exception_caught
-      listener:
-        instance: @service(kit_admin)
-        callable_method: onLightExceptionCaught
+    -
+        method: registerListener
+        args:
+            events:
+                - Light_Kit_Admin.on_user_successful_connexion
+            listener:
+                instance: @service(kit_admin)
+                callable_method: onWebsiteUserLogin
+    -
+        method: registerListener
+        args:
+            events:
+                - Light.on_exception_caught
+            listener:
+                instance: @service(kit_admin)
+                callable_method: onLightExceptionCaught
 
 
 $kit.methods_collection:
-  -
-    method: addPageConfigurationTransformer
-    args:
-      -
-        instance: Ling\Light_Kit_Admin\PageConfigurationTransformer\LightKitAdminPageConfigurationTransformer
+    -
+        method: addPageConfigurationTransformer
+        args:
+            -
+                instance: Ling\Light_Kit_Admin\PageConfigurationTransformer\LightKitAdminPageConfigurationTransformer
 
 $micro_permission.methods_collection:
-  -
-    method: registerMicroPermissionsByProfile
-    args:
-      file: ${app_dir}/config/data/Light_Kit_Admin/Light_MicroPermission/kit_admin.profile.byml
+    -
+        method: registerMicroPermissionsByProfile
+        args:
+            file: ${app_dir}/config/data/Light_Kit_Admin/Light_MicroPermission/kit_admin.profile.byml
 
 
 
@@ -194,43 +194,27 @@ $micro_permission.methods_collection:
 
 
 $realist.methods_collection:
-  -
-    method: registerListRenderer
-    args:
-      identifier: Light_Kit_Admin
-      renderer:
-        instance: Ling\Light_Kit_Admin\Realist\Rendering\LightKitAdminRealistListRenderer
-  -
-    method: registerListItemRenderer
-    args:
-      identifier: Light_Kit_Admin
-      renderer:
-        instance: Ling\Light_Kit_Admin\Realist\Rendering\LightKitAdminRealistListItemRenderer
+    -
+        method: registerListRenderer
+        args:
+            identifier: Light_Kit_Admin
+            renderer:
+                instance: Ling\Light_Kit_Admin\Realist\Rendering\LightKitAdminRealistListRenderer
+    -
+        method: registerListItemRenderer
+        args:
+            identifier: Light_Kit_Admin
+            renderer:
+                instance: Ling\Light_Kit_Admin\Realist\Rendering\LightKitAdminRealistListItemRenderer
 
 
 
-$user_database.methods_collection:
-  #    -
-  #        method: setRootAvatarUrl
-  #        args:
-  #            avatar_url: /plugins/Light_Kit_Admin/img/avatars/root_avatar.png
-  -
-    method: setPasswordProtector
-    args:
-      protector: @service(password_protector)
 
 
 # --------------------------------------
 # vars
 # --------------------------------------
 $user_database_vars.bullsheeter_avatar_img_dir: ${app_dir}/www/plugins/Light_Kit_Admin/img/avatars2
-
-
-
-
-
-
-
 
 
 
@@ -241,6 +225,10 @@ $user_database_vars.bullsheeter_avatar_img_dir: ${app_dir}/www/plugins/Light_Kit
 History Log
 =============
 
+- 0.12.23 -- 2021-03-01
+
+    - update service conf, we don't set the user_database password protector anymore 
+  
 - 0.12.22 -- 2021-02-26
 
     - fix undeclared dependency to Light_Kit_BootstrapWidgetLibrary 
