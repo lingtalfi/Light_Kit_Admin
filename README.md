@@ -1,6 +1,6 @@
 Light_Kit_Admin
 ===========
-2019-10-24 -> 2021-03-01
+2019-10-24 -> 2021-03-05
 
 An admin system with gui for the [Light](https://github.com/lingtalfi/Light) framework.
 
@@ -13,6 +13,11 @@ This is part of the [universe framework](https://github.com/karayabin/universe-s
 
 Install
 ==========
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.Light_Kit_Admin
+```
+
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 
 ```bash
@@ -224,6 +229,10 @@ $user_database_vars.bullsheeter_avatar_img_dir: ${app_dir}/www/plugins/Light_Kit
 
 History Log
 =============
+
+- 0.12.24 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 0.12.23 -- 2021-03-01
 

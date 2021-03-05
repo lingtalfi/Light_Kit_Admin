@@ -18,6 +18,9 @@ use Ling\Light_Kit\PageRenderer\LightKitPageRenderer;
 use Ling\Light_Kit_Admin\Exception\LightKitAdminException;
 use Ling\Light_Kit_Admin\Exception\LightKitAdminMicroPermissionDeniedException;
 use Ling\Light_Kit_Admin\Service\LightKitAdminService;
+use Ling\Light_Kit_Editor\Engine\LightKitEditorEngine;
+use Ling\Light_Kit_Editor\Storage\LightKitEditorBabyYamlStorage;
+use Ling\Light_Kit_Editor\Storage\LightKitEditorDatabaseStorage;
 use Ling\Light_MicroPermission\Service\LightMicroPermissionService;
 use Ling\Light_User\LightWebsiteUser;
 use Ling\Light_UserManager\Service\LightUserManagerService;
@@ -157,10 +160,7 @@ class LightKitAdminController extends LightController implements RouteAwareContr
         ]);
 
 
-        /**
-         * @var $kit LightKitPageRenderer
-         */
-        $kit = $this->getContainer()->get("kit");
+        $kit = $this->getKitPageRendererInstance();
 
 
         /**
@@ -177,6 +177,19 @@ class LightKitAdminController extends LightController implements RouteAwareContr
 
         return new HttpResponse($kit->renderPage($page, $dynamicVariables, $updator));
     }
+
+
+    /**
+     * Renders the default page, and returns the corresponding http response.
+     *
+     * @return HttpResponseInterface
+     */
+    public function renderDefaultPage(): HttpResponseInterface
+    {
+
+        return $this->getRedirectResponseByRoute("lka_route-home");
+    }
+
 
 
     //--------------------------------------------
@@ -266,5 +279,42 @@ class LightKitAdminController extends LightController implements RouteAwareContr
     //
     //--------------------------------------------
 
+
+    /**
+     *
+     * Returns the LightKitPageRenderer instance to use to render the pages.
+     *
+     * @return LightKitPageRenderer
+     * @throws \Exception
+     */
+    private function getKitPageRendererInstance(): LightKitPageRenderer
+    {
+//        return $this->getContainer()->get("kit"); // old behaviour
+
+
+        $appDir = $this->getContainer()->getApplicationDir();
+        /**
+         * @var $kit LightKitPageRenderer
+         */
+        $kit = clone($this->getContainer()->get("kit"));
+        $engine = new LightKitEditorEngine();
+
+
+        if (false && 'babyYaml') {
+            $storage = new LightKitEditorBabyYamlStorage();
+            $storage->setRootDir($appDir . "/config/open/Light_Kit_Admin/lke");
+        } elseif ("database") {
+            $storage = new LightKitEditorDatabaseStorage();
+        }
+
+
+        $engine->setStorage($storage);
+
+
+        $kit->setConfStorage($engine);
+
+
+        return $kit;
+    }
 
 }

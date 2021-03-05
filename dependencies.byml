@@ -28,6 +28,7 @@ dependencies:
         - Light_HtmlPageCopilot
         - Light_Kit
         - Light_Kit_BootstrapWidgetLibrary
+        - Light_Kit_Editor
         - Light_Mailer
         - Light_MicroPermission
         - Light_Nugget

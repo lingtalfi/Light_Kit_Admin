@@ -54,7 +54,7 @@ That should be it.
 
 First contact with the light kit admin gui
 -------
-2021-02-26
+2021-02-26 -> 2021-03-01
 
 
 By default, **light kit admin** use an url namespace of: **/admin**.
@@ -63,6 +63,27 @@ Assuming you have a web server serving the pages in **/tmp/testapp/www**, and th
 then open the following url in your browser:
 
 - http(s)://testapp/admin
+
+
+
+
+Note:
+By default, the light framework assumes that you have setup an https server.
+If you want to use http only, open the file **scripts/Ling/Light/init.container.inc.php**, and replace those lines:
+
+```php
+ini_set('session.cookie_httponly', 1);
+ini_set('session.use_only_cookies', 1);
+ini_set('session.cookie_secure', 1);
+```
+
+With these:
+
+```php
+ini_set('session.cookie_httponly', 0);
+ini_set('session.use_only_cookies', 0);
+ini_set('session.cookie_secure', 0);
+```
 
 
 You now should be redirected to the login form of light kit admin.
@@ -89,7 +110,7 @@ By default, **light kit admin** creates two accounts:
 
 - a user account
     - username: lka_dude
-    - password: boss
+    - password: dude
     
 
 For now, we recommend that you connect with the root account, because it has all the permissions granted, so you won't experience any limitations.
