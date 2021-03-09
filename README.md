@@ -1,6 +1,6 @@
 Light_Kit_Admin
 ===========
-2019-10-24 -> 2021-03-05
+2019-10-24 -> 2021-03-09
 
 An admin system with gui for the [Light](https://github.com/lingtalfi/Light) framework.
 
@@ -230,6 +230,11 @@ $user_database_vars.bullsheeter_avatar_img_dir: ${app_dir}/www/plugins/Light_Kit
 History Log
 =============
 
+- 0.12.25 -- 2021-03-09
+
+    - update api to adapt new Ling.Light_Mailer changes
+    - rename template dir to include galaxy name
+  
 - 0.12.24 -- 2021-03-05
 
     - update README.md, add install alternative

@@ -300,12 +300,13 @@ class LightKitAdminController extends LightController implements RouteAwareContr
         $engine = new LightKitEditorEngine();
 
 
-        if (false && 'babyYaml') {
+        if ('babyYaml') {
             $storage = new LightKitEditorBabyYamlStorage();
             $storage->setRootDir($appDir . "/config/open/Light_Kit_Admin/lke");
         } elseif ("database") {
             $storage = new LightKitEditorDatabaseStorage();
         }
+        $storage->setContainer($this->getContainer());
 
 
         $engine->setStorage($storage);

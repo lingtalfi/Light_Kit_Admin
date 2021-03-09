@@ -87,7 +87,7 @@ class LightKitAdminPageConfigurationTransformer implements PageConfigurationTran
                         "name" => "zeroadmin_notification_alert",
                         "type" => "picasso",
                         "className" => "Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\ZeroAdminNotificationAlertWidget",
-                        "widgetDir" => "templates/Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ZeroAdminNotificationAlertWidget",
+                        "widgetDir" => "templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ZeroAdminNotificationAlertWidget",
                         "template" => "default.php",
                         "vars" => [
                             "alert_class" => $sClass,
