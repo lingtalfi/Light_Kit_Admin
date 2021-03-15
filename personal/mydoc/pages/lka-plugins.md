@@ -1,6 +1,6 @@
 Light kit admin plugins
 =============
-2020-02-28 -> 2021-01-29
+2020-02-28 -> 2021-03-15
 
 
 
@@ -61,7 +61,7 @@ Examples:
 
 Creating pages
 ==========
-2021-03-08
+2021-03-08 -> 2021-03-12
 
 
 A page is a very easy concept to grasp: you basically open an url in your browser, and it shows you a page.
@@ -72,30 +72,14 @@ A page is a very easy concept to grasp: you basically open an url in your browse
 The implementation of the **kit system** in **lka** is based on the [Light_Kit_Editor](https://github.com/lingtalfi/Light_Kit_Editor) plugin, which allows **light kit admin** to provide an [open](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/design/open-vs-close-service-registration.md#the-open-registration) configuration [eco-structure](https://github.com/lingtalfi/Light/blob/master/personal/mydoc/pages/nomenclature.md#eco-structure)
 based on [babyYaml](https://github.com/lingtalfi/BabyYaml) files.
 
-The structure we use is the following:
+The structure we use is a [kit web app](https://github.com/lingtalfi/Light_Kit_Editor/blob/master/doc/pages/conception-notes.md#the-kit-web-app) directory, its location is:
 
-```txt
-- config/open/Ling.Light_Kit_Admin/lke/
-    - pages/
-        - $planetDotName/
-            - $page_name.byml
-    - zones/
-        - $zone_identifier.byml
-```
-
-With:
-
-- **$planetDotName**: the [planet dot name](https://github.com/karayabin/universe-snapshot#the-planet-dot-name)
-- **$page_name**: the page name (see the [kit system](https://github.com/lingtalfi/Kit) for more info)
-- **$zone_identifier**: the zone identifier (see the [kit system](https://github.com/lingtalfi/Kit) for more info)
+- **config/open/Ling.Light_Kit_Admin/lke**
 
 
+The default [theme](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/kit-theme.md) for **light kit admin** is: 
 
-The content of the **page** and **zone** files are explained in greater details in the [Light_Kit_Editor conception notes](https://github.com/lingtalfi/Light_Kit_Editor/blob/master/doc/pages/conception-notes.md).
-
-
-
-
+- **Ling.Light_Kit_Admin/zeroadmin**
 
 
 
@@ -108,7 +92,7 @@ The content of the **page** and **zone** files are explained in greater details 
 
 light kit admin source and port plugin
 -------------
-2021-01-29 -> 2021-03-08
+2021-01-29 -> 2021-03-15
 
 
 Some **lka plugins** are just a port of another plugin for the **light kit admin** environment.
@@ -129,6 +113,7 @@ Note that the name of the **lka port plugin** derives directly from the **lka so
 This naming convention is used by some tools in our ecosystem, and so we recommend that you stick to it when you create **port plugins**.  
 
 
+It's assumed that both planets, the port and the source come from the same galaxy.
 
 
 

@@ -23,8 +23,8 @@ class LightKitAdminPlanetInstaller extends LightBasePlanetInstaller
     {
 
 
-        $output->write("Light_Kit_Admin: copying Light_EasyRoute routes to master...");
-        LightEasyRouteHelper::copyRoutesFromPluginToMaster($appDir, "Light_Kit_Admin");
+        $output->write("Ling.Light_Kit_Admin: copying Ling.Light_EasyRoute routes to master...");
+        LightEasyRouteHelper::copyRoutesFromPluginToMaster($appDir, "Ling.Light_Kit_Admin");
         $output->write("<success>ok.</success>" . PHP_EOL);
     }
 

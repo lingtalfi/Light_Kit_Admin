@@ -117,7 +117,7 @@ class ForgottenPasswordController extends LightKitAdminController
         }
 
 
-        return $this->renderPage('Light_Kit_Admin/forgotten_password', [
+        return $this->renderPage('Ling.Light_Kit_Admin/forgotten_password', [
             "inputEmailError" => $error,
             "inputEmailValue" => $email,
             "hasMultipleAccounts" => $hasMultipleAccounts,

@@ -1,6 +1,6 @@
 Light_Kit_Admin
 ===========
-2019-10-24 -> 2021-03-09
+2019-10-24 -> 2021-03-15
 
 An admin system with gui for the [Light](https://github.com/lingtalfi/Light) framework.
 
@@ -43,6 +43,7 @@ Summary
     - [Error handling](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/error-handling.md)
     - [Events](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/events.md)
     - [How to debug](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/how-to-debug.md)
+    - [Kit theme](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/kit-theme.md)
     - [Light kit admin js environment](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/light-kit-admin-js-environment.md)
     - [Light kit admin plugins](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/lka-plugins.md)
     - [Pages](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/pages.md)
@@ -128,7 +129,7 @@ $bmenu.methods_collection:
                     setContainer:
                         container: @container()
                     setBaseDir:
-                        dir: ${app_dir}/config/data/Light_Kit_Admin/bmenu
+                        dir: ${app_dir}/config/data/Ling.Light_Kit_Admin/bmenu
                     setMenuStructureId:
                         id: lka_mainmenu_1
                     setDefaultItemsParentPath:
@@ -166,7 +167,7 @@ $events.methods_collection:
         method: registerListener
         args:
             events:
-                - Light_Kit_Admin.on_user_successful_connexion
+                - Ling.Light_Kit_Admin.on_user_successful_connexion
             listener:
                 instance: @service(kit_admin)
                 callable_method: onWebsiteUserLogin
@@ -174,7 +175,7 @@ $events.methods_collection:
         method: registerListener
         args:
             events:
-                - Light.on_exception_caught
+                - Ling.Light.on_exception_caught
             listener:
                 instance: @service(kit_admin)
                 callable_method: onLightExceptionCaught
@@ -191,7 +192,7 @@ $micro_permission.methods_collection:
     -
         method: registerMicroPermissionsByProfile
         args:
-            file: ${app_dir}/config/data/Light_Kit_Admin/Light_MicroPermission/kit_admin.profile.byml
+            file: ${app_dir}/config/data/Ling.Light_Kit_Admin/Ling.Light_MicroPermission/kit_admin.profile.byml
 
 
 
@@ -229,6 +230,10 @@ $user_database_vars.bullsheeter_avatar_img_dir: ${app_dir}/www/plugins/Light_Kit
 
 History Log
 =============
+
+- 0.12.26 -- 2021-03-15
+
+    - update planet to adapt Ling.Light:0.70.0
 
 - 0.12.25 -- 2021-03-09
 
