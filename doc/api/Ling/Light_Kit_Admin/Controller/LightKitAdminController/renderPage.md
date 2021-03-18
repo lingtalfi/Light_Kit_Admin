@@ -22,7 +22,7 @@ public [LightKitAdminController::renderPage](https://github.com/lingtalfi/Light_
 
 
 Renders the given page using the [kit service](https://github.com/lingtalfi/Light_Kit).
-Options are directly forwarded to the LightKitPageRenderer->renderPage method.
+Options are directly forwarded to [the LightKitPageRenderer->renderPage method](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageRenderer/LightKitPageRenderer/renderPage.md).
 
 
 

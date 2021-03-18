@@ -30,7 +30,7 @@ Example of page values:
 
 - Light_Kit_Admin_UserPreferences/Ling.Light_Kit/zeroadmin/generated/lup_user_preference_list
 
-Options are directly forwarded to the LightKitPageRenderer->renderPage method.
+Options are directly forwarded to [the LightKitPageRenderer->renderPage method](https://github.com/lingtalfi/Light_Kit/blob/master/doc/api/Ling/Light_Kit/PageRenderer/LightKitPageRenderer/renderPage.md).
 
 
 

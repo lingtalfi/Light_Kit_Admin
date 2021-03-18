@@ -3,6 +3,7 @@ dependencies:
         - BabyYaml
         - Bat
         - Bootstrap4AdminTable
+        - CheapLogger
         - Chloroform
         - Chloroform_HeliumRenderer
         - CliTools

@@ -1,6 +1,6 @@
 Ling/Light_Kit_Admin
 ================
-2019-05-17 --> 2021-03-15
+2019-05-17 --> 2021-03-18
 
 
 
@@ -12,17 +12,6 @@ Table of contents
     - BaseLightAjaxHandler::handle &ndash; Handles the given action and returns an [alcp response](https://github.com/lingtalfi/Light_AjaxHandler/blob/master/doc/pages/ajax-light-communication-protocol.md), or throws an exception in case of problems.
     - ContainerAwareLightAjaxHandler::__construct &ndash; Builds the ContainerAwareLightAjaxHandler instance.
     - ContainerAwareLightAjaxHandler::setContainer &ndash; Sets the light service container interface.
-- [LightKitAdminBMenuHost](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/BMenu/LightKitAdminBMenuHost.md) &ndash; The LightKitAdminBMenuHost class.
-    - [LightKitAdminBMenuHost::__construct](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/BMenu/LightKitAdminBMenuHost/__construct.md) &ndash; Builds the LightKitAdminBMenuHost instance.
-    - [LightKitAdminBMenuHost::prepareBaseMenu](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/BMenu/LightKitAdminBMenuHost/prepareBaseMenu.md) &ndash; Injects the base menu structure in the given menu.
-    - [LightKitAdminBMenuHost::onMenuCompiled](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/BMenu/LightKitAdminBMenuHost/onMenuCompiled.md) &ndash; This method is called after the menu has been compiled.
-    - [LightKitAdminBMenuHost::setBaseDir](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/BMenu/LightKitAdminBMenuHost/setBaseDir.md) &ndash; Sets the baseDir.
-    - [LightKitAdminBMenuHost::setContainer](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/BMenu/LightKitAdminBMenuHost/setContainer.md) &ndash; Sets the container.
-    - LightBMenuAbstractHost::getMenuStructureId &ndash; Returns the menu structure id for this host.
-    - LightBMenuAbstractHost::injectDefaultItems &ndash; Inject menu items in the given menu structure.
-    - LightBMenuAbstractHost::setMenuType &ndash; Sets the menu type.
-    - LightBMenuAbstractHost::setMenuStructureId &ndash; Sets the menuStructureId.
-    - LightBMenuAbstractHost::setDefaultItemsParentPath &ndash; Sets the defaultItemsParentPath.
 - [LightKitAdminGeneralBullsheeter](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Bullsheet/LightKitAdminGeneralBullsheeter.md) &ndash; The LightKitAdminGeneralBullsheeter class.
     - [LightKitAdminGeneralBullsheeter::__construct](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Bullsheet/LightKitAdminGeneralBullsheeter/__construct.md) &ndash; Builds the LightKitAdminGeneralBullsheeter instance.
     - [LightKitAdminGeneralBullsheeter::setContainer](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Bullsheet/LightKitAdminGeneralBullsheeter/setContainer.md) &ndash; Sets the light service container interface.
@@ -177,10 +166,22 @@ Table of contents
     - [BaseLightKitAdminPlugin::setOptionsFile](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/LightKitAdminPlugin/BaseLightKitAdminPlugin/setOptionsFile.md) &ndash; Sets the file.
 - [LightKitAdminPluginInterface](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/LightKitAdminPlugin/LightKitAdminPluginInterface.md) &ndash; The LightKitAdminPluginInterface interface.
     - [LightKitAdminPluginInterface::getPluginOptions](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/LightKitAdminPlugin/LightKitAdminPluginInterface/getPluginOptions.md) &ndash; Returns the options of this kit admin plugin.
+- [LightKitAdminBMenuModifier](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_BMenu/MenuModifier/LightKitAdminBMenuModifier.md) &ndash; The LightKitAdminBMenuModifier class.
+    - [LightKitAdminBMenuModifier::__construct](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_BMenu/MenuModifier/LightKitAdminBMenuModifier/__construct.md) &ndash; Builds the LightKitAdminBMenuHost instance.
+    - [LightKitAdminBMenuModifier::setContainer](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_BMenu/MenuModifier/LightKitAdminBMenuModifier/setContainer.md) &ndash; Sets the container.
+    - [LightKitAdminBMenuModifier::updateItems](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_BMenu/MenuModifier/LightKitAdminBMenuModifier/updateItems.md) &ndash; Update the items of the menu.
+- [LightKitAdminBMenuRegistrationUtil](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_BMenu/Util/LightKitAdminBMenuRegistrationUtil.md) &ndash; The LightKitAdminBMenuRegistrationUtil class.
+    - [LightKitAdminBMenuRegistrationUtil::__construct](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_BMenu/Util/LightKitAdminBMenuRegistrationUtil/__construct.md) &ndash; Builds the LightKitAdminBMenuRegistrationUtil instance.
+    - [LightKitAdminBMenuRegistrationUtil::setContainer](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_BMenu/Util/LightKitAdminBMenuRegistrationUtil/setContainer.md) &ndash; Sets the container.
+    - [LightKitAdminBMenuRegistrationUtil::writeItemsToMainMenuSection](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_BMenu/Util/LightKitAdminBMenuRegistrationUtil/writeItemsToMainMenuSection.md) &ndash; Adds menu items in a section of the admin main menu.
 - [LightKitAdminControllerHubHandler](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_ControllerHub/LightKitAdminControllerHubHandler.md) &ndash; The LightKitAdminControllerHubHandler class.
     - [LightKitAdminControllerHubHandler::handle](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_ControllerHub/LightKitAdminControllerHubHandler/handle.md) &ndash; Process the given controllerIdentifier and returns an appropriate http response.
     - LightBaseControllerHubHandler::__construct &ndash; Builds the LightKitAdminControllerHubHandler instance.
     - LightBaseControllerHubHandler::setContainer &ndash; Sets the light service container interface.
+- [LightKitAdminBasePlanetInstaller](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_PlanetInstaller/LightKitAdminBasePlanetInstaller.md) &ndash; The LightKitAdminBasePlanetInstaller class.
+    - [LightKitAdminBasePlanetInstaller::onMapCopyAfter](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_PlanetInstaller/LightKitAdminBasePlanetInstaller/onMapCopyAfter.md) &ndash; This hook is executed during an [install](https://github.com/lingtalfi/TheBar/blob/master/discussions/import-install.md#summary).
+    - LightBasePlanetInstaller::__construct &ndash; Builds the LightBasePlanetInstaller instance.
+    - LightBasePlanetInstaller::setContainer &ndash; Sets the light service container interface.
 - [LightKitAdminPlanetInstaller](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_PlanetInstaller/LightKitAdminPlanetInstaller.md) &ndash; The LightKitAdminPlanetInstaller class.
     - [LightKitAdminPlanetInstaller::onMapCopyAfter](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_PlanetInstaller/LightKitAdminPlanetInstaller/onMapCopyAfter.md) &ndash; This hook is executed during an [install](https://github.com/lingtalfi/TheBar/blob/master/discussions/import-install.md#summary).
     - LightBasePlanetInstaller::__construct &ndash; Builds the LightBasePlanetInstaller instance.
@@ -304,6 +305,7 @@ Dependencies
 - [BabyYaml](https://github.com/lingtalfi/BabyYaml)
 - [Bat](https://github.com/lingtalfi/Bat)
 - [Bootstrap4AdminTable](https://github.com/lingtalfi/Bootstrap4AdminTable)
+- [CheapLogger](https://github.com/lingtalfi/CheapLogger)
 - [Chloroform](https://github.com/lingtalfi/Chloroform)
 - [Chloroform_HeliumRenderer](https://github.com/lingtalfi/Chloroform_HeliumRenderer)
 - [CliTools](https://github.com/lingtalfi/CliTools)

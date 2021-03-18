@@ -1,6 +1,6 @@
 Light_Kit_Admin
 ===========
-2019-10-24 -> 2021-03-15
+2019-10-24 -> 2021-03-18
 
 An admin system with gui for the [Light](https://github.com/lingtalfi/Light) framework.
 
@@ -56,12 +56,8 @@ Summary
 
 Services
 =========
-2019-10-24 -> 2021-03-01
+2019-10-24 -> 2021-03-18
 
-This plugin provides the following services:
-
-- kit_admin (returns a LightKitAdminService instance)
-- ?kit_admin_rights (returns a LightKitAdminRightsManager instance)
 
 Here is an example of the service configuration:
 
@@ -93,6 +89,7 @@ kit_admin:
 
 kit_admin_vars:
     route_prefix: /admin
+    theme: Ling.Light_Kit_Admin/zeroadmin
 
 
 
@@ -120,20 +117,10 @@ $ajax_handler.methods_collection:
 
 $bmenu.methods_collection:
     -
-        method: registerHost
+        method: addMenuModifier
         args:
-            menu_type: admin_main_menu
-            host:
-                instance: Ling\Light_Kit_Admin\BMenu\LightKitAdminBMenuHost
-                methods:
-                    setContainer:
-                        container: @container()
-                    setBaseDir:
-                        dir: ${app_dir}/config/data/Ling.Light_Kit_Admin/bmenu
-                    setMenuStructureId:
-                        id: lka_mainmenu_1
-                    setDefaultItemsParentPath:
-                        path: lka-plugins
+            modifier:
+                instance: Ling\Light_Kit_Admin\Light_BMenu\MenuModifier\LightKitAdminBMenuModifier
 
 $bullsheet.methods_collection:
     -
@@ -220,7 +207,10 @@ $realist.methods_collection:
 # --------------------------------------
 # vars
 # --------------------------------------
-$user_database_vars.bullsheeter_avatar_img_dir: ${app_dir}/www/plugins/Light_Kit_Admin/img/avatars2
+$user_database_vars.bullsheeter_avatar_img_dir: ${app_dir}/www/libs/universe/Ling/Light_Kit_Admin/img/avatars2
+
+
+
 
 
 
@@ -231,6 +221,10 @@ $user_database_vars.bullsheeter_avatar_img_dir: ${app_dir}/www/plugins/Light_Kit
 History Log
 =============
 
+- 0.12.27 -- 2021-03-18
+
+    - add LightKitAdminBasePlanetInstaller class
+  
 - 0.12.26 -- 2021-03-15
 
     - update planet to adapt Ling.Light:0.70.0
