@@ -204,6 +204,10 @@ $user_database_vars.bullsheeter_avatar_img_dir: ${app_dir}/www/libs/universe/Lin
 History Log
 =============
 
+- 0.12.29 -- 2021-03-18
+
+    - switch to Ling.Light_Events' open registration system (second try)
+  
 - 0.12.28 -- 2021-03-18
 
     - switch to Ling.Light_Events' open registration system
