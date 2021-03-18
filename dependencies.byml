@@ -34,7 +34,6 @@ dependencies:
         - Light_MicroPermission
         - Light_Nugget
         - Light_PlanetInstaller
-        - Light_PluginInstaller
         - Light_Realform
         - Light_Realist
         - Light_ReverseRouter

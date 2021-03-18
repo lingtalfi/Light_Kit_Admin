@@ -69,7 +69,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightKitAdminService::lateRegistration](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Service/LightKitAdminService.php#L341-L368)
+See the source code for method [LightKitAdminService::lateRegistration](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Service/LightKitAdminService.php#L337-L364)
 
 
 See Also

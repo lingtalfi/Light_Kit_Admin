@@ -52,7 +52,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightKitAdminService::onLightExceptionCaught](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Service/LightKitAdminService.php#L274-L284)
+See the source code for method [LightKitAdminService::onLightExceptionCaught](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Service/LightKitAdminService.php#L270-L280)
 
 
 See Also

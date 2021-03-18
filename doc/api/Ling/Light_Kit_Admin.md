@@ -336,7 +336,6 @@ Dependencies
 - [Light_MicroPermission](https://github.com/lingtalfi/Light_MicroPermission)
 - [Light_Nugget](https://github.com/lingtalfi/Light_Nugget)
 - [Light_PlanetInstaller](https://github.com/lingtalfi/Light_PlanetInstaller)
-- [Light_PluginInstaller](https://github.com/lingtalfi/Light_PluginInstaller)
 - [Light_Realform](https://github.com/lingtalfi/Light_Realform)
 - [Light_Realist](https://github.com/lingtalfi/Light_Realist)
 - [Light_ReverseRouter](https://github.com/lingtalfi/Light_ReverseRouter)

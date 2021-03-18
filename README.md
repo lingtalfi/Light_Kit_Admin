@@ -148,26 +148,6 @@ $bullsheet.methods_collection:
 
 
 
-
-$events.methods_collection:
-    -
-        method: registerListener
-        args:
-            events:
-                - Ling.Light_Kit_Admin.on_user_successful_connexion
-            listener:
-                instance: @service(kit_admin)
-                callable_method: onWebsiteUserLogin
-    -
-        method: registerListener
-        args:
-            events:
-                - Ling.Light.on_exception_caught
-            listener:
-                instance: @service(kit_admin)
-                callable_method: onLightExceptionCaught
-
-
 $kit.methods_collection:
     -
         method: addPageConfigurationTransformer
@@ -214,6 +194,9 @@ $user_database_vars.bullsheeter_avatar_img_dir: ${app_dir}/www/libs/universe/Lin
 
 
 
+
+
+
 ```
 
 
@@ -221,6 +204,10 @@ $user_database_vars.bullsheeter_avatar_img_dir: ${app_dir}/www/libs/universe/Lin
 History Log
 =============
 
+- 0.12.28 -- 2021-03-18
+
+    - switch to Ling.Light_Events' open registration system
+  
 - 0.12.27 -- 2021-03-18
 
     - add LightKitAdminBasePlanetInstaller class
