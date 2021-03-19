@@ -4,7 +4,7 @@
 
 The NotificationsDataExtractor class
 ================
-2019-05-17 --> 2021-03-18
+2019-05-17 --> 2021-03-19
 
 
 

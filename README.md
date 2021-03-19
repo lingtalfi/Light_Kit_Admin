@@ -1,6 +1,6 @@
 Light_Kit_Admin
 ===========
-2019-10-24 -> 2021-03-18
+2019-10-24 -> 2021-03-19
 
 An admin system with gui for the [Light](https://github.com/lingtalfi/Light) framework.
 
@@ -204,6 +204,10 @@ $user_database_vars.bullsheeter_avatar_img_dir: ${app_dir}/www/libs/universe/Lin
 History Log
 =============
 
+- 0.12.30 -- 2021-03-19
+
+    - fix open events now in the events directory
+  
 - 0.12.29 -- 2021-03-18
 
     - switch to Ling.Light_Events' open registration system (second try)
