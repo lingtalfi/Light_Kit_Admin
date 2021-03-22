@@ -204,6 +204,10 @@ $user_database_vars.bullsheeter_avatar_img_dir: ${app_dir}/www/libs/universe/Lin
 History Log
 =============
 
+- 0.12.32 -- 2021-03-22
+
+    - fix some events not namespaced correctly
+  
 - 0.12.31 -- 2021-03-22
 
     - adapt api to work with Ling.Light_Events:1.10.0

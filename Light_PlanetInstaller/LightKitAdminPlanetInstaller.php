@@ -51,6 +51,9 @@ class LightKitAdminPlanetInstaller extends LightBasePlanetInstaller
 
 
 
+        //--------------------------------------------
+        // events
+        //--------------------------------------------
         $output->write("$planetDotName: registering open events...");
         LightEventsHelper::registerOpenEventByPlanet($this->container, $planetDotName);
         $output->write("<success>ok.</success>" . PHP_EOL);
