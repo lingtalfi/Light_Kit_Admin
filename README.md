@@ -1,6 +1,6 @@
 Light_Kit_Admin
 ===========
-2019-10-24 -> 2021-03-22
+2019-10-24 -> 2021-03-23
 
 An admin system with gui for the [Light](https://github.com/lingtalfi/Light) framework.
 
@@ -170,13 +170,13 @@ $realist.methods_collection:
     -
         method: registerListRenderer
         args:
-            identifier: Light_Kit_Admin
+            identifier: Ling.Light_Kit_Admin
             renderer:
                 instance: Ling\Light_Kit_Admin\Realist\Rendering\LightKitAdminRealistListRenderer
     -
         method: registerListItemRenderer
         args:
-            identifier: Light_Kit_Admin
+            identifier: Ling.Light_Kit_Admin
             renderer:
                 instance: Ling\Light_Kit_Admin\Realist\Rendering\LightKitAdminRealistListItemRenderer
 
@@ -204,6 +204,10 @@ $user_database_vars.bullsheeter_avatar_img_dir: ${app_dir}/www/libs/universe/Lin
 History Log
 =============
 
+- 0.12.33 -- 2021-03-23
+
+    - adapt api to Ling.Light_Realist:2.0.15
+  
 - 0.12.32 -- 2021-03-22
 
     - fix some events not namespaced correctly

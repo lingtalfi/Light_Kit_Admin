@@ -207,7 +207,7 @@ default:
         related_links: 
             - 
                 text: Add new user has permission group
-                url: REALIST(Light_Realist, route, lch_route-hub, {plugin: Light_Kit_Admin, controller: Generated/LudUserHasPermissionGroupController, m:f})
+                url: REALIST(Ling.Light_Realist, route, lch_route-hub, {plugin: Light_Kit_Admin, controller: Generated/LudUserHasPermissionGroupController, m:f})
                 icon: fas fa-plus-circle
             
         

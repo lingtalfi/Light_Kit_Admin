@@ -106,13 +106,13 @@ $realist.methods_collection:
     -
         method: registerListRenderer
         args:
-            identifier: Light_Kit_Admin
+            identifier: Ling.Light_Kit_Admin
             renderer:
                 instance: Ling\Light_Kit_Admin\Realist\Rendering\LightKitAdminRealistListRenderer
     -
         method: registerListItemRenderer
         args:
-            identifier: Light_Kit_Admin
+            identifier: Ling.Light_Kit_Admin
             renderer:
                 instance: Ling\Light_Kit_Admin\Realist\Rendering\LightKitAdminRealistListItemRenderer
 

@@ -165,6 +165,6 @@ default:
         related_links:
             -
                 text: Add new user
-                url: REALIST(Light_Realist, route, lch_route-hub, {type: form})
+                url: REALIST(Ling.Light_Realist, route, lch_route-hub, {type: form})
                 icon: fas fa-plus-circle
 
