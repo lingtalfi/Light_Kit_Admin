@@ -153,7 +153,7 @@ $kit.methods_collection:
         method: addPageConfigurationTransformer
         args:
             -
-                instance: Ling\Light_Kit_Admin\PageConfigurationTransformer\LightKitAdminPageConfigurationTransformer
+                instance: Ling\Light_Kit_Admin\ConfigurationTransformer\LightKitAdminConfigurationTransformer
 
 $micro_permission.methods_collection:
     -
@@ -188,7 +188,6 @@ $realist.methods_collection:
 # vars
 # --------------------------------------
 $user_database_vars.bullsheeter_avatar_img_dir: ${app_dir}/www/libs/universe/Ling/Light_Kit_Admin/img/avatars2
-
 
 
 
