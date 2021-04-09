@@ -1,6 +1,6 @@
 Light_Kit_Admin
 ===========
-2019-10-24 -> 2021-03-23
+2019-10-24 -> 2021-04-09
 
 An admin system with gui for the [Light](https://github.com/lingtalfi/Light) framework.
 
@@ -204,6 +204,11 @@ $user_database_vars.bullsheeter_avatar_img_dir: ${app_dir}/www/libs/universe/Lin
 History Log
 =============
 
+- 0.12.34 -- 2021-04-09
+
+    - add acpHep dependency
+    - checkpoint commit
+  
 - 0.12.33 -- 2021-03-23
 
     - adapt api to Ling.Light_Realist:2.0.15

@@ -11,9 +11,13 @@ use Ling\Light\Http\HttpRedirectResponse;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 use Ling\Light_ControllerHub\Service\LightControllerHubService;
 use Ling\Light_Kit_Admin\Exception\LightKitAdminMicroPermissionDeniedException;
+use Ling\Light_Kit_Admin\Light_Realform\SuccessHandler\LightKitAdminEditorRealformSuccessHandler;
 use Ling\Light_Kit_Admin\LightKitAdminPlugin\LightKitAdminPluginInterface;
 use Ling\Light_Kit_Admin\Notification\LightKitAdminNotification;
+use Ling\Light_Kit_Editor\Light_Realist\DuelistEngine\LightKitEditorBabyYamlDuelistEngine;
 use Ling\Light_Realform\Service\LightRealformLateServiceRegistrationInterface;
+use Ling\Light_Realform\SuccessHandler\RealformSuccessHandlerInterface;
+use Ling\Light_Realist\DuelistEngine\DuelistEngineInterface;
 use Ling\Light_ReverseRouter\Service\LightReverseRouterService;
 use Ling\Light_User\LightWebsiteUser;
 
@@ -306,6 +310,38 @@ class LightKitAdminService
                 $ln->onWebsiteUserLogin($user);
             }
         }
+    }
+
+
+    /**
+     * Returns a @page(duelist engine) instance.
+     *
+     *
+     * @return DuelistEngineInterface
+     */
+    public function getDuelistEngine(): DuelistEngineInterface
+    {
+        $o = new LightKitEditorBabyYamlDuelistEngine();
+        $o->setRootDir($this->container->getApplicationDir() . "/config/open/Ling.Light_Kit_Admin/lke");
+        return $o;
+    }
+
+
+    /**
+     * Returns the kit editor's realform' success handler instance.
+     * Type is either:
+     *
+     * - db
+     * - babyYaml
+     *
+     * @param string $type
+     * @return RealformSuccessHandlerInterface
+     */
+    public function getKitEditorRealformSuccessHandler(string $type): RealformSuccessHandlerInterface
+    {
+        $o = new LightKitAdminEditorRealformSuccessHandler();
+        $o->setEngineType($type);
+        return $o;
     }
 
 

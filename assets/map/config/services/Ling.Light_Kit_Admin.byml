@@ -89,7 +89,7 @@ $kit.methods_collection:
         method: addPageConfigurationTransformer
         args:
             -
-                instance: Ling\Light_Kit_Admin\PageConfigurationTransformer\LightKitAdminPageConfigurationTransformer
+                instance: Ling\Light_Kit_Admin\ConfigurationTransformer\LightKitAdminConfigurationTransformer
 
 $micro_permission.methods_collection:
     -

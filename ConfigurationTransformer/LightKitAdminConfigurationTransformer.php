@@ -1,20 +1,20 @@
 <?php
 
 
-namespace Ling\Light_Kit_Admin\PageConfigurationTransformer;
+namespace Ling\Light_Kit_Admin\ConfigurationTransformer;
 
 
 use Ling\BabyYaml\Helper\BdotTool;
 use Ling\Light\ServiceContainer\LightServiceContainerAwareInterface;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
-use Ling\Light_Kit\PageConfigurationTransformer\PageConfigurationTransformerInterface;
+use Ling\Light_Kit\ConfigurationTransformer\ConfigurationTransformerInterface;
 use Ling\Light_Kit_Admin\Exception\LightKitAdminException;
 use Ling\Light_Kit_Admin\Service\LightKitAdminService;
 
 /**
- * The LightKitAdminPageConfigurationTransformer class.
+ * The LightKitAdminConfigurationTransformer class.
  */
-class LightKitAdminPageConfigurationTransformer implements PageConfigurationTransformerInterface, LightServiceContainerAwareInterface
+class LightKitAdminConfigurationTransformer implements ConfigurationTransformerInterface, LightServiceContainerAwareInterface
 {
     /**
      * This property holds the container for this instance.
@@ -34,7 +34,7 @@ class LightKitAdminPageConfigurationTransformer implements PageConfigurationTran
     /**
      * @implementation
      */
-    public function transform(array &$pageConfiguration)
+    public function transform(array &$conf)
     {
 
         //--------------------------------------------
@@ -42,7 +42,7 @@ class LightKitAdminPageConfigurationTransformer implements PageConfigurationTran
         //--------------------------------------------
         $hasAlerts = false;
         $hasToasts = false;
-        $confNotifications = BdotTool::getDotValue("zones.notifications", $pageConfiguration, []);
+        $confNotifications = BdotTool::getDotValue("zones.notifications", $conf, []);
 
 
         /**
@@ -105,7 +105,7 @@ class LightKitAdminPageConfigurationTransformer implements PageConfigurationTran
         }
 
         if (true === $hasAlerts) {
-            BdotTool::setDotValue("zones.notifications", $confNotifications, $pageConfiguration);
+            BdotTool::setDotValue("zones.notifications", $confNotifications, $conf);
         }
     }
 

@@ -72,12 +72,12 @@ class LightKitAdminBMenuRegistrationUtil
 
 
 
-
-
         switch ($section) {
             case "root":
                 foreach ($items as $id => $item) {
-                    $arr[$id] = $item;
+                    if (false === array_key_exists($id, $arr)) {
+                        $arr[$id] = $item;
+                    }
                 }
                 break;
             case "admin":

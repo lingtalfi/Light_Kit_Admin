@@ -1,5 +1,7 @@
 label: Light Kit Admin Forbidden Page
 layout: config/open/Ling.Light_Kit_Admin/lke/layouts/$t/main_layout.php
+vars:
+    theme: $t
 layout_vars: []
 
 title: Light Kit Admin Forbidden Page
@@ -17,7 +19,7 @@ zones:
         - b$:Ling.Light_Kit_Admin/body_default
         -
             name: zeroadmin_bignotification
-            identifier: zeroadmin_bignotification
+            id: zeroadmin_bignotification
             type: picasso
             className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\ZeroAdminBigNotificationWidget
             widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ZeroAdminBigNotificationWidget

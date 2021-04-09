@@ -74,7 +74,7 @@ main:
 
         # Bool=true, whether to add the use_micro_permission setting in the request declaration.
         # See the miscellaneous section of the realist conception notes for more details:
-        # https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/realist-conception-notes.md#miscellaneous
+        # https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/older/realist-conception-notes.md#miscellaneous
         ?use_micro_permission: true
 
         # Whether to use the action column (added to every row). Defaults to true.
@@ -112,7 +112,7 @@ main:
                 - password
         # This array let you override the default column types.
         # It's an array of table => types, with types being an array of columnName => type.
-        # With type being an open admin table data type (https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/open-admin-table-protocol.md#the-data-types).
+        # With type being an open admin table data type (https://github.com/lingtalfi/Light_Realist/blob/master/doc/pages/older/open-admin-table-protocol.md#the-data-types).
         # This is used to generate the rendering.open_admin_table.data_types setting in the config file.
         #
         ?open_admin_table_column_types:

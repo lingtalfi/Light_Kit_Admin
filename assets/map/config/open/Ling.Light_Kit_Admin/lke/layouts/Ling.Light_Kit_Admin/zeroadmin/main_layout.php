@@ -13,10 +13,20 @@ $this->copilot->registerLibrary("FontAwesome", [], [
     '/libs/universe/Ling/FontAwesome/5.13/css/all.min.css',
 ]);
 
+
+
 $this->copilot->registerLibrary("Jquery", [], [], [
     'override' => true,
 ]); // hard written in this file
 
+$this->copilot->registerLibrary("lka_environment", [
+    "/libs/universe/Ling/JBee/bee.js",
+    "/libs/universe/Ling/JAcpHep/acphep-helper.js",
+//            "/libs/universe/Ling/JRadioHide/radio-hide.js",
+    "/libs/universe/Ling/Light_Kit_Admin/js/light-kit-admin-environment.js",
+    "/libs/universe/Ling/Light_Kit_Admin/js/light-kit-admin-init.js",
+    "/libs/universe/Ling/JPostForm/post-form.js",
+]);
 
 
 

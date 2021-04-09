@@ -9,8 +9,12 @@ dependencies:
         - CliTools
         - FontAwesome
         - HtmlPageTools
+        - JAcpHep
         - JBee
+        - JFormCollect
         - JPostForm
+        - JRadioHide
+        - JSelectHide
         - Jquery
         - Kit_PicassoWidget
         - Light

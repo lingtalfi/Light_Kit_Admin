@@ -1,5 +1,7 @@
 label: Light Kit Admin Dashboard
 layout: config/open/Ling.Light_Kit_Admin/lke/layouts/$t/main_layout.php
+vars:
+    theme: $t
 layout_vars:
     page_one_id: page_one
     page_two_id: page_two
@@ -25,7 +27,7 @@ zones:
         -
             name: zeroadmin_statsummaryicon
             type: picasso
-            identifier: w8
+            id: w8
             className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\ZeroAdminStatSummaryIconWidget
             widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ZeroAdminStatSummaryIconWidget
             template: default.php
@@ -56,7 +58,7 @@ zones:
         -
             name: zeroadmin_herograph
             type: picasso
-            identifier: w9
+            id: w9
             className: Ling\Light_Kit_BootstrapWidgetLibrary\Widget\Picasso\ZeroAdminHeroGraphWidget
             widgetDir: templates/Ling.Light_Kit_BootstrapWidgetLibrary/widgets/picasso/ZeroAdminHeroGraphWidget
             template: default.php

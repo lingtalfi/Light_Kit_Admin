@@ -1,5 +1,7 @@
 label: Light Kit Admin multiple edit form
 layout: config/open/Ling.Light_Kit_Admin/lke/layouts/$t/main_layout.php
+vars:
+    theme: $t
 
 title: Light Kit Admin multiple edit form
 description: <

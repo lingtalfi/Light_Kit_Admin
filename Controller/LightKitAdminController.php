@@ -10,11 +10,11 @@ use Ling\Light\Events\LightEvent;
 use Ling\Light\Http\HttpRedirectResponse;
 use Ling\Light\Http\HttpResponse;
 use Ling\Light\Http\HttpResponseInterface;
+use Ling\Light_AjaxHandler\Service\LightAjaxHandlerService;
 use Ling\Light_Events\Service\LightEventsService;
 use Ling\Light_Flasher\Service\LightFlasherService;
 use Ling\Light_HtmlPageCopilot\Service\LightHtmlPageCopilotService;
-use Ling\Light_Kit\PageConfigurationTransformer\ThemeTransformer;
-use Ling\Light_Kit\PageConfigurationUpdator\PageConfUpdator;
+use Ling\Light_Kit\ConfigurationTransformer\ThemeTransformer;
 use Ling\Light_Kit\PageRenderer\LightKitPageRenderer;
 use Ling\Light_Kit_Admin\Exception\LightKitAdminException;
 use Ling\Light_Kit_Admin\Exception\LightKitAdminMicroPermissionDeniedException;
@@ -145,24 +145,6 @@ class LightKitAdminController extends LightController implements RouteAwareContr
 
 
 
-        /**
-         * @var $copilot LightHtmlPageCopilotService
-         */
-        $copilot = $this->getContainer()->get("html_page_copilot");
-        $copilot->registerLibrary("lka_environment", [
-            "/libs/universe/Ling/JBee/bee.js",
-            "/libs/universe/Ling/Light_Kit_Admin/js/light-kit-admin-environment.js",
-            "/libs/universe/Ling/Light_Kit_Admin/js/light-kit-admin-init.js",
-        ]);
-
-        /**
-         * postForm is used by light kit admin environment (i.e. it's a dependency of lka)
-         */
-        $copilot->registerLibrary("postForm", [
-            "/libs/universe/Ling/JPostForm/post-form.js",
-        ]);
-
-
         $kit = $this->getKitPageRendererInstance();
 
 
@@ -178,7 +160,7 @@ class LightKitAdminController extends LightController implements RouteAwareContr
         $events->dispatch('Ling.Light_Kit_Admin.on_page_rendered_before', $data);
 
 
-        return new HttpResponse($kit->renderPage($page,  $options));
+        return new HttpResponse($kit->renderPage($page, $options));
     }
 
 
@@ -209,6 +191,23 @@ class LightKitAdminController extends LightController implements RouteAwareContr
     protected function getRedirectResponseByRoute(string $route, array $urlParams = [])
     {
         return $this->getKitAdmin()->getRedirectResponseByRoute($route, $urlParams);
+    }
+
+
+    /**
+     * Returns a response using the Ling.Light_AjaxHandler handler under the hood.
+     *
+     * @param callable $callable
+     * @return HttpResponseInterface
+     */
+    protected function alcpResponse(callable $callable): HttpResponseInterface
+    {
+
+        /**
+         * @var $ah LightAjaxHandlerService
+         */
+        $ah = $this->getContainer()->get("ajax_handler");
+        return $ah->handleViaCallable($callable);
     }
 
 
