@@ -4,7 +4,7 @@
 
 The LightKitAdminController class
 ================
-2019-05-17 --> 2021-04-09
+2019-05-17 --> 2021-05-02
 
 
 
@@ -112,4 +112,4 @@ See the source code of [Ling\Light_Kit_Admin\Controller\LightKitAdminController]
 
 SeeAlso
 ==============
-Previous class: [ForgottenPasswordController](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/ForgottenPasswordController.md)<br>Next class: [LoginFormController](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LoginFormController.md)<br>
+Previous class: [LkaJimToolboxController](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/JimToolbox/LkaJimToolboxController.md)<br>Next class: [LoginFormController](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LoginFormController.md)<br>

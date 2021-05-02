@@ -49,6 +49,7 @@ dependencies:
         - PhpSpreadSheetTool
         - SimplePdoWrapper
         - UniverseTools
+        - UrlSmuggler
         - WiseTool
     
 

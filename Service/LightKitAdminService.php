@@ -4,12 +4,14 @@
 namespace Ling\Light_Kit_Admin\Service;
 
 
+use Ling\BabyYaml\BabyYamlUtil;
 use Ling\BabyYaml\Helper\BdotTool;
 use Ling\Light\Events\LightEvent;
 use Ling\Light\Helper\LightNamesAndPathHelper;
 use Ling\Light\Http\HttpRedirectResponse;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 use Ling\Light_ControllerHub\Service\LightControllerHubService;
+use Ling\Light_Kit_Admin\Exception\LightKitAdminException;
 use Ling\Light_Kit_Admin\Exception\LightKitAdminMicroPermissionDeniedException;
 use Ling\Light_Kit_Admin\Light_Realform\SuccessHandler\LightKitAdminEditorRealformSuccessHandler;
 use Ling\Light_Kit_Admin\LightKitAdminPlugin\LightKitAdminPluginInterface;
@@ -20,6 +22,7 @@ use Ling\Light_Realform\SuccessHandler\RealformSuccessHandlerInterface;
 use Ling\Light_Realist\DuelistEngine\DuelistEngineInterface;
 use Ling\Light_ReverseRouter\Service\LightReverseRouterService;
 use Ling\Light_User\LightWebsiteUser;
+use Ling\UrlSmuggler\UrlSmugglerTool;
 
 
 /**
@@ -400,4 +403,84 @@ class LightKitAdminService
     }
 
 
+    /**
+     * Returns the array of jim toolbox items.
+     *
+     * See the @page(lka jim toolbox) document for more information.
+     *
+     * @return array
+     */
+    public function getJimToolboxItems(): array
+    {
+        $ret = [];
+        $uri = $this->container->getLight()->getHttpRequest()->getUri();
+        $file = $this->getJimToolboxItemsFile();
+        if (true === is_file($file)) {
+            $arr = BabyYamlUtil::readFile($file);
+            foreach ($arr as $k => $v) {
+                $ret[$k] = $v;
+                if (true === array_key_exists("acp_class", $v)) {
+
+                    /**
+                     * @var $hu LightControllerHubService
+                     */
+                    $hu = $this->container->get("controller_hub");
+                    $route = $hu->getRouteName();
+
+
+                    $get = $v['get'] ?? [];
+                    /**
+                     * @var $rr LightReverseRouterService
+                     */
+                    $rr = $this->container->get("reverse_router");
+                    $url = $rr->getUrl($route, array_merge($get, [
+                        'execute' => "Ling\Light_Kit_Admin\Controller\JimToolbox\LkaJimToolboxController->render",
+                        'acp_class' => $v['acp_class'],
+                        'current_uri' => UrlSmugglerTool::smuggle($uri),
+                    ]), true);
+                    $ret[$k]['url'] = $url;
+                }
+            }
+        }
+        return $ret;
+    }
+
+
+    /**
+     * Registers a jim toolbox item.
+     * See the @page(lka jim toolbox) document for more information.
+     *
+     * @param string $key
+     * @param array $item
+     */
+    public function registerJimToolboxItem(string $key, array $item)
+    {
+        $file = $this->getJimToolboxItemsFile();
+        if (true === is_file($file)) {
+            $arr = BabyYamlUtil::readFile($file);
+        } else {
+            $arr = [];
+        }
+        if (true === array_key_exists($key, $arr)) {
+            throw new LightKitAdminException("A jim toolbox item with the key $key already exists. Aborting.");
+        }
+
+        $arr[$key] = $item;
+        BabyYamlUtil::writeFile($arr, $file);
+    }
+
+
+
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+    /**
+     * Returns the path to the jim toolbox items file.
+     * @return string
+     */
+    private function getJimToolboxItemsFile(): string
+    {
+        $appDir = $this->container->getApplicationDir();
+        return $appDir . '/config/open/Ling.Light_Kit_Admin/JimToolbox/items.byml';
+    }
 }

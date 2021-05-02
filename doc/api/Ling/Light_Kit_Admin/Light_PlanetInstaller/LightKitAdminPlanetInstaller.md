@@ -4,7 +4,7 @@
 
 The LightKitAdminPlanetInstaller class
 ================
-2019-05-17 --> 2021-04-09
+2019-05-17 --> 2021-05-02
 
 
 

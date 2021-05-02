@@ -4,7 +4,7 @@
 
 The ForgottenPasswordController class
 ================
-2019-05-17 --> 2021-04-09
+2019-05-17 --> 2021-05-02
 
 
 
@@ -94,4 +94,4 @@ See the source code of [Ling\Light_Kit_Admin\Controller\ForgottenPasswordControl
 
 SeeAlso
 ==============
-Previous class: [ForbiddenController](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/ForbiddenController.md)<br>Next class: [LightKitAdminController](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/LightKitAdminController.md)<br>
+Previous class: [ForbiddenController](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/ForbiddenController.md)<br>Next class: [LkaJimToolboxController](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Controller/JimToolbox/LkaJimToolboxController.md)<br>

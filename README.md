@@ -1,6 +1,6 @@
 Light_Kit_Admin
 ===========
-2019-10-24 -> 2021-04-09
+2019-10-24 -> 2021-05-02
 
 An admin system with gui for the [Light](https://github.com/lingtalfi/Light) framework.
 
@@ -46,6 +46,7 @@ Summary
     - [Kit theme](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/kit-theme.md)
     - [Light kit admin js environment](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/light-kit-admin-js-environment.md)
     - [Light kit admin plugins](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/lka-plugins.md)
+    - [lka jim toolbox](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/lka-jim-toolbox.md)
     - [Pages](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/pages.md)
     - [Permissions](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/permissions.md)
     - [Procedures](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/pages/procedures.md)
@@ -203,6 +204,10 @@ $user_database_vars.bullsheeter_avatar_img_dir: ${app_dir}/www/libs/universe/Lin
 History Log
 =============
 
+- 0.12.35 -- 2021-05-02
+
+    - add jim toolbox system
+  
 - 0.12.34 -- 2021-04-09
 
     - add acpHep dependency
