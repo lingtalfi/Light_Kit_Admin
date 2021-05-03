@@ -2132,3 +2132,56 @@
     - Ling:UniverseTools:1.22.32+
     - Ling:UrlSmuggler:1.0.0+
     - Ling:WiseTool:1.2.3+
+
+0.12.37: 
+    - Ling:BabyYaml:1.7.8+
+    - Ling:Bat:1.312+
+    - Ling:Bootstrap4AdminTable:1.15.7+
+    - Ling:CheapLogger:1.0.6+
+    - Ling:Chloroform:1.36.7+
+    - Ling:Chloroform_HeliumRenderer:1.19.13+
+    - Ling:CliTools:1.10.26+
+    - Ling:FontAwesome:1.0.4+
+    - Ling:HtmlPageTools:2.2.3+
+    - Ling:JAcpHep:1.2.7+
+    - Ling:JBee:1.1.5+
+    - Ling:JFormCollect:1.0.1+
+    - Ling:JPostForm:1.0.3+
+    - Ling:JRadioHide:1.0.2+
+    - Ling:JSelectHide:1.0.1+
+    - Ling:Jquery:1.1.4+
+    - Ling:Kit_PicassoWidget:1.30.8+
+    - Ling:Light:0.70.4+
+    - Ling:Light_AjaxHandler:2.2.4+
+    - Ling:Light_BMenu:2.0.0+
+    - Ling:Light_Bullsheet:1.1.4+
+    - Ling:Light_ControllerHub:1.3.0+
+    - Ling:Light_Crud:2.0.5+
+    - Ling:Light_CsrfSession:1.0.5+
+    - Ling:Light_Database:1.14.23+
+    - Ling:Light_DatabaseInfo:1.12.6+
+    - Ling:Light_DatabaseUtils:1.1.10+
+    - Ling:Light_EasyRoute:1.3.7+
+    - Ling:Light_Events:1.10.4+
+    - Ling:Light_Flasher:1.3.4+
+    - Ling:Light_HtmlPageCopilot:1.0.7+
+    - Ling:Light_Kit:1.18.3+
+    - Ling:Light_Kit_BootstrapWidgetLibrary:1.18.12+
+    - Ling:Light_Kit_Editor:0.2.0+
+    - Ling:Light_Mailer:1.3.11+
+    - Ling:Light_MicroPermission:3.0.8+
+    - Ling:Light_Nugget:1.3.9+
+    - Ling:Light_PlanetInstaller:1.0.28+
+    - Ling:Light_Realform:2.0.13+
+    - Ling:Light_Realist:2.0.16+
+    - Ling:Light_ReverseRouter:1.11.5+
+    - Ling:Light_User:1.7.3+
+    - Ling:Light_UserData:1.19.16+
+    - Ling:Light_UserDatabase:1.31.17+
+    - Ling:Light_UserManager:1.5.7+
+    - Ling:Light_Vars:1.0.4+
+    - Ling:PhpSpreadSheetTool:1.0.6+
+    - Ling:SimplePdoWrapper:1.30.17+
+    - Ling:UniverseTools:1.22.32+
+    - Ling:UrlSmuggler:1.0.0+
+    - Ling:WiseTool:1.2.3+
