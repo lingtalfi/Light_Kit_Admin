@@ -204,6 +204,10 @@ $user_database_vars.bullsheeter_avatar_img_dir: ${app_dir}/www/libs/universe/Lin
 History Log
 =============
 
+- 0.12.39 -- 2021-05-11
+
+    - Update deps (by CommitWizard).
+
 - 0.12.38 -- 2021-05-11
 
     - Update dependencies to Ling.Light_EasyRoute (pushed by SubscribersUtil)
