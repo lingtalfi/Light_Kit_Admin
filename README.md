@@ -1,6 +1,6 @@
 Light_Kit_Admin
 ===========
-2019-10-24 -> 2021-05-02
+2019-10-24 -> 2021-05-31
 
 An admin system with gui for the [Light](https://github.com/lingtalfi/Light) framework.
 
@@ -204,6 +204,10 @@ $user_database_vars.bullsheeter_avatar_img_dir: ${app_dir}/www/libs/universe/Lin
 History Log
 =============
 
+- 0.12.40 -- 2021-05-31
+
+    - update api to work with Light_PlanetInstaller 2.0.0
+  
 - 0.12.39 -- 2021-05-11
 
     - Update deps (by CommitWizard).
