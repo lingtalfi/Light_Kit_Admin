@@ -12,6 +12,7 @@ use Ling\Light_Kit_Admin\Light_BMenu\Util\LightKitAdminBMenuRegistrationUtil;
 use Ling\Light_PlanetInstaller\PlanetInstaller\LightBasePlanetInstaller;
 use Ling\Light_PlanetInstaller\PlanetInstaller\LightPlanetInstallerInit2HookInterface;
 use Ling\Light_PlanetInstaller\PlanetInstaller\LightPlanetInstallerInit3HookInterface;
+use Ling\Light_Realist\Helper\RequestDeclarationHelper;
 use Ling\Light_UserDatabase\Service\LightUserDatabaseService;
 use Ling\UniverseTools\PlanetTool;
 
@@ -60,6 +61,15 @@ class LightKitAdminBasePlanetInstaller extends LightBasePlanetInstaller implemen
             $output->write("<success>ok.</success>" . PHP_EOL);
         }
 
+
+        //--------------------------------------------
+        // realist
+        //--------------------------------------------
+        $d = $appDir . "/config/data/$planetDotName/Ling.Light_Realist/list";
+        if (true === is_dir($d)) {
+            $output->write("$planetDotName: registering Ling.Light_Realist <b>request declarations</b> from <b>$d</b>." . PHP_EOL);
+            RequestDeclarationHelper::registerRequestDeclarationsByDirectory($output, $appDir, $planetDotName, $d);
+        }
     }
 
 
@@ -85,6 +95,17 @@ class LightKitAdminBasePlanetInstaller extends LightBasePlanetInstaller implemen
             $output->write("<success>ok.</success>" . PHP_EOL);
         }
 
+
+
+        //--------------------------------------------
+        // realist
+        //--------------------------------------------
+        $d = $appDir . "/config/data/$planetDotName/Ling.Light_Realist/list";
+        if (true === is_dir($d)) {
+            $output->write("$planetDotName: unregistering Ling.Light_Realist <b>request declarations</b> from <b>$d</b>." . PHP_EOL);
+            RequestDeclarationHelper::unregisterRequestDeclarationsByDirectory($output, $appDir, $planetDotName, $d);
+        }
+
     }
 
 
@@ -95,21 +116,37 @@ class LightKitAdminBasePlanetInstaller extends LightBasePlanetInstaller implemen
     {
 
 
-        /**
-         * binding the **source planet** permissions to the lka permission groups, so that the admin/user of lka can access
-         * source planet's functionality.
-         *
-         * Note: the source planet inserts its own permissions.
-         */
+
         $this->prepareMessage($output);
-        $sourcePlanetDotName = LightKitAdminHelper::getSourcePlanetDotNameByLkaPlanetDotName($this->_planetDotName);
+        $planetDotName = $this->_planetDotName;
+
+
+
+        //--------------------------------------------
+        // LIGHT STANDARD PERMISSIONS
+        //--------------------------------------------
+        /**
+         * @var $userDb LightUserDatabaseService
+         */
+        $userDb = $this->container->get('user_database');
+        $output->write("inserting <blue>light standard permissions</blue> (<b>$planetDotName.admin</b> and <b>$planetDotName.user</b>) if they don't exist." . PHP_EOL);
+
+        $userDb->getFactory()->getPermissionApi()->insertPermissions([
+            [
+                'name' => $planetDotName . ".admin",
+            ],
+            [
+                'name' => $planetDotName . ".user",
+            ],
+        ]);
+
 
         /**
          * @var $userDb LightUserDatabaseService
          */
         $userDb = $this->container->get('user_database');
-        $this->message("adding <blue>lka permissions</blue> in <b>lud_permission_group_has_permission</b> for source planet <b>$sourcePlanetDotName</b>, if they don't exist." . PHP_EOL);
-        LightKitAdminPermissionHelper::bindStandardLightPermissionsToLkaPermissionGroups($userDb, $sourcePlanetDotName);
+        $this->message("adding <blue>lka permissions</blue> in <b>lud_permission_group_has_permission</b> for source planet <b>$planetDotName</b>, if they don't exist." . PHP_EOL);
+        LightKitAdminPermissionHelper::bindStandardLightPermissionsToLkaPermissionGroups($userDb, $planetDotName);
     }
 
 

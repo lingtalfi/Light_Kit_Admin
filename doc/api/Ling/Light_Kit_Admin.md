@@ -1,6 +1,6 @@
 Ling/Light_Kit_Admin
 ================
-2019-05-17 --> 2021-05-31
+2019-05-17 --> 2021-06-01
 
 
 
@@ -172,8 +172,8 @@ Table of contents
     - [LightKitAdminHelper::getLkaPlanetNameByPlanet](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Helper/LightKitAdminHelper/getLkaPlanetNameByPlanet.md) &ndash; Returns the lka planet name corresponding to the given $planet.
     - [LightKitAdminHelper::getSourcePlanetDotNameByLkaPlanetDotName](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Helper/LightKitAdminHelper/getSourcePlanetDotNameByLkaPlanetDotName.md) &ndash; Returns the source planet name from the given lka planet name.
 - [LightKitAdminPermissionHelper](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Helper/LightKitAdminPermissionHelper.md) &ndash; The LightKitAdminPermissionHelper class.
-    - [LightKitAdminPermissionHelper::bindStandardLightPermissionsToLkaPermissionGroups](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Helper/LightKitAdminPermissionHelper/bindStandardLightPermissionsToLkaPermissionGroups.md) &ndash; Binds the permissions of the given $srcPlanetDotName to the main lka permission groups.
-    - [LightKitAdminPermissionHelper::unbindStandardLightPermissionsToLkaPermissionGroups](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Helper/LightKitAdminPermissionHelper/unbindStandardLightPermissionsToLkaPermissionGroups.md) &ndash; Unbinds the permissions of the given $srcPlanetDotName from the main lka permission groups.
+    - [LightKitAdminPermissionHelper::bindStandardLightPermissionsToLkaPermissionGroups](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Helper/LightKitAdminPermissionHelper/bindStandardLightPermissionsToLkaPermissionGroups.md) &ndash; Binds the permissions of the given $planetDotName to the main lka permission groups.
+    - [LightKitAdminPermissionHelper::unbindStandardLightPermissionsToLkaPermissionGroups](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Helper/LightKitAdminPermissionHelper/unbindStandardLightPermissionsToLkaPermissionGroups.md) &ndash; Unbinds the permissions of the given $planetDotName from the main lka permission groups.
 - [JimToolboxItemBaseHandler](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/JimToolbox/JimToolboxItemBaseHandler.md) &ndash; The JimToolboxItemBaseHandler class.
     - [JimToolboxItemBaseHandler::__construct](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/JimToolbox/JimToolboxItemBaseHandler/__construct.md) &ndash; Builds the JimToolboxItemBaseHandler instance.
     - [JimToolboxItemBaseHandler::setContainer](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/JimToolbox/JimToolboxItemBaseHandler/setContainer.md) &ndash; Sets the light service container interface.
@@ -215,22 +215,6 @@ Table of contents
     - [LightKitAdminPlanetInstaller::undoInit3](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_PlanetInstaller/LightKitAdminPlanetInstaller/undoInit3.md) &ndash; Undoes the init 3 phase.
     - LightBasePlanetInstaller::__construct &ndash; Builds the LightBasePlanetInstaller instance.
     - LightBasePlanetInstaller::setContainer &ndash; Sets the light service container interface.
-- [LightKitAdminBasePortPluginInstallerWithDatabase](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_PluginInstaller/LightKitAdminBasePortPluginInstallerWithDatabase.md) &ndash; The LightKitAdminBasePluginInstallerWithDatabase class.
-    - [LightKitAdminBasePortPluginInstallerWithDatabase::__construct](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_PluginInstaller/LightKitAdminBasePortPluginInstallerWithDatabase/__construct.md) &ndash; Builds the LightKitAdminBasePluginInstallerWithDatabase instance.
-    - [LightKitAdminBasePortPluginInstallerWithDatabase::install](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_PluginInstaller/LightKitAdminBasePortPluginInstallerWithDatabase/install.md) &ndash; Installs the plugin in the light application.
-    - [LightKitAdminBasePortPluginInstallerWithDatabase::isInstalled](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_PluginInstaller/LightKitAdminBasePortPluginInstallerWithDatabase/isInstalled.md) &ndash; Returns whether the core install phase of the plugin is fully completed.
-    - [LightKitAdminBasePortPluginInstallerWithDatabase::uninstall](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_PluginInstaller/LightKitAdminBasePortPluginInstallerWithDatabase/uninstall.md) &ndash; Uninstalls the plugin.
-    - [LightKitAdminBasePortPluginInstallerWithDatabase::getDependencies](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_PluginInstaller/LightKitAdminBasePortPluginInstallerWithDatabase/getDependencies.md) &ndash; Returns the array of dependencies.
-    - LightUserDatabaseBasePluginInstaller::setContainer &ndash; Sets the container.
-    - LightUserDatabaseBasePluginInstaller::getTableScope &ndash; Returns the [table scope](https://github.com/lingtalfi/TheBar/blob/master/discussions/table-scope.md) for this planet.
-- [LightKitAdminPluginInstaller](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_PluginInstaller/LightKitAdminPluginInstaller.md) &ndash; The LightKitAdminPluginInstaller class.
-    - [LightKitAdminPluginInstaller::getDependencies](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_PluginInstaller/LightKitAdminPluginInstaller/getDependencies.md) &ndash; Returns the array of dependencies.
-    - [LightKitAdminPluginInstaller::install](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_PluginInstaller/LightKitAdminPluginInstaller/install.md) &ndash; Installs the plugin in the light application.
-    - [LightKitAdminPluginInstaller::uninstall](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_PluginInstaller/LightKitAdminPluginInstaller/uninstall.md) &ndash; Uninstalls the plugin.
-    - LightUserDatabaseBasePluginInstaller::__construct &ndash; Builds the LightBasePluginInstaller instance.
-    - LightUserDatabaseBasePluginInstaller::setContainer &ndash; Sets the container.
-    - LightUserDatabaseBasePluginInstaller::isInstalled &ndash; Returns whether the core install phase of the plugin is fully completed.
-    - LightUserDatabaseBasePluginInstaller::getTableScope &ndash; Returns the [table scope](https://github.com/lingtalfi/TheBar/blob/master/discussions/table-scope.md) for this planet.
 - [LightKitAdminEditorRealformSuccessHandler](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_Realform/SuccessHandler/LightKitAdminEditorRealformSuccessHandler.md) &ndash; The LightKitAdminEditorRealformSuccessHandler class.
     - [LightKitAdminEditorRealformSuccessHandler::__construct](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_Realform/SuccessHandler/LightKitAdminEditorRealformSuccessHandler/__construct.md) &ndash; Builds the LightKitAdminEditorRealformSuccessHandler instance.
     - LightKitEditorRealformSuccessHandler::setEngineType &ndash; Sets the engineType.

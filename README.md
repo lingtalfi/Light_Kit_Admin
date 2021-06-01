@@ -1,6 +1,6 @@
 Light_Kit_Admin
 ===========
-2019-10-24 -> 2021-05-31
+2019-10-24 -> 2021-06-01
 
 An admin system with gui for the [Light](https://github.com/lingtalfi/Light) framework.
 
@@ -204,6 +204,12 @@ $user_database_vars.bullsheeter_avatar_img_dir: ${app_dir}/www/libs/universe/Lin
 History Log
 =============
 
+- 0.12.42 -- 2021-06-01
+
+    - update LightKitAdminBasePlanetInstaller->init2, now handles realist request declarations automatically
+    - update LightKitAdminBasePlanetInstaller->init3, now registers the permissions of the lka planet, not the source planet
+    - removed dependency to Light_PluginInstaller
+  
 - 0.12.41 -- 2021-05-31
 
     - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api

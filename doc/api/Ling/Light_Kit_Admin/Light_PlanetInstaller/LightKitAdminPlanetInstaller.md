@@ -4,7 +4,7 @@
 
 The LightKitAdminPlanetInstaller class
 ================
-2019-05-17 --> 2021-05-31
+2019-05-17 --> 2021-06-01
 
 
 
@@ -87,4 +87,4 @@ See the source code of [Ling\Light_Kit_Admin\Light_PlanetInstaller\LightKitAdmin
 
 SeeAlso
 ==============
-Previous class: [LightKitAdminBasePlanetInstaller](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_PlanetInstaller/LightKitAdminBasePlanetInstaller.md)<br>Next class: [LightKitAdminBasePortPluginInstallerWithDatabase](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_PluginInstaller/LightKitAdminBasePortPluginInstallerWithDatabase.md)<br>
+Previous class: [LightKitAdminBasePlanetInstaller](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_PlanetInstaller/LightKitAdminBasePlanetInstaller.md)<br>Next class: [LightKitAdminEditorRealformSuccessHandler](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_Realform/SuccessHandler/LightKitAdminEditorRealformSuccessHandler.md)<br>
