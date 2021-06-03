@@ -12,6 +12,7 @@ use Ling\Light_Kit_Admin\Light_BMenu\Util\LightKitAdminBMenuRegistrationUtil;
 use Ling\Light_PlanetInstaller\PlanetInstaller\LightBasePlanetInstaller;
 use Ling\Light_PlanetInstaller\PlanetInstaller\LightPlanetInstallerInit2HookInterface;
 use Ling\Light_PlanetInstaller\PlanetInstaller\LightPlanetInstallerInit3HookInterface;
+use Ling\Light_Realist\Helper\LightRealformConfigurationFileRegistrationHelper;
 use Ling\Light_Realist\Helper\RequestDeclarationHelper;
 use Ling\Light_UserDatabase\Service\LightUserDatabaseService;
 use Ling\UniverseTools\PlanetTool;
@@ -70,6 +71,16 @@ class LightKitAdminBasePlanetInstaller extends LightBasePlanetInstaller implemen
             $output->write("$planetDotName: registering Ling.Light_Realist <b>request declarations</b> from <b>$d</b>." . PHP_EOL);
             RequestDeclarationHelper::registerRequestDeclarationsByDirectory($output, $appDir, $planetDotName, $d);
         }
+
+
+        //--------------------------------------------
+        // realform
+        //--------------------------------------------
+        $d = $appDir . "/config/data/$planetDotName/Ling.Light_Realform/form";
+        if (true === is_dir($d)) {
+            $output->write("$planetDotName: registering Ling.Light_Realform nuggets from <b>$d</b>." . PHP_EOL);
+            LightRealformConfigurationFileRegistrationHelper::registerConfigurationFileByDirectory($output, $appDir, $planetDotName, $d);
+        }
     }
 
 
@@ -106,6 +117,16 @@ class LightKitAdminBasePlanetInstaller extends LightBasePlanetInstaller implemen
             RequestDeclarationHelper::unregisterRequestDeclarationsByDirectory($output, $appDir, $planetDotName, $d);
         }
 
+
+
+        //--------------------------------------------
+        // realform
+        //--------------------------------------------
+        $d = $appDir . "/config/data/$planetDotName/Ling.Light_Realform/form";
+        if (true === is_dir($d)) {
+            $output->write("$planetDotName: unregistering Ling.Light_Realform nuggets from <b>$d</b>." . PHP_EOL);
+            LightRealformConfigurationFileRegistrationHelper::unregisterConfigurationFileByDirectory($output, $appDir, $planetDotName, $d);
+        }
     }
 
 

@@ -1,6 +1,6 @@
 Light_Kit_Admin
 ===========
-2019-10-24 -> 2021-06-01
+2019-10-24 -> 2021-06-03
 
 An admin system with gui for the [Light](https://github.com/lingtalfi/Light) framework.
 
@@ -204,6 +204,10 @@ $user_database_vars.bullsheeter_avatar_img_dir: ${app_dir}/www/libs/universe/Lin
 History Log
 =============
 
+- 0.12.43 -- 2021-06-03
+
+    - update LightKitAdminBasePlanetInstaller->init2, now handles realform registration process automatically
+  
 - 0.12.42 -- 2021-06-01
 
     - update LightKitAdminBasePlanetInstaller->init2, now handles realist request declarations automatically
