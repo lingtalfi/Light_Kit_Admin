@@ -12,7 +12,7 @@ use Ling\Light_Kit_Admin\Light_BMenu\Util\LightKitAdminBMenuRegistrationUtil;
 use Ling\Light_PlanetInstaller\PlanetInstaller\LightBasePlanetInstaller;
 use Ling\Light_PlanetInstaller\PlanetInstaller\LightPlanetInstallerInit2HookInterface;
 use Ling\Light_PlanetInstaller\PlanetInstaller\LightPlanetInstallerInit3HookInterface;
-use Ling\Light_Realist\Helper\LightRealformConfigurationFileRegistrationHelper;
+use Ling\Light_Realform\Helper\LightRealformConfigurationFileRegistrationHelper;
 use Ling\Light_Realist\Helper\RequestDeclarationHelper;
 use Ling\Light_UserDatabase\Service\LightUserDatabaseService;
 use Ling\UniverseTools\PlanetTool;

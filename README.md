@@ -204,6 +204,10 @@ $user_database_vars.bullsheeter_avatar_img_dir: ${app_dir}/www/libs/universe/Lin
 History Log
 =============
 
+- 0.12.44 -- 2021-06-03
+
+    - fix functional typo, namespace of LightRealformConfigurationFileRegistrationHelper called from LightKitAdminBasePlanetInstaller->init2
+  
 - 0.12.43 -- 2021-06-03
 
     - update LightKitAdminBasePlanetInstaller->init2, now handles realform registration process automatically
