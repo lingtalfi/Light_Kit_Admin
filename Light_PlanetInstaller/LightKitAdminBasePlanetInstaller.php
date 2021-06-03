@@ -6,7 +6,6 @@ namespace Ling\Light_Kit_Admin\Light_PlanetInstaller;
 
 use Ling\BabyYaml\BabyYamlUtil;
 use Ling\CliTools\Output\OutputInterface;
-use Ling\Light_Kit_Admin\Helper\LightKitAdminHelper;
 use Ling\Light_Kit_Admin\Helper\LightKitAdminPermissionHelper;
 use Ling\Light_Kit_Admin\Light_BMenu\Util\LightKitAdminBMenuRegistrationUtil;
 use Ling\Light_PlanetInstaller\PlanetInstaller\LightBasePlanetInstaller;
@@ -43,7 +42,7 @@ class LightKitAdminBasePlanetInstaller extends LightBasePlanetInstaller implemen
     /**
      * @implementation
      */
-    public function init2(string $appDir, OutputInterface $output): void
+    public function init2(string $appDir, OutputInterface $output, array $options = []): void
     {
 
         $planetDotName = PlanetTool::getPlanetDotNameByClassName(static::class);
@@ -87,7 +86,7 @@ class LightKitAdminBasePlanetInstaller extends LightBasePlanetInstaller implemen
     /**
      * @implementation
      */
-    public function undoInit2(string $appDir, OutputInterface $output): void
+    public function undoInit2(string $appDir, OutputInterface $output, array $options = []): void
     {
 
         $planetDotName = PlanetTool::getPlanetDotNameByClassName(static::class);
@@ -107,7 +106,6 @@ class LightKitAdminBasePlanetInstaller extends LightBasePlanetInstaller implemen
         }
 
 
-
         //--------------------------------------------
         // realist
         //--------------------------------------------
@@ -116,7 +114,6 @@ class LightKitAdminBasePlanetInstaller extends LightBasePlanetInstaller implemen
             $output->write("$planetDotName: unregistering Ling.Light_Realist <b>request declarations</b> from <b>$d</b>." . PHP_EOL);
             RequestDeclarationHelper::unregisterRequestDeclarationsByDirectory($output, $appDir, $planetDotName, $d);
         }
-
 
 
         //--------------------------------------------
@@ -133,14 +130,12 @@ class LightKitAdminBasePlanetInstaller extends LightBasePlanetInstaller implemen
     /**
      * @implementation
      */
-    public function init3(string $appDir, OutputInterface $output): void
+    public function init3(string $appDir, OutputInterface $output, array $options = []): void
     {
-
 
 
         $this->prepareMessage($output);
         $planetDotName = $this->_planetDotName;
-
 
 
         //--------------------------------------------
@@ -174,7 +169,7 @@ class LightKitAdminBasePlanetInstaller extends LightBasePlanetInstaller implemen
     /**
      * @implementation
      */
-    public function undoInit3(string $appDir, OutputInterface $output): void
+    public function undoInit3(string $appDir, OutputInterface $output, array $options = []): void
     {
 
 
@@ -184,14 +179,14 @@ class LightKitAdminBasePlanetInstaller extends LightBasePlanetInstaller implemen
          *
          */
         $this->prepareMessage($output);
-        $sourcePlanetDotName = LightKitAdminHelper::getSourcePlanetDotNameByLkaPlanetDotName($this->_planetDotName);
+        $planetDotName = $this->_planetDotName;
 
         /**
          * @var $userDb LightUserDatabaseService
          */
         $userDb = $this->container->get('user_database');
-        $this->message("removing <blue>lka permissions</blue> from <b>lud_permission_group_has_permission</b> for source planet <b>$sourcePlanetDotName</b>, if they exists." . PHP_EOL);
-        LightKitAdminPermissionHelper::unbindStandardLightPermissionsToLkaPermissionGroups($userDb, $sourcePlanetDotName);
+        $this->message("removing <blue>lka permissions</blue> from <b>lud_permission_group_has_permission</b> for planet <b>$planetDotName</b>, if they exists." . PHP_EOL);
+        LightKitAdminPermissionHelper::unbindStandardLightPermissionsToLkaPermissionGroups($userDb, $planetDotName);
     }
 
 

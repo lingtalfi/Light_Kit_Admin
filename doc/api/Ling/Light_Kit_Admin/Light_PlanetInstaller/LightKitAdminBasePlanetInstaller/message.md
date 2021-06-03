@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightKitAdminBasePlanetInstaller::message](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Light_PlanetInstaller/LightKitAdminBasePlanetInstaller.php#L207-L210)
+See the source code for method [LightKitAdminBasePlanetInstaller::message](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Light_PlanetInstaller/LightKitAdminBasePlanetInstaller.php#L202-L205)
 
 
 See Also

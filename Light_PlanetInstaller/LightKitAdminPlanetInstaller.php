@@ -34,7 +34,7 @@ class LightKitAdminPlanetInstaller extends LightBasePlanetInstaller implements L
     /**
      * @implementation
      */
-    public function init2(string $appDir, OutputInterface $output): void
+    public function init2(string $appDir, OutputInterface $output, array $options = []): void
     {
 
         $planetDotName = "Ling.Light_Kit_Admin";
@@ -92,7 +92,7 @@ class LightKitAdminPlanetInstaller extends LightBasePlanetInstaller implements L
     /**
      * @implementation
      */
-    public function undoInit2(string $appDir, OutputInterface $output): void
+    public function undoInit2(string $appDir, OutputInterface $output, array $options = []): void
     {
 
         $planetDotName = "Ling.Light_Kit_Admin";
@@ -145,7 +145,7 @@ class LightKitAdminPlanetInstaller extends LightBasePlanetInstaller implements L
     /**
      * @implementation
      */
-    public function init3(string $appDir, OutputInterface $output): void
+    public function init3(string $appDir, OutputInterface $output, array $options = []): void
     {
 
 
@@ -320,7 +320,7 @@ class LightKitAdminPlanetInstaller extends LightBasePlanetInstaller implements L
     /**
      * @implementation
      */
-    public function undoInit3(string $appDir, OutputInterface $output): void
+    public function undoInit3(string $appDir, OutputInterface $output, array $options = []): void
     {
 
 

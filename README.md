@@ -204,6 +204,11 @@ $user_database_vars.bullsheeter_avatar_img_dir: ${app_dir}/www/libs/universe/Lin
 History Log
 =============
 
+- 0.12.45 -- 2021-06-03
+
+    - adapt api to work with Light_PlanetInstaller:2.0.4
+    - fix LightKitAdminBasePlanetInstaller->undoInit3 removing source planet permissions instead of the real planet permissions
+  
 - 0.12.44 -- 2021-06-03
 
     - fix functional typo, namespace of LightRealformConfigurationFileRegistrationHelper called from LightKitAdminBasePlanetInstaller->init2
