@@ -11,6 +11,7 @@ use Ling\Light_EasyRoute\Helper\LightEasyRouteHelper;
 use Ling\Light_Events\Helper\LightEventsHelper;
 use Ling\Light_Kit_Admin\Light_BMenu\Util\LightKitAdminBMenuRegistrationUtil;
 use Ling\Light_Kit_Editor\Service\LightKitEditorService;
+use Ling\Light_MicroPermission\Service\LightMicroPermissionService;
 use Ling\Light_PlanetInstaller\PlanetInstaller\LightBasePlanetInstaller;
 use Ling\Light_PlanetInstaller\PlanetInstaller\LightPlanetInstallerInit2HookInterface;
 use Ling\Light_PlanetInstaller\PlanetInstaller\LightPlanetInstallerInit3HookInterface;
@@ -66,6 +67,19 @@ class LightKitAdminPlanetInstaller extends LightBasePlanetInstaller implements L
         //--------------------------------------------
         $output->write("$planetDotName: registering open events...");
         LightEventsHelper::registerOpenEventByPlanet($this->container, $planetDotName);
+        $output->write("<success>ok.</success>" . PHP_EOL);
+
+
+        //--------------------------------------------
+        // micro-permissions
+        //--------------------------------------------
+        $output->write("$planetDotName: registering micro-permissions...");
+        $mpFile = $appDir . "/config/data/Ling.Light_Kit_Admin/Ling.Light_MicroPermission/kit_admin.profile.byml";
+        /**
+         * @var $_mp LightMicroPermissionService
+         */
+        $_mp = $this->container->get("micro_permission");
+        $_mp->registerMicroPermissionsToOpenSystemByProfile($mpFile);
         $output->write("<success>ok.</success>" . PHP_EOL);
 
 
@@ -127,6 +141,19 @@ class LightKitAdminPlanetInstaller extends LightBasePlanetInstaller implements L
         LightEventsHelper::unregisterOpenEventByPlanet($this->container, $planetDotName);
         $output->write("<success>ok.</success>" . PHP_EOL);
 
+
+
+        //--------------------------------------------
+        // micro-permissions
+        //--------------------------------------------
+        $output->write("$planetDotName: unregistering micro-permissions...");
+        $mpFile = $appDir . "/config/data/Ling.Light_Kit_Admin/Ling.Light_MicroPermission/kit_admin.profile.byml";
+        /**
+         * @var $_mp LightMicroPermissionService
+         */
+        $_mp = $this->container->get("micro_permission");
+        $_mp->unregisterMicroPermissionsToOpenSystemByProfile($mpFile);
+        $output->write("<success>ok.</success>" . PHP_EOL);
 
         //--------------------------------------------
         // kit editor

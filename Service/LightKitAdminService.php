@@ -22,6 +22,8 @@ use Ling\Light_Realform\SuccessHandler\RealformSuccessHandlerInterface;
 use Ling\Light_Realist\DuelistEngine\DuelistEngineInterface;
 use Ling\Light_ReverseRouter\Service\LightReverseRouterService;
 use Ling\Light_User\LightWebsiteUser;
+use Ling\Light_UserDatabase\Service\LightUserDatabaseService;
+use Ling\Light_UserManager\Service\LightUserManagerService;
 use Ling\UrlSmuggler\UrlSmugglerTool;
 
 
@@ -345,6 +347,40 @@ class LightKitAdminService
         $o = new LightKitAdminEditorRealformSuccessHandler();
         $o->setEngineType($type);
         return $o;
+    }
+
+
+    /**
+     * Returns a valid lka user, or false if such user doesn't exist.
+     *
+     * @return LightWebsiteUser|false
+     */
+    public function getValidLightKitAdminUser(): LightWebsiteUser|false
+    {
+        /**
+         * @var $_um LightUserManagerService
+         */
+        $_um = $this->container->get("user_manager");
+        try {
+            return $_um->getValidWebsiteUser();
+        } catch (\Exception) {
+            return false;
+        }
+    }
+
+    /**
+     * Updates the given user in the storage (probably a database).
+     *
+     * @param LightWebsiteUser $user
+     * @param array $updateInfo
+     */
+    public function updateLightKitAdminUser(LightWebsiteUser $user, array $updateInfo = [])
+    {
+        /**
+         * @var $_ud LightUserDatabaseService
+         */
+        $_ud = $this->getContainer()->get("user_database");
+        $_ud->updateUserById($user->getId(), $updateInfo);
     }
 
 

@@ -1,6 +1,6 @@
 Light_Kit_Admin
 ===========
-2019-10-24 -> 2021-06-03
+2019-10-24 -> 2021-06-17
 
 An admin system with gui for the [Light](https://github.com/lingtalfi/Light) framework.
 
@@ -204,6 +204,11 @@ $user_database_vars.bullsheeter_avatar_img_dir: ${app_dir}/www/libs/universe/Lin
 History Log
 =============
 
+- 0.12.46 -- 2021-06-17
+
+    - update light-kit-admin-environment.js, alcpCall now forwards options
+    - update LightKitAdminBasePlanetInstaller, add micro-permission handling
+  
 - 0.12.45 -- 2021-06-03
 
     - adapt api to work with Light_PlanetInstaller:2.0.4

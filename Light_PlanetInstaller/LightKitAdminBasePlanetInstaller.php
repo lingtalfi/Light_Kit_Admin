@@ -6,8 +6,10 @@ namespace Ling\Light_Kit_Admin\Light_PlanetInstaller;
 
 use Ling\BabyYaml\BabyYamlUtil;
 use Ling\CliTools\Output\OutputInterface;
+use Ling\Light_Kit_Admin\Exception\LightKitAdminException;
 use Ling\Light_Kit_Admin\Helper\LightKitAdminPermissionHelper;
 use Ling\Light_Kit_Admin\Light_BMenu\Util\LightKitAdminBMenuRegistrationUtil;
+use Ling\Light_MicroPermission\Service\LightMicroPermissionService;
 use Ling\Light_PlanetInstaller\PlanetInstaller\LightBasePlanetInstaller;
 use Ling\Light_PlanetInstaller\PlanetInstaller\LightPlanetInstallerInit2HookInterface;
 use Ling\Light_PlanetInstaller\PlanetInstaller\LightPlanetInstallerInit3HookInterface;
@@ -37,6 +39,27 @@ class LightKitAdminBasePlanetInstaller extends LightBasePlanetInstaller implemen
      * @var string
      */
     protected string $_planetDotName;
+
+
+    /**
+     * The relative path to the micro-permission profile.
+     * This should be set by children classes who want to register their micro-permissions automatically.
+     *
+     * The relative path is from the $app/config/data directory.
+     *
+     * @var string
+     */
+    protected string $microPermissionProfile;
+
+
+    /**
+     * Builds the LightKitAdminBasePlanetInstaller instance.
+     */
+    public function __construct()
+    {
+        parent::__construct();
+        $this->microPermissionProfile = "";
+    }
 
 
     /**
@@ -80,6 +103,28 @@ class LightKitAdminBasePlanetInstaller extends LightBasePlanetInstaller implemen
             $output->write("$planetDotName: registering Ling.Light_Realform nuggets from <b>$d</b>." . PHP_EOL);
             LightRealformConfigurationFileRegistrationHelper::registerConfigurationFileByDirectory($output, $appDir, $planetDotName, $d);
         }
+
+
+        //--------------------------------------------
+        // micro-permissions
+        //--------------------------------------------
+        if ('' !== $this->microPermissionProfile) {
+
+            $output->write("$planetDotName: registering micro-permissions...");
+
+            $mpFile = $appDir . "/config/data/" . $this->microPermissionProfile;
+            if (false === file_exists($mpFile)) {
+                throw new LightKitAdminException("Plugin configuration error: micro-permission file doesn't exist at: $mpFile.");
+            }
+
+            /**
+             * @var $_mp LightMicroPermissionService
+             */
+            $_mp = $this->container->get("micro_permission");
+            $_mp->registerMicroPermissionsToOpenSystemByProfile($mpFile);
+            $output->write("<success>ok.</success>" . PHP_EOL);
+        }
+
     }
 
 
@@ -124,6 +169,27 @@ class LightKitAdminBasePlanetInstaller extends LightBasePlanetInstaller implemen
             $output->write("$planetDotName: unregistering Ling.Light_Realform nuggets from <b>$d</b>." . PHP_EOL);
             LightRealformConfigurationFileRegistrationHelper::unregisterConfigurationFileByDirectory($output, $appDir, $planetDotName, $d);
         }
+
+
+        //--------------------------------------------
+        // micro-permissions
+        //--------------------------------------------
+        if ('' !== $this->microPermissionProfile) {
+            $output->write("$planetDotName: unregistering micro-permissions...");
+
+            $mpFile = $appDir . "/config/data/" . $this->microPermissionProfile;
+            if (false === file_exists($mpFile)) {
+                throw new LightKitAdminException("Plugin configuration error: micro-permission file doesn't exist at: $mpFile.");
+            }
+            /**
+             * @var $_mp LightMicroPermissionService
+             */
+            $_mp = $this->container->get("micro_permission");
+            $_mp->unregisterMicroPermissionsToOpenSystemByProfile($mpFile);
+            $output->write("<success>ok.</success>" . PHP_EOL);
+        }
+
+
     }
 
 

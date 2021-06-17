@@ -1,6 +1,6 @@
 Ling/Light_Kit_Admin
 ================
-2019-05-17 --> 2021-06-03
+2019-05-17 --> 2021-06-17
 
 
 
@@ -202,11 +202,11 @@ Table of contents
     - LightBaseControllerHubHandler::__construct &ndash; Builds the LightKitAdminControllerHubHandler instance.
     - LightBaseControllerHubHandler::setContainer &ndash; Sets the light service container interface.
 - [LightKitAdminBasePlanetInstaller](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_PlanetInstaller/LightKitAdminBasePlanetInstaller.md) &ndash; The LightKitAdminBasePlanetInstaller class.
+    - [LightKitAdminBasePlanetInstaller::__construct](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_PlanetInstaller/LightKitAdminBasePlanetInstaller/__construct.md) &ndash; Builds the LightKitAdminBasePlanetInstaller instance.
     - [LightKitAdminBasePlanetInstaller::init2](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_PlanetInstaller/LightKitAdminBasePlanetInstaller/init2.md) &ndash; Executes the init 2 phase of the install command.
     - [LightKitAdminBasePlanetInstaller::undoInit2](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_PlanetInstaller/LightKitAdminBasePlanetInstaller/undoInit2.md) &ndash; Undoes the init 2 phase.
     - [LightKitAdminBasePlanetInstaller::init3](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_PlanetInstaller/LightKitAdminBasePlanetInstaller/init3.md) &ndash; Executes the init 3 phase of the install command.
     - [LightKitAdminBasePlanetInstaller::undoInit3](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_PlanetInstaller/LightKitAdminBasePlanetInstaller/undoInit3.md) &ndash; Undoes the init 3 phase.
-    - LightBasePlanetInstaller::__construct &ndash; Builds the LightBasePlanetInstaller instance.
     - LightBasePlanetInstaller::setContainer &ndash; Sets the light service container interface.
 - [LightKitAdminPlanetInstaller](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_PlanetInstaller/LightKitAdminPlanetInstaller.md) &ndash; The LightKitAdminPlanetInstaller class.
     - [LightKitAdminPlanetInstaller::init2](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Light_PlanetInstaller/LightKitAdminPlanetInstaller/init2.md) &ndash; Executes the init 2 phase of the install command.
@@ -295,6 +295,8 @@ Table of contents
     - [LightKitAdminService::onWebsiteUserLogin](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/onWebsiteUserLogin.md) &ndash; This method is called by default when a website user logs in.
     - [LightKitAdminService::getDuelistEngine](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/getDuelistEngine.md) &ndash; Returns a [duelist engine](https://github.com/lingtalfi/Light_Realist/blob/master/doc/api/Ling/Light_Realist/DuelistEngine/DuelistEngineInterface.md) instance.
     - [LightKitAdminService::getKitEditorRealformSuccessHandler](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/getKitEditorRealformSuccessHandler.md) &ndash; Returns the kit editor's realform' success handler instance.
+    - [LightKitAdminService::getValidLightKitAdminUser](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/getValidLightKitAdminUser.md) &ndash; Returns a valid lka user, or false if such user doesn't exist.
+    - [LightKitAdminService::updateLightKitAdminUser](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/updateLightKitAdminUser.md) &ndash; Updates the given user in the storage (probably a database).
     - [LightKitAdminService::lateRegistration](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/lateRegistration.md) &ndash; Allows lka plugins to register their services to some plugins in a dynamic way.
     - [LightKitAdminService::getJimToolboxItems](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/getJimToolboxItems.md) &ndash; Returns the array of jim toolbox items.
     - [LightKitAdminService::registerJimToolboxItem](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Service/LightKitAdminService/registerJimToolboxItem.md) &ndash; Registers a jim toolbox item.
