@@ -156,16 +156,6 @@ $kit.methods_collection:
             -
                 instance: Ling\Light_Kit_Admin\ConfigurationTransformer\LightKitAdminConfigurationTransformer
 
-$micro_permission.methods_collection:
-    -
-        method: registerMicroPermissionsByProfile
-        args:
-            file: ${app_dir}/config/data/Ling.Light_Kit_Admin/Ling.Light_MicroPermission/kit_admin.profile.byml
-
-
-
-
-
 
 $realist.methods_collection:
     -
@@ -204,6 +194,10 @@ $user_database_vars.bullsheeter_avatar_img_dir: ${app_dir}/www/libs/universe/Lin
 History Log
 =============
 
+- 0.12.47 -- 2021-06-17
+
+    - switch to micro-permission open registration system
+  
 - 0.12.46 -- 2021-06-17
 
     - update light-kit-admin-environment.js, alcpCall now forwards options

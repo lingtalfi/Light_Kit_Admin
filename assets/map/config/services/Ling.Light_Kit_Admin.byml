@@ -91,16 +91,6 @@ $kit.methods_collection:
             -
                 instance: Ling\Light_Kit_Admin\ConfigurationTransformer\LightKitAdminConfigurationTransformer
 
-$micro_permission.methods_collection:
-    -
-        method: registerMicroPermissionsByProfile
-        args:
-            file: ${app_dir}/config/data/Ling.Light_Kit_Admin/Ling.Light_MicroPermission/kit_admin.profile.byml
-
-
-
-
-
 
 $realist.methods_collection:
     -
