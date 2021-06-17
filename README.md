@@ -194,6 +194,10 @@ $user_database_vars.bullsheeter_avatar_img_dir: ${app_dir}/www/libs/universe/Lin
 History Log
 =============
 
+- 0.12.48 -- 2021-06-17
+
+    - add LightKitAdminBasePlanetInstaller->registerOpenMicroPermissionsByProfile method
+  
 - 0.12.47 -- 2021-06-17
 
     - switch to micro-permission open registration system

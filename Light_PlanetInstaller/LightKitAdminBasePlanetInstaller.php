@@ -109,20 +109,7 @@ class LightKitAdminBasePlanetInstaller extends LightBasePlanetInstaller implemen
         // micro-permissions
         //--------------------------------------------
         if ('' !== $this->microPermissionProfile) {
-
-            $output->write("$planetDotName: registering micro-permissions...");
-
-            $mpFile = $appDir . "/config/data/" . $this->microPermissionProfile;
-            if (false === file_exists($mpFile)) {
-                throw new LightKitAdminException("Plugin configuration error: micro-permission file doesn't exist at: $mpFile.");
-            }
-
-            /**
-             * @var $_mp LightMicroPermissionService
-             */
-            $_mp = $this->container->get("micro_permission");
-            $_mp->registerMicroPermissionsToOpenSystemByProfile($mpFile);
-            $output->write("<success>ok.</success>" . PHP_EOL);
+            $this->registerOpenMicroPermissionsByProfile($appDir, $output, $planetDotName, $this->microPermissionProfile);
         }
 
     }
@@ -175,18 +162,7 @@ class LightKitAdminBasePlanetInstaller extends LightBasePlanetInstaller implemen
         // micro-permissions
         //--------------------------------------------
         if ('' !== $this->microPermissionProfile) {
-            $output->write("$planetDotName: unregistering micro-permissions...");
-
-            $mpFile = $appDir . "/config/data/" . $this->microPermissionProfile;
-            if (false === file_exists($mpFile)) {
-                throw new LightKitAdminException("Plugin configuration error: micro-permission file doesn't exist at: $mpFile.");
-            }
-            /**
-             * @var $_mp LightMicroPermissionService
-             */
-            $_mp = $this->container->get("micro_permission");
-            $_mp->unregisterMicroPermissionsToOpenSystemByProfile($mpFile);
-            $output->write("<success>ok.</success>" . PHP_EOL);
+            $this->unregisterOpenMicroPermissionsByProfile($appDir, $output, $planetDotName, $this->microPermissionProfile);
         }
 
 
@@ -281,5 +257,62 @@ class LightKitAdminBasePlanetInstaller extends LightBasePlanetInstaller implemen
         list($galaxy, $planet) = $p;
         $this->_output = $output;
         $this->_planetDotName = $galaxy . "." . $planet;
+    }
+
+
+    /**
+     * Registers micro-permissions using their open system, from a given profile relative path (from the config/data directory).
+     *
+     *
+     * @param string $appDir
+     * @param OutputInterface $output
+     * @param string $planetDotName
+     * @param string $relProfile
+     * @throws \Exception
+     */
+    protected function registerOpenMicroPermissionsByProfile(string $appDir, OutputInterface $output, string $planetDotName, string $relProfile)
+    {
+
+        $output->write("$planetDotName: registering micro-permissions...");
+
+        $mpFile = $appDir . "/config/data/" . $relProfile;
+        if (false === file_exists($mpFile)) {
+            throw new LightKitAdminException("Plugin configuration error: micro-permission file doesn't exist at: $mpFile.");
+        }
+
+        /**
+         * @var $_mp LightMicroPermissionService
+         */
+        $_mp = $this->container->get("micro_permission");
+        $_mp->registerMicroPermissionsToOpenSystemByProfile($mpFile);
+        $output->write("<success>ok.</success>" . PHP_EOL);
+    }
+
+    /**
+     * Unregisters micro-permissions using their open system, from a given profile relative path (from the config/data directory).
+     *
+     *
+     * @param string $appDir
+     * @param OutputInterface $output
+     * @param string $planetDotName
+     * @param string $relProfile
+     * @throws \Exception
+     */
+    protected function unregisterOpenMicroPermissionsByProfile(string $appDir, OutputInterface $output, string $planetDotName, string $relProfile)
+    {
+
+        $output->write("$planetDotName: unregistering micro-permissions...");
+
+        $mpFile = $appDir . "/config/data/" . $relProfile;
+        if (false === file_exists($mpFile)) {
+            throw new LightKitAdminException("Plugin configuration error: micro-permission file doesn't exist at: $mpFile.");
+        }
+
+        /**
+         * @var $_mp LightMicroPermissionService
+         */
+        $_mp = $this->container->get("micro_permission");
+        $_mp->unregisterMicroPermissionsToOpenSystemByProfile($mpFile);
+        $output->write("<success>ok.</success>" . PHP_EOL);
     }
 }
