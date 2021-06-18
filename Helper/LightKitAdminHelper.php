@@ -46,4 +46,17 @@ class LightKitAdminHelper
 
         throw new LightKitAdminException("Invalid lka planetDotName: $lkaPlanetDotName.");
     }
+
+
+    /**
+     * Returns the official light kit editor root path used by light kit admin.
+     *
+     *
+     * @param string $appDir
+     * @return string
+     */
+    public static function getLightKitEditorRootPath(string $appDir): string
+    {
+        return $appDir . "/config/open/Ling.Light_Kit_Admin/Ling.Light_Kit_Editor/admin";
+    }
 }

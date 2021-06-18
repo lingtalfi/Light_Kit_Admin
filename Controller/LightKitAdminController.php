@@ -13,11 +13,11 @@ use Ling\Light\Http\HttpResponseInterface;
 use Ling\Light_AjaxHandler\Service\LightAjaxHandlerService;
 use Ling\Light_Events\Service\LightEventsService;
 use Ling\Light_Flasher\Service\LightFlasherService;
-use Ling\Light_HtmlPageCopilot\Service\LightHtmlPageCopilotService;
 use Ling\Light_Kit\ConfigurationTransformer\ThemeTransformer;
 use Ling\Light_Kit\PageRenderer\LightKitPageRenderer;
 use Ling\Light_Kit_Admin\Exception\LightKitAdminException;
 use Ling\Light_Kit_Admin\Exception\LightKitAdminMicroPermissionDeniedException;
+use Ling\Light_Kit_Admin\Helper\LightKitAdminHelper;
 use Ling\Light_Kit_Admin\Service\LightKitAdminService;
 use Ling\Light_Kit_Editor\Engine\LightKitEditorEngine;
 use Ling\Light_Kit_Editor\Storage\LightKitEditorBabyYamlStorage;
@@ -141,8 +141,6 @@ class LightKitAdminController extends LightController implements RouteAwareContr
          *
          */
 //        $dynamicVariables['lka_parent_layout'] = 'Ling.Light_Kit_Admin/Ling.Light_Kit/zeroadmin/dev/mainlayout_base'; // for now we set it from here, doesn't matter, it's internal
-
-
 
 
         $kit = $this->getKitPageRendererInstance();
@@ -303,7 +301,7 @@ class LightKitAdminController extends LightController implements RouteAwareContr
 
         if ('babyYaml') {
             $storage = new LightKitEditorBabyYamlStorage();
-            $storage->setRootDir($appDir . "/config/open/Ling.Light_Kit_Admin/lke");
+            $storage->setRootDir(LightKitAdminHelper::getLightKitEditorRootPath($appDir));
         } elseif ("database") {
             $storage = new LightKitEditorDatabaseStorage();
         }

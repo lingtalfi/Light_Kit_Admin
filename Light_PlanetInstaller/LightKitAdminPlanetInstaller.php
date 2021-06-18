@@ -9,6 +9,7 @@ use Ling\CliTools\Output\OutputInterface;
 use Ling\Light_Database\Service\LightDatabaseService;
 use Ling\Light_EasyRoute\Helper\LightEasyRouteHelper;
 use Ling\Light_Events\Helper\LightEventsHelper;
+use Ling\Light_Kit_Admin\Helper\LightKitAdminHelper;
 use Ling\Light_Kit_Admin\Light_BMenu\Util\LightKitAdminBMenuRegistrationUtil;
 use Ling\Light_Kit_Editor\Service\LightKitEditorService;
 use Ling\Light_MicroPermission\Service\LightMicroPermissionService;
@@ -86,6 +87,7 @@ class LightKitAdminPlanetInstaller extends LightBasePlanetInstaller implements L
         //--------------------------------------------
         // kit editor
         //--------------------------------------------
+        $sRootDir = LightKitAdminHelper::getLightKitEditorRootPath('${app_dir}');
         /**
          * @var $ke LightKitEditorService
          */
@@ -95,7 +97,7 @@ class LightKitAdminPlanetInstaller extends LightBasePlanetInstaller implements L
             "identifier" => "Ling.Light_Kit_Admin",
             "provider" => "Ling.Light_Kit_Admin",
             "engine" => "babyYaml",
-            "rootDir" => '${app_dir}/config/open/Ling.Light_Kit_Admin/lke',
+            "rootDir" => $sRootDir,
             "label" => "Ling.Light_Kit_Admin",
         ]);
         $output->write("<success>ok.</success>" . PHP_EOL);
@@ -142,7 +144,6 @@ class LightKitAdminPlanetInstaller extends LightBasePlanetInstaller implements L
         $output->write("<success>ok.</success>" . PHP_EOL);
 
 
-
         //--------------------------------------------
         // micro-permissions
         //--------------------------------------------
@@ -162,7 +163,7 @@ class LightKitAdminPlanetInstaller extends LightBasePlanetInstaller implements L
          * @var $ke LightKitEditorService
          */
         $ke = $this->container->get("kit_editor");
-        $output->write("$planetDotName: registering websites...");
+        $output->write("$planetDotName: unregistering websites...");
         $ke->unregisterWebsite("Ling.Light_Kit_Admin");
         $output->write("<success>ok.</success>" . PHP_EOL);
 

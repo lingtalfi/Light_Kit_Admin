@@ -171,6 +171,7 @@ Table of contents
 - [LightKitAdminHelper](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Helper/LightKitAdminHelper.md) &ndash; The LightKitAdminHelper class.
     - [LightKitAdminHelper::getLkaPlanetNameByPlanet](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Helper/LightKitAdminHelper/getLkaPlanetNameByPlanet.md) &ndash; Returns the lka planet name corresponding to the given $planet.
     - [LightKitAdminHelper::getSourcePlanetDotNameByLkaPlanetDotName](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Helper/LightKitAdminHelper/getSourcePlanetDotNameByLkaPlanetDotName.md) &ndash; Returns the source planet name from the given lka planet name.
+    - [LightKitAdminHelper::getLightKitEditorRootPath](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Helper/LightKitAdminHelper/getLightKitEditorRootPath.md) &ndash; Returns the official light kit editor root path used by light kit admin.
 - [LightKitAdminPermissionHelper](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Helper/LightKitAdminPermissionHelper.md) &ndash; The LightKitAdminPermissionHelper class.
     - [LightKitAdminPermissionHelper::bindStandardLightPermissionsToLkaPermissionGroups](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Helper/LightKitAdminPermissionHelper/bindStandardLightPermissionsToLkaPermissionGroups.md) &ndash; Binds the permissions of the given $planetDotName to the main lka permission groups.
     - [LightKitAdminPermissionHelper::unbindStandardLightPermissionsToLkaPermissionGroups](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Helper/LightKitAdminPermissionHelper/unbindStandardLightPermissionsToLkaPermissionGroups.md) &ndash; Unbinds the permissions of the given $planetDotName from the main lka permission groups.
@@ -352,7 +353,6 @@ Dependencies
 - [Light_EasyRoute](https://github.com/lingtalfi/Light_EasyRoute)
 - [Light_Events](https://github.com/lingtalfi/Light_Events)
 - [Light_Flasher](https://github.com/lingtalfi/Light_Flasher)
-- [Light_HtmlPageCopilot](https://github.com/lingtalfi/Light_HtmlPageCopilot)
 - [Light_Kit](https://github.com/lingtalfi/Light_Kit)
 - [Light_Kit_BootstrapWidgetLibrary](https://github.com/lingtalfi/Light_Kit_BootstrapWidgetLibrary)
 - [Light_Kit_Editor](https://github.com/lingtalfi/Light_Kit_Editor)
