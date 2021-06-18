@@ -1,5 +1,5 @@
 label: Light Kit Admin Login Page
-layout: config/open/Ling.Light_Kit_Admin/lke/layouts/$t/standalone_layout.php
+layout: $root/layouts/$t/standalone_layout.php
 layout_vars: []
 title: Light Kit Admin Login Page
 description: <

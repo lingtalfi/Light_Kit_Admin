@@ -53,7 +53,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightKitAdminService::updateLightKitAdminUser](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Service/LightKitAdminService.php#L377-L384)
+See the source code for method [LightKitAdminService::updateLightKitAdminUser](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Service/LightKitAdminService.php#L378-L385)
 
 
 See Also

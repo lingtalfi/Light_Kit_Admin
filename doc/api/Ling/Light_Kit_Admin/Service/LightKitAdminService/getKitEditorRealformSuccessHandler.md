@@ -53,7 +53,7 @@ Returns [RealformSuccessHandlerInterface](https://github.com/lingtalfi/Light_Rea
 
 Source Code
 ===========
-See the source code for method [LightKitAdminService::getKitEditorRealformSuccessHandler](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Service/LightKitAdminService.php#L345-L350)
+See the source code for method [LightKitAdminService::getKitEditorRealformSuccessHandler](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Service/LightKitAdminService.php#L346-L351)
 
 
 See Also

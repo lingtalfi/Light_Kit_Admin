@@ -194,6 +194,11 @@ $user_database_vars.bullsheeter_avatar_img_dir: ${app_dir}/www/libs/universe/Lin
 History Log
 =============
 
+- 0.13.3 -- 2021-06-18
+
+    - fix service->getDuelistEngine typo (old lke path) 
+    - update kit pages, using $root variable 
+  
 - 0.13.2 -- 2021-06-18
 
     - now uses the Light_Kit_Editor page renderer instead of the one from Light_Kit 

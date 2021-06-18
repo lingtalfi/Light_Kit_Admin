@@ -13,6 +13,7 @@ use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 use Ling\Light_ControllerHub\Service\LightControllerHubService;
 use Ling\Light_Kit_Admin\Exception\LightKitAdminException;
 use Ling\Light_Kit_Admin\Exception\LightKitAdminMicroPermissionDeniedException;
+use Ling\Light_Kit_Admin\Helper\LightKitAdminHelper;
 use Ling\Light_Kit_Admin\Light_Realform\SuccessHandler\LightKitAdminEditorRealformSuccessHandler;
 use Ling\Light_Kit_Admin\LightKitAdminPlugin\LightKitAdminPluginInterface;
 use Ling\Light_Kit_Admin\Notification\LightKitAdminNotification;
@@ -327,7 +328,7 @@ class LightKitAdminService
     public function getDuelistEngine(): DuelistEngineInterface
     {
         $o = new LightKitEditorBabyYamlDuelistEngine();
-        $o->setRootDir($this->container->getApplicationDir() . "/config/open/Ling.Light_Kit_Admin/lke");
+        $o->setRootDir(LightKitAdminHelper::getLightKitEditorRootPath($this->container->getApplicationDir()));
         return $o;
     }
 

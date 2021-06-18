@@ -46,7 +46,7 @@ Returns [LightWebsiteUser](https://github.com/lingtalfi/Light_User/blob/master/d
 
 Source Code
 ===========
-See the source code for method [LightKitAdminService::getValidLightKitAdminUser](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Service/LightKitAdminService.php#L358-L369)
+See the source code for method [LightKitAdminService::getValidLightKitAdminUser](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/Service/LightKitAdminService.php#L359-L370)
 
 
 See Also
