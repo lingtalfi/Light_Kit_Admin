@@ -57,6 +57,18 @@ class LightKitAdminHelper
      */
     public static function getLightKitEditorRootPath(string $appDir): string
     {
-        return $appDir . "/config/open/Ling.Light_Kit_Admin/Ling.Light_Kit_Editor/admin";
+        return $appDir . "/" . self::getLightKitEditorRelativeRootPath();
+    }
+
+
+    /**
+     * Returns the official light kit editor relative root path used by light kit admin.
+     *
+     *
+     * @return string
+     */
+    public static function getLightKitEditorRelativeRootPath(): string
+    {
+        return "config/open/Ling.Light_Kit_Admin/Ling.Light_Kit_Editor/admin";
     }
 }

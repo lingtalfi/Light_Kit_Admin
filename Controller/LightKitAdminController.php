@@ -20,6 +20,7 @@ use Ling\Light_Kit_Admin\Exception\LightKitAdminMicroPermissionDeniedException;
 use Ling\Light_Kit_Admin\Helper\LightKitAdminHelper;
 use Ling\Light_Kit_Admin\Service\LightKitAdminService;
 use Ling\Light_Kit_Editor\Engine\LightKitEditorEngine;
+use Ling\Light_Kit_Editor\Service\LightKitEditorService;
 use Ling\Light_Kit_Editor\Storage\LightKitEditorBabyYamlStorage;
 use Ling\Light_Kit_Editor\Storage\LightKitEditorDatabaseStorage;
 use Ling\Light_MicroPermission\Service\LightMicroPermissionService;
@@ -291,11 +292,25 @@ class LightKitAdminController extends LightController implements RouteAwareContr
 //        return $this->getContainer()->get("kit"); // old behaviour
 
 
+        /**
+         * @var $va LightVarsService
+         */
+        $va = $this->getContainer()->get("vars");
+        $theme = $va->getVar("kit_admin_vars.theme", "Ling.Light_Kit_Admin/zeroadmin");
+
+
+
         $appDir = $this->getContainer()->getApplicationDir();
         /**
-         * @var $kit LightKitPageRenderer
+         * @var $_ke LightKitEditorService
          */
-        $kit = clone($this->getContainer()->get("kit"));
+        $_ke = $this->getContainer()->get("kit_editor");
+        $pageRenderer = $_ke->getPageRenderer([
+            "theme" => $theme,
+            "root" => LightKitAdminHelper::getLightKitEditorRelativeRootPath(),
+        ]);
+
+
         $engine = new LightKitEditorEngine();
 
 
@@ -309,21 +324,12 @@ class LightKitAdminController extends LightController implements RouteAwareContr
         $engine->setStorage($storage);
 
 
-        $kit->setConfStorage($engine);
+        $pageRenderer->setConfStorage($engine);
 
 
-        /**
-         * @var $va LightVarsService
-         */
-        $va = $this->getContainer()->get("vars");
-
-        $theme = $va->getVar("kit_admin_vars.theme", "Ling.Light_Kit_Admin/zeroadmin");
-        $themeTransformer = new ThemeTransformer();
-        $themeTransformer->setTheme($theme);
-        $kit->addPageConfigurationTransformer($themeTransformer);
 
 
-        return $kit;
+        return $pageRenderer;
     }
 
 }

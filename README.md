@@ -194,6 +194,10 @@ $user_database_vars.bullsheeter_avatar_img_dir: ${app_dir}/www/libs/universe/Lin
 History Log
 =============
 
+- 0.13.2 -- 2021-06-18
+
+    - now uses the Light_Kit_Editor page renderer instead of the one from Light_Kit 
+  
 - 0.13.1 -- 2021-06-18
 
     - fix old code still using old light kit editor path 

@@ -57,5 +57,5 @@ See Also
 
 The [LightKitAdminHelper](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Helper/LightKitAdminHelper.md) class.
 
-Previous method: [getSourcePlanetDotNameByLkaPlanetDotName](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Helper/LightKitAdminHelper/getSourcePlanetDotNameByLkaPlanetDotName.md)<br>
+Previous method: [getSourcePlanetDotNameByLkaPlanetDotName](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Helper/LightKitAdminHelper/getSourcePlanetDotNameByLkaPlanetDotName.md)<br>Next method: [getLightKitEditorRelativeRootPath](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Helper/LightKitAdminHelper/getLightKitEditorRelativeRootPath.md)<br>
 
