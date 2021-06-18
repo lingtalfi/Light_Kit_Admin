@@ -159,7 +159,6 @@ class LightKitAdminController extends LightController implements RouteAwareContr
         $data->setVar("page", $page);
         $events->dispatch('Ling.Light_Kit_Admin.on_page_rendered_before', $data);
 
-
         return new HttpResponse($kit->renderPage($page, $options));
     }
 
