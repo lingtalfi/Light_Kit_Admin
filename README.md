@@ -1,6 +1,6 @@
 Light_Kit_Admin
 ===========
-2019-10-24 -> 2021-06-18
+2019-10-24 -> 2021-06-25
 
 An admin system with gui for the [Light](https://github.com/lingtalfi/Light) framework.
 
@@ -194,6 +194,10 @@ $user_database_vars.bullsheeter_avatar_img_dir: ${app_dir}/www/libs/universe/Lin
 History Log
 =============
 
+- 0.13.4 -- 2021-06-25
+
+    - updated routes, add galaxy prefix 
+  
 - 0.13.3 -- 2021-06-18
 
     - fix service->getDuelistEngine typo (old lke path) 

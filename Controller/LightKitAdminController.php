@@ -13,16 +13,12 @@ use Ling\Light\Http\HttpResponseInterface;
 use Ling\Light_AjaxHandler\Service\LightAjaxHandlerService;
 use Ling\Light_Events\Service\LightEventsService;
 use Ling\Light_Flasher\Service\LightFlasherService;
-use Ling\Light_Kit\ConfigurationTransformer\ThemeTransformer;
 use Ling\Light_Kit\PageRenderer\LightKitPageRenderer;
 use Ling\Light_Kit_Admin\Exception\LightKitAdminException;
 use Ling\Light_Kit_Admin\Exception\LightKitAdminMicroPermissionDeniedException;
 use Ling\Light_Kit_Admin\Helper\LightKitAdminHelper;
 use Ling\Light_Kit_Admin\Service\LightKitAdminService;
-use Ling\Light_Kit_Editor\Engine\LightKitEditorEngine;
-use Ling\Light_Kit_Editor\Service\LightKitEditorService;
-use Ling\Light_Kit_Editor\Storage\LightKitEditorBabyYamlStorage;
-use Ling\Light_Kit_Editor\Storage\LightKitEditorDatabaseStorage;
+use Ling\Light_Kit_Editor\Helper\LightKitEditorHelper;
 use Ling\Light_MicroPermission\Service\LightMicroPermissionService;
 use Ling\Light_User\LightWebsiteUser;
 use Ling\Light_UserManager\Service\LightUserManagerService;
@@ -290,46 +286,18 @@ class LightKitAdminController extends LightController implements RouteAwareContr
     private function getKitPageRendererInstance(): LightKitPageRenderer
     {
 //        return $this->getContainer()->get("kit"); // old behaviour
-
-
         /**
          * @var $va LightVarsService
          */
         $va = $this->getContainer()->get("vars");
         $theme = $va->getVar("kit_admin_vars.theme", "Ling.Light_Kit_Admin/zeroadmin");
+        $root = LightKitAdminHelper::getLightKitEditorRelativeRootPath();
 
-
-
-        $appDir = $this->getContainer()->getApplicationDir();
-        /**
-         * @var $_ke LightKitEditorService
-         */
-        $_ke = $this->getContainer()->get("kit_editor");
-        $pageRenderer = $_ke->getPageRenderer([
+        return LightKitEditorHelper::getBasicPageRenderer($this->getContainer(), [
+            "type" => "babyYaml",
             "theme" => $theme,
-            "root" => LightKitAdminHelper::getLightKitEditorRelativeRootPath(),
+            "root" => $root,
         ]);
-
-
-        $engine = new LightKitEditorEngine();
-
-
-        if ('babyYaml') {
-            $storage = new LightKitEditorBabyYamlStorage();
-            $storage->setRootDir(LightKitAdminHelper::getLightKitEditorRootPath($appDir));
-        } elseif ("database") {
-            $storage = new LightKitEditorDatabaseStorage();
-        }
-        $storage->setContainer($this->getContainer());
-        $engine->setStorage($storage);
-
-
-        $pageRenderer->setConfStorage($engine);
-
-
-
-
-        return $pageRenderer;
     }
 
 }
