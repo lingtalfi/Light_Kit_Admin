@@ -8,7 +8,6 @@ use Ling\Light\Controller\LightController;
 use Ling\Light\Controller\RouteAwareControllerInterface;
 use Ling\Light\Events\LightEvent;
 use Ling\Light\Http\HttpRedirectResponse;
-use Ling\Light\Http\HttpResponse;
 use Ling\Light\Http\HttpResponseInterface;
 use Ling\Light_AjaxHandler\Service\LightAjaxHandlerService;
 use Ling\Light_Events\Service\LightEventsService;
@@ -16,13 +15,11 @@ use Ling\Light_Flasher\Service\LightFlasherService;
 use Ling\Light_Kit\PageRenderer\LightKitPageRenderer;
 use Ling\Light_Kit_Admin\Exception\LightKitAdminException;
 use Ling\Light_Kit_Admin\Exception\LightKitAdminMicroPermissionDeniedException;
-use Ling\Light_Kit_Admin\Helper\LightKitAdminHelper;
 use Ling\Light_Kit_Admin\Service\LightKitAdminService;
-use Ling\Light_Kit_Editor\Helper\LightKitEditorHelper;
+use Ling\Light_Kit_Editor\Service\LightKitEditorService;
 use Ling\Light_MicroPermission\Service\LightMicroPermissionService;
 use Ling\Light_User\LightWebsiteUser;
 use Ling\Light_UserManager\Service\LightUserManagerService;
-use Ling\Light_Vars\Service\LightVarsService;
 
 
 /**
@@ -140,21 +137,32 @@ class LightKitAdminController extends LightController implements RouteAwareContr
 //        $dynamicVariables['lka_parent_layout'] = 'Ling.Light_Kit_Admin/Ling.Light_Kit/zeroadmin/dev/mainlayout_base'; // for now we set it from here, doesn't matter, it's internal
 
 
-        $kit = $this->getKitPageRendererInstance();
+        $websiteId = "Ling.Light_Kit_Admin.backoffice"; // should this be hardcoded?
 
 
         /**
-         * @var $events LightEventsService
+         * @var $_ke LightKitEditorService
          */
-        $events = $this->getContainer()->get("events");
+        $_ke = $this->getContainer()->get("kit_editor");
 
-        $data = new LightEvent();
-        $data->setLight($this->getLight());
-        $data->setHttpRequest($this->getLight()->getHttpRequest());
-        $data->setVar("page", $page);
-        $events->dispatch('Ling.Light_Kit_Admin.on_page_rendered_before', $data);
 
-        return new HttpResponse($kit->renderPage($page, $options));
+        return $_ke->renderPage($websiteId, $page, $options, [
+            "before" => function () use ($page) {
+
+
+                /**
+                 * @var $events LightEventsService
+                 */
+                $events = $this->getContainer()->get("events");
+
+                $data = new LightEvent();
+                $data->setLight($this->getLight());
+                $data->setHttpRequest($this->getLight()->getHttpRequest());
+                $data->setVar("page", $page);
+                $events->dispatch('Ling.Light_Kit_Admin.on_page_rendered_before', $data);
+
+            },
+        ]);
     }
 
 
@@ -283,21 +291,21 @@ class LightKitAdminController extends LightController implements RouteAwareContr
      * @return LightKitPageRenderer
      * @throws \Exception
      */
-    private function getKitPageRendererInstance(): LightKitPageRenderer
-    {
-//        return $this->getContainer()->get("kit"); // old behaviour
-        /**
-         * @var $va LightVarsService
-         */
-        $va = $this->getContainer()->get("vars");
-        $theme = $va->getVar("kit_admin_vars.theme", "Ling.Light_Kit_Admin/zeroadmin");
-        $root = LightKitAdminHelper::getLightKitEditorRelativeRootPath();
-
-        return LightKitEditorHelper::getBasicPageRenderer($this->getContainer(), [
-            "type" => "babyYaml",
-            "theme" => $theme,
-            "root" => $root,
-        ]);
-    }
+//    private function getKitPageRendererInstance(): LightKitPageRenderer
+//    {
+////        return $this->getContainer()->get("kit"); // old behaviour
+//        /**
+//         * @var $va LightVarsService
+//         */
+//        $va = $this->getContainer()->get("vars");
+//        $theme = $va->getVar("kit_admin_vars.theme", "Ling.Light_Kit_Admin/zeroadmin");
+//        $root = LightKitAdminHelper::getLightKitEditorRelativeRootPath();
+//
+//        return LightKitEditorHelper::getBasicPageRenderer($this->getContainer(), [
+//            "type" => "babyYaml",
+//            "theme" => $theme,
+//            "root" => $root,
+//        ]);
+//    }
 
 }

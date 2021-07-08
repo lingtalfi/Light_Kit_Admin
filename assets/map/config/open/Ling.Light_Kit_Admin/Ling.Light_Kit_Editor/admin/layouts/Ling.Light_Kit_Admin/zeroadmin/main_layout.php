@@ -6,6 +6,7 @@
  */
 
 use Ling\Bat\StringTool;
+use Ling\Light_JimToolbox\Service\LightJimToolboxService;
 use Ling\Light_Kit\PageRenderer\LightKitPageRenderer;
 
 
@@ -111,7 +112,17 @@ echo StringTool::htmlAttributes($this->copilot->getBodyTagAttributes()); ?>>
 </div>
 
 
-<?php require_once __DIR__ . "/toolbox.inc.php"; ?>
+<?php
+
+
+/**
+ * @var $_ji LightJimToolboxService
+ */
+$_ji = $container->get("jim_toolbox");
+$_jimToolboxExecute = 'Ling\Light_Kit_Admin\Controller\JimToolbox\LkaJimToolboxController->render';
+require_once $_ji->getTemplatePath();
+
+?>
 
 <div class="app-body">
     <?php $this->printZone("sidebar"); ?>

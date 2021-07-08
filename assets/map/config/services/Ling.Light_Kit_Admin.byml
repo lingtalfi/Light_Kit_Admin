@@ -25,7 +25,6 @@ kit_admin:
 
 kit_admin_vars:
     route_prefix: /admin
-    theme: Ling.Light_Kit_Admin/zeroadmin
 
 
 

@@ -1,7 +1,7 @@
 <?php
 
+use Ling\Light_JimToolbox\Service\LightJimToolboxService;
 use Ling\Light_Kit\Service\LightKitService;
-use Ling\Light_Kit_Admin\Service\LightKitAdminService;
 
 
 /**
@@ -13,16 +13,18 @@ $container = $this->getContainer();
 
 
 /**
- * @var $lka LightKitAdminService
+ * @var $_ji LightJimToolboxService
  */
-$lka = $container->get("kit_admin");
-$items = $lka->getJimToolboxItems();
+$_ji = $container->get("jim_toolbox");
+$items = $_ji->getJimToolboxItems([
+    'execute' => "Ling\Light_Kit_Admin\Controller\JimToolbox\LkaJimToolboxController->render",
+]);
 
 
 ?>
 
 <style>
-    .toolbox-wordbreak{
+    .toolbox-wordbreak {
         word-break: break-word;
     }
 </style>
