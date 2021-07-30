@@ -1,6 +1,6 @@
 Light_Kit_Admin
 ===========
-2019-10-24 -> 2021-07-08
+2019-10-24 -> 2021-07-30
 
 An admin system with gui for the [Light](https://github.com/lingtalfi/Light) framework.
 
@@ -193,6 +193,10 @@ $user_database_vars.bullsheeter_avatar_img_dir: ${app_dir}/www/libs/universe/Lin
 
 History Log
 =============
+
+- 0.13.6 -- 2021-07-30
+
+    - checkpoint commit 
 
 - 0.13.5 -- 2021-07-01
 

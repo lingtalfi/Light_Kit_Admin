@@ -1,6 +1,6 @@
 Ling/Light_Kit_Admin
 ================
-2019-05-17 --> 2021-07-08
+2019-05-17 --> 2021-07-30
 
 
 
@@ -176,6 +176,10 @@ Table of contents
 - [LightKitAdminPermissionHelper](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Helper/LightKitAdminPermissionHelper.md) &ndash; The LightKitAdminPermissionHelper class.
     - [LightKitAdminPermissionHelper::bindStandardLightPermissionsToLkaPermissionGroups](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Helper/LightKitAdminPermissionHelper/bindStandardLightPermissionsToLkaPermissionGroups.md) &ndash; Binds the permissions of the given $planetDotName to the main lka permission groups.
     - [LightKitAdminPermissionHelper::unbindStandardLightPermissionsToLkaPermissionGroups](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Helper/LightKitAdminPermissionHelper/unbindStandardLightPermissionsToLkaPermissionGroups.md) &ndash; Unbinds the permissions of the given $planetDotName from the main lka permission groups.
+- [LightKitAdminWiseHelper](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Helper/LightKitAdminWiseHelper.md) &ndash; The LightKitAdminWiseHelper class.
+    - [LightKitAdminWiseHelper::wiseToLightKitAdmin](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Helper/LightKitAdminWiseHelper/wiseToLightKitAdmin.md) &ndash; Returns the Light_Kit_Admin version of the given wise notification type.
+    - [LightKitAdminWiseHelper::regularToLightKitAdmin](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Helper/LightKitAdminWiseHelper/regularToLightKitAdmin.md) &ndash; Returns the Light_Kit_Admin version of the given regular notification type.
+    - [LightKitAdminWiseHelper::bootstrapToLightKitAdmin](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/Helper/LightKitAdminWiseHelper/bootstrapToLightKitAdmin.md) &ndash; Returns the Light_Kit_Admin version of the given bootstrap notification type.
 - [BaseLightKitAdminPlugin](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/LightKitAdminPlugin/BaseLightKitAdminPlugin.md) &ndash; The BaseLightKitAdminPlugin class.
     - [BaseLightKitAdminPlugin::__construct](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/LightKitAdminPlugin/BaseLightKitAdminPlugin/__construct.md) &ndash; Builds the BaseLightKitAdminPlugin instance.
     - [BaseLightKitAdminPlugin::getPluginOptions](https://github.com/lingtalfi/Light_Kit_Admin/blob/master/doc/api/Ling/Light_Kit_Admin/LightKitAdminPlugin/BaseLightKitAdminPlugin/getPluginOptions.md) &ndash; Returns the options of this kit admin plugin.

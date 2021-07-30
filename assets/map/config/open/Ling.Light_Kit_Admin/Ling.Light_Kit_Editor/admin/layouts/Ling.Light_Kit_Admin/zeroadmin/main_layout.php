@@ -14,6 +14,7 @@ $this->copilot->registerLibrary("FontAwesome", [], [
     '/libs/universe/Ling/FontAwesome/5.13/css/all.min.css',
 ]);
 
+$rand = rand(0, 1000000);
 
 $this->copilot->registerLibrary("Jquery", [], [], [
     'override' => true,
@@ -29,7 +30,7 @@ $this->copilot->registerLibrary("lka_environment", [
     "/libs/universe/Ling/JimToolbox/jim-toolbox.js",
 ],
     [
-        "/libs/universe/Ling/JimToolbox/jim-toolbox.css",
+        "/libs/universe/Ling/JimToolbox/jim-toolbox.css?it=$rand",
     ]);
 
 
@@ -120,6 +121,7 @@ echo StringTool::htmlAttributes($this->copilot->getBodyTagAttributes()); ?>>
  */
 $_ji = $container->get("jim_toolbox");
 $_jimToolboxExecute = 'Ling\Light_Kit_Admin\Controller\JimToolbox\LkaJimToolboxController->render';
+$_jimToolboxOffset50 = true;
 require_once $_ji->getTemplatePath();
 
 ?>
